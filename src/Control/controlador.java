@@ -38,6 +38,14 @@ public class controlador {
             public void cambiaBorde(JComponent nuevoBorde){
         nuevoBorde.setBorder(BorderFactory.createLineBorder(red));
     }
+            
+                public void activaVentana(JFrame ventana,JFrame ventana2) {
+        
+        ventana.setLocationRelativeTo(null);
+        ventana.setVisible(true);
+        ventana2.dispose(); //elimina la ventana de la memoria, incluyendo datos
+
+    }
     
     
 }
