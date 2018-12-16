@@ -16,7 +16,12 @@ public class controlador {
     private JButton bttnReg;  
     private JPasswordField passTx;
     private JTextField userTx;
+    private JFrame ventana;
 //control vista login
+    public controlador(JFrame ventana){
+    this.ventana=ventana;
+    }
+    
     public controlador(JButton bttnExit, JButton bttnIn, JButton bttnReg, JPasswordField passTx, JTextField userTx) {
         this.bttnExit = bttnExit;
         this.bttnIn = bttnIn;

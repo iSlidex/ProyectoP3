@@ -14,18 +14,28 @@ public class Producto {
     protected Proveedor prov;
     protected Usuario acargo;
     protected float precio;
+    protected String tipo;
     protected String id;
 
-    public Producto(String nombre, Proveedor prov, Usuario acargo, float precio, String id) {
+    public Producto(String nombre, Proveedor prov, Usuario acargo, float precio, String tipo,String id) {
         this.nombre = nombre;
         this.prov = prov;
         this.acargo = acargo;
+        this.tipo = tipo;
         this.precio = precio;
         this.id = id;
     }
 
     public String getNombre() {
         return nombre;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public Proveedor getProv() {
