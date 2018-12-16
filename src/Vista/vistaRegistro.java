@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author leito
  */
 public class vistaRegistro extends javax.swing.JFrame {
-boolean verif1,verif2;
+boolean verif1,verif2,success;
 controlRegistro control;
 controlXmlUser controlXml;
     /**
@@ -173,17 +173,26 @@ controlXmlUser controlXml;
         // TODO add your handling code here:
     }//GEN-LAST:event_booAdmActionPerformed
 
+
+    
     private void bttnRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRegActionPerformed
         ArrayList<Usuario> users = controlXml.todasLosUser();
         if (this.booAdm.isSelected()) {
              if (users.isEmpty())
-                 control.crearUser();
+                controlXml.agregarUser(control.crearUser());
+                 
              else {JOptionPane.showMessageDialog(this,"Debe usar las credenciales de un usuario Administrador para crear otro Administrador");
                   verifDatosAdmin ventana = new verifDatosAdmin();
+                  ventana.setVisible(true);
+                  if(ventana.isSuccess())
+                      controlXml.agregarUser(control.crearUser());
+                  else JOptionPane.showMessageDialog(this,"Administrador invalido");
+                  ventana.dispose();
              }
-             }else control.crearUser();
-        verifDatosAdmin ventana = new verifDatosAdmin();        
-        ventana.setVisible(true);
+             }else controlXml.agregarUser(control.crearUser());
+                  VistaLogin ventana = new VistaLogin();
+                  control.activaVentana(ventana, this);
+        
         
     }//GEN-LAST:event_bttnRegActionPerformed
 

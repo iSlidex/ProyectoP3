@@ -12,6 +12,7 @@ import Control.*;
  */
 public class verifDatosAdmin extends javax.swing.JFrame {
 boolean verif,success;
+controladorLogin control;
     /**
      * Creates new form verifDatosAdmin
      */
@@ -19,8 +20,15 @@ boolean verif,success;
         initComponents();
         this.verif=true;
         this.success = false;
+        control = new controladorLogin(this, bttnCont, bttnCont, passTx, userTx);
+    }
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 
+    public boolean isSuccess() {
+        return success;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -132,7 +140,11 @@ boolean verif,success;
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnContActionPerformed
-        // TODO add your handling code here:
+        boolean log = control.logIn(userTx.getText(), passTx.getPassword());
+        if(log){
+            this.success=control.isAdm(userTx.getText());
+        }else this.success=false;
+        this.setVisible(false);
     }//GEN-LAST:event_bttnContActionPerformed
 
     private void passTxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxMouseClicked
@@ -155,6 +167,7 @@ boolean verif,success;
 
     private void bttnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnCancelActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_bttnCancelActionPerformed
 
     /**

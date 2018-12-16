@@ -42,14 +42,23 @@ public class controladorLogin extends controlador{
         this.passTx = passTx;
         this.userTx = userTx;
     }
-        public boolean isAdm(Usuario user){            
+        public boolean isAdm(String correo){
+            controlXmlUser control = new controlXmlUser();
+            Usuario user=control.buscarUsuario(correo);            
             return (user instanceof Administrador);
         }
-        public boolean logIn(String correo,char[] clave,listaUser users){             
+        public boolean logIn(String correo,char[] clave){             
             controlXmlUser control = new controlXmlUser();
             Usuario user=control.buscarUsuario(correo);
             if(user!=null)
-            return Arrays.equals(user.getClave(), clave);
-            else return false;
+                return Arrays.equals(user.getClave(), clave);
+            return false;
+        }
+        public Usuario logIn2(String correo,char[] clave){             
+            controlXmlUser control = new controlXmlUser();
+            Usuario user=control.buscarUsuario(correo);
+            if(user!=null)
+                return user;
+            return null;
         }
 }
