@@ -28,14 +28,14 @@ public class tablaProductos extends javax.swing.JFrame {
 controlador control;
 listaProd cosas;
 int j;
-controlXml xml=new controlXml();
+//controlXml xml=new controlXml();
 protected ArrayList<Producto> objeto;
     /**
      * Creates new form Vista1
      */
     public tablaProductos() {
         initComponents();
-        control = new ElecInterfaz(this,Agregar,Eliminar,Modificar,tabla);
+       /* control = new ElecInterfaz(this,Agregar,Eliminar,Modificar,tabla);
         objeto = xml.todasLasCosas();
         cosas = new listaCosas(objeto);
         this.cosas= cosas;
@@ -94,7 +94,7 @@ protected ArrayList<Producto> objeto;
             j=0;
         }
         this.setIconImage(new ImageIcon(getClass().getResource("/imagen/icon.png")).getImage());
-        Agregar.requestFocus();
+        Agregar.requestFocus();*/
     }
 
     /**
@@ -325,22 +325,22 @@ protected ArrayList<Producto> objeto;
     }//GEN-LAST:event_AgregarMouseClicked
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-        Vista2 ventana = new Vista2(this.cosas);
+       /* Vista2 ventana = new Vista2(this.cosas);
         //ventana.setVisible(true);       
-        control.activaVentana(ventana,this);
+        control.activaVentana(ventana,this);*/
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
-        if (!(tabla.getSelectedRow()==-1)){
+       /* if (!(tabla.getSelectedRow()==-1)){
          Electrodomestico cosaActual = (Electrodomestico) tabla.getValueAt(tabla.getSelectedRow(),3);
          Vista2 ventana = new Vista2(this.cosas,cosaActual);
          control.activaVentana(ventana,this);
          }else
-            JOptionPane.showMessageDialog(this, "Selecciona una casilla");
+            JOptionPane.showMessageDialog(this, "Selecciona una casilla");*/
     }//GEN-LAST:event_ModificarActionPerformed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
-       if (!(tabla.getSelectedRow()==-1)){
+      /* if (!(tabla.getSelectedRow()==-1)){
         Electrodomestico cosaActual = (Electrodomestico) tabla.getValueAt(tabla.getSelectedRow(),3);
         xml.borrarCosa(this.cosas.indiceCosa(cosaActual));
         this.cosas.eliminarCosa(cosaActual);
@@ -348,7 +348,7 @@ protected ArrayList<Producto> objeto;
         tablaProductos ventana = new tablaProductos(this.cosas);
         control.activaVentana(ventana, this);
         }else
-            JOptionPane.showMessageDialog(this, "Selecciona una casilla");
+            JOptionPane.showMessageDialog(this, "Selecciona una casilla");*/
     }//GEN-LAST:event_EliminarActionPerformed
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked

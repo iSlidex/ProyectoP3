@@ -5,6 +5,13 @@
  */
 package Vista;
 
+import static java.awt.Color.black;
+import static java.awt.Color.blue;
+import static java.awt.Color.red;
+import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 /**
  *
  * @author leito
@@ -248,9 +255,9 @@ public class vistaProveedores extends javax.swing.JFrame {
     }//GEN-LAST:event_AgregarMouseClicked
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-        vistaProveedores ventana = new vistaProveedores();
+       /* vistaProveedores ventana = new vistaProveedores();
         //ventana.setVisible(true);
-        control.activaVentana(ventana,this);
+        control.activaVentana(ventana,this);*/
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void AgregarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AgregarKeyPressed
@@ -258,34 +265,34 @@ public class vistaProveedores extends javax.swing.JFrame {
     }//GEN-LAST:event_AgregarKeyPressed
 
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
-        if (!(tabla.getSelectedRow()==-1)){
+       /* if (!(tabla.getSelectedRow()==-1)){
             Electrodomestico cosaActual = (Electrodomestico) tabla.getValueAt(tabla.getSelectedRow(),3);
             Vista2 ventana = new Vista2(this.cosas,cosaActual);
             control.activaVentana(ventana,this);
         }else
-        JOptionPane.showMessageDialog(this, "Selecciona una casilla");
+        JOptionPane.showMessageDialog(this, "Selecciona una casilla");*/
     }//GEN-LAST:event_ModificarActionPerformed
 
     private void ModificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ModificarKeyPressed
-        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-        this.ModificarActionPerformed(new ActionEvent(this, 0, ""));
+        /*if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+        this.ModificarActionPerformed(new ActionEvent(this, 0, ""));*/
     }//GEN-LAST:event_ModificarKeyPressed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
-        if (!(tabla.getSelectedRow()==-1)){
-            Electrodomestico cosaActual = (Electrodomestico) tabla.getValueAt(tabla.getSelectedRow(),3);
-            xml.borrarCosa(this.cosas.indiceCosa(cosaActual));
-            this.cosas.eliminarCosa(cosaActual);
-
-            Vista1 ventana = new Vista1(this.cosas);
-            control.activaVentana(ventana, this);
-        }else
-        JOptionPane.showMessageDialog(this, "Selecciona una casilla");
+//        if (!(tabla.getSelectedRow()==-1)){
+//            Electrodomestico cosaActual = (Electrodomestico) tabla.getValueAt(tabla.getSelectedRow(),3);
+//            xml.borrarCosa(this.cosas.indiceCosa(cosaActual));
+//            this.cosas.eliminarCosa(cosaActual);
+//
+//            Vista1 ventana = new Vista1(this.cosas);
+//            control.activaVentana(ventana, this);
+//        }else
+//        JOptionPane.showMessageDialog(this, "Selecciona una casilla");
     }//GEN-LAST:event_EliminarActionPerformed
 
     private void EliminarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EliminarKeyPressed
-        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-        this.EliminarActionPerformed(new ActionEvent(this, 0, ""));
+//        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+//        this.EliminarActionPerformed(new ActionEvent(this, 0, ""));
     }//GEN-LAST:event_EliminarKeyPressed
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
@@ -294,12 +301,12 @@ public class vistaProveedores extends javax.swing.JFrame {
     }//GEN-LAST:event_tablaMouseClicked
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-        System.exit(0);
+        //System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
 
     private void SalirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SalirKeyPressed
-        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-        System.exit(0);
+//        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+//        System.exit(0);
     }//GEN-LAST:event_SalirKeyPressed
 
     /**

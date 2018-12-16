@@ -12,14 +12,37 @@ import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import Estructuras.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 
 /**
  *
  * @author leito
  */
 public class controlTablas extends controlador{
-
+    private JButton Agregar;
+    private JButton Eliminar;
+    private JButton Modificar;
+    private JButton Salir;
+    private JLabel jLabel3;
+    private JScrollPane jScrollPane1;
+    private JTable tabla;
     List lista;
+
+    public controlTablas(JButton Agregar, JButton Eliminar, JButton Modificar, JButton Salir, JLabel jLabel3, JScrollPane jScrollPane1, JTable tabla, List lista, JFrame ventana) {
+        super(ventana);
+        this.Agregar = Agregar;
+        this.Eliminar = Eliminar;
+        this.Modificar = Modificar;
+        this.Salir = Salir;
+        this.jLabel3 = jLabel3;
+        this.jScrollPane1 = jScrollPane1;
+        this.tabla = tabla;
+        this.lista = lista;
+    }
+    
+    
     public controlTablas(JFrame ventana) {
         super(ventana);
     }
@@ -29,7 +52,7 @@ public class controlTablas extends controlador{
     }
     
    public void llenarTabla(listaProd cosas, JTable tablaCosas ){  
-      ArrayList<Producto> lista= new ArrayList<Producto>() ;
+      ArrayList<Producto> Prod= new ArrayList<>() ;
       String[] columna = { "Tipo", "Nombre", "Precio ","Objeto" };
       
       DefaultTableModel dtm = new DefaultTableModel(null,columna){
@@ -41,10 +64,9 @@ public class controlTablas extends controlador{
                 java.lang.String.class, java.lang.String.class, java.lang.Float.class, Producto.class
         };        
     };
-      lista= cosas.getLista();
-      for (Producto per : lista)
+      Prod= cosas.getLista();
+      for (Producto per : Prod)
           {
-              String [] column1 = {per.getClass().getSimpleName()};
               dtm.addRow(new Object[] {per.getTipo(), per.getNombre(),per.getPrecio(),per});
           }
       tablaCosas.setModel(dtm);
@@ -52,8 +74,8 @@ public class controlTablas extends controlador{
    }
    
       public void llenarTabla(listaProv cosas, JTable tablaCosas ){  
-      ArrayList<Proveedor> lista= new ArrayList<Proveedor>() ;
-      String[] columna = { "Tipo", "Nombre", "Precio ","Objeto" };
+      ArrayList<Proveedor> Prov= new ArrayList<>() ;
+      String[] columna = { "Nombre", "Direccion", "Telefono ","Objeto" };
       
       DefaultTableModel dtm = new DefaultTableModel(null,columna){
         @Override
@@ -64,11 +86,10 @@ public class controlTablas extends controlador{
                 java.lang.String.class, java.lang.String.class, java.lang.Float.class, Producto.class
         };        
     };
-      lista= cosas.getLista();
-      for (Proveedor per : lista)
+      Prov= cosas.getLista();
+      for (Proveedor per : Prov)
           {
-              String [] column1 = {per.getClass().getSimpleName()};
-              dtm.addRow(new Object[] {per.getTipo(), per.getNombre(),per.getPrecio(),per});
+             dtm.addRow(new Object[] {per.getNombre(), per.getDireccion(),per.getTelefono(),per});
           }
       tablaCosas.setModel(dtm);
       tablaCosas.setFont(new Font("perpetua",Font.BOLD,16));

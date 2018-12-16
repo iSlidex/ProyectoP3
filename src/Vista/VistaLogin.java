@@ -4,19 +4,19 @@
  * and open the template in the editor.
  */
 package Vista;
-import Control.controlador;
+import Control.*;
 /**
  *
  * @author leito
  */
 public class VistaLogin extends javax.swing.JFrame {
-controlador control;
+controladorLogin control;
     /**
      * Creates new form VistaLogin
      */
     public VistaLogin() {
         initComponents();
-        control= new controlador(bttnExit, bttnIn, bttnReg, passTx, userTx);
+        control= new controladorLogin(this, bttnExit, bttnIn, bttnReg, passTx, userTx);
     }
 
     /**
