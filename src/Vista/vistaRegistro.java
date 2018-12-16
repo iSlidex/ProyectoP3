@@ -10,13 +10,15 @@ import Control.controlRegistro;
  * @author leito
  */
 public class vistaRegistro extends javax.swing.JFrame {
-
+boolean verif1,verif2;
     /**
      * Creates new form vistaRegistro
      */
     public vistaRegistro() {
         initComponents();
         controlRegistro control = new controlRegistro(booAdm, bttnCancel, bttnReg, confPass, correoTx, nombreTx, passTx, this);
+        verif1=true;
+        verif2=true;
     }
 
     /**
@@ -53,10 +55,25 @@ public class vistaRegistro extends javax.swing.JFrame {
         jLabel4.setText("Contraseña: ");
 
         passTx.setText("jPasswordField1");
+        passTx.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                passTxMouseClicked(evt);
+            }
+        });
+        passTx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passTxActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Comfirmar Contraseña:");
 
         confPass.setText("jPasswordField2");
+        confPass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                confPassMouseClicked(evt);
+            }
+        });
 
         jLabel6.setText("Administrador: ");
 
@@ -152,6 +169,24 @@ public class vistaRegistro extends javax.swing.JFrame {
     private void bttnRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRegActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bttnRegActionPerformed
+
+    private void passTxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passTxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passTxActionPerformed
+
+    private void passTxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxMouseClicked
+       if (verif1){
+       passTx.setText("");
+       this.verif1=false;
+       }
+    }//GEN-LAST:event_passTxMouseClicked
+
+    private void confPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confPassMouseClicked
+       if (verif2){
+       confPass.setText("");
+       this.verif2=false;
+       }
+    }//GEN-LAST:event_confPassMouseClicked
 
     /**
      * @param args the command line arguments

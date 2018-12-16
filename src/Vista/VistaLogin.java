@@ -11,12 +11,14 @@ import Control.*;
  */
 public class VistaLogin extends javax.swing.JFrame {
 controladorLogin control;
+boolean verif;
     /**
      * Creates new form VistaLogin
      */
     public VistaLogin() {
         initComponents();
         control= new controladorLogin(this, bttnExit, bttnIn, bttnReg, passTx, userTx);
+        this.verif=true;
     }
 
     /**
@@ -126,7 +128,10 @@ controladorLogin control;
     }// </editor-fold>//GEN-END:initComponents
 
     private void passTxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passTxActionPerformed
+       if (verif){
        passTx.setText("");
+       this.verif=false;
+       }
     }//GEN-LAST:event_passTxActionPerformed
 
     private void userTxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxActionPerformed
@@ -134,7 +139,10 @@ controladorLogin control;
     }//GEN-LAST:event_userTxActionPerformed
 
     private void passTxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxMouseClicked
-        passTx.setText("");
+       if (verif){
+       passTx.setText("");
+       this.verif=false;
+       }
     }//GEN-LAST:event_passTxMouseClicked
 
     private void bttnRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRegActionPerformed

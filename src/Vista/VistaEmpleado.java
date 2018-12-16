@@ -11,12 +11,13 @@ import Control.*;
  * @author leito
  */
 public class VistaEmpleado extends javax.swing.JFrame {
-
+controladorVistaEmp control;
     /**
      * Creates new form VistaEmpleado
      */
     public VistaEmpleado() {
         initComponents();
+        control = new controladorVistaEmp(bttnAddProd, bttnAddProv, bttnBack, bttnExit, bttnOpUser, bttnProd, bttnProv, this);
     }
 
     /**

@@ -45,7 +45,7 @@ public class controlXmlUser{
         Usuario.addContent(clave);        
         return Usuario;
     }
-    /*Método que retorna un Electrodomestico. A este metodo se le manda un Element y con
+        /*Método que retorna un Electrodomestico. A este metodo se le manda un Element y con
     sus datos se hará los pasos requeridos para crear el Electrodomestico*/
     private Usuario userToObject(Element element) throws ParseException {
         String tipo = element.getChildText("tipo");

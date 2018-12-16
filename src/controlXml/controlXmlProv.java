@@ -100,7 +100,7 @@ public class controlXmlProv{
             aux = controlXmlProv.buscar(cosas, index);
             if (aux != null) {
                 try {
-                    return prodToObject(aux);
+                    return provToObject(aux);
                 } catch (ParseException ex) {
                     System.out.println(ex.getMessage());
                 }
@@ -140,7 +140,7 @@ public class controlXmlProv{
             for (Object it : root.getChildren()) {
                 Element xmlElem = (Element) it;
                 try {
-                    resultado.add(prodToObject(xmlElem));
+                    resultado.add(provToObject(xmlElem));
                 } catch (ParseException ex) {
                     System.out.println(ex.getMessage());
                 }
