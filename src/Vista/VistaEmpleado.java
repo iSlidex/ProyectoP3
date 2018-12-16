@@ -42,6 +42,11 @@ public class VistaEmpleado extends javax.swing.JFrame {
         jLabel1.setText("Menu:");
 
         bttnAddProv.setText("Agregar Proveedor");
+        bttnAddProv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnAddProvActionPerformed(evt);
+            }
+        });
 
         bttnAddProd.setText("Agregar Producto");
 
@@ -120,6 +125,11 @@ public class VistaEmpleado extends javax.swing.JFrame {
         controlador next = new controlador(this);
         next.activaVentana(new vistaAddProd(), this);
     }//GEN-LAST:event_bttnProdActionPerformed
+
+    private void bttnAddProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAddProvActionPerformed
+        controlador next = new controlador(this);
+        next.activaVentana(new vistaAddProd(), this);
+    }//GEN-LAST:event_bttnAddProvActionPerformed
 
     /**
      * @param args the command line arguments
