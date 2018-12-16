@@ -30,14 +30,14 @@ public class controlXmlUser{
         }
     }
     private Element userToXmlElement(Usuario user){
-        Element Usuario = new Element("Usuario");
-        Element tipo = new Element("Tipo");
+        Element Usuario = new Element("usuario");
+        Element tipo = new Element("tipo");
         tipo.setText(user.getClass().getSimpleName());
-        Element nombre = new Element("Nombre");
+        Element nombre = new Element("nombre");
         nombre.setText(user.getNombre());
         Element correo = new Element("correo");
         correo.setText(user.getCorreo());
-        Element clave = new Element("Clave");
+        Element clave = new Element("clave");
         clave.setText(new String(user.getClave()));
         Usuario.addContent(tipo);
         Usuario.addContent(nombre);
@@ -48,13 +48,13 @@ public class controlXmlUser{
         /*Método que retorna un Electrodomestico. A este metodo se le manda un Element y con
     sus datos se hará los pasos requeridos para crear el Electrodomestico*/
     private Usuario userToObject(Element element) throws ParseException {
-        String tipo = element.getChildText("Tipo");
+        String tipo = element.getChildText("tipo");
         switch (tipo) {
                 case "Administrador":
-                    Administrador user1 = new Administrador(element.getChildText("Nombre"),element.getChildText("correo"),element.getChildText("clave").toCharArray());   
+                    Administrador user1 = new Administrador(element.getChildText("nombre"),element.getChildText("correo"),element.getChildText("clave").toCharArray());   
                     return user1;                    
                 case "Empleado":
-                    Empleado user2 = new Empleado(element.getChildText("Nombre"),element.getChildText("correo"),element.getChildText("clave").toCharArray());   
+                    Empleado user2 = new Empleado(element.getChildText("nombre"),element.getChildText("correo"),element.getChildText("clave").toCharArray());   
                     return user2;                          
                 default:
                     return null;

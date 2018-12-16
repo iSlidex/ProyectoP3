@@ -1,8 +1,8 @@
 <root>
-  <Usuario>
-    <Tipo>Administrador</Tipo>
-    <Nombre>user1</Nombre>
-    <correo>bla@bla.com</correo>
-    <Clave>123</Clave>
-  </Usuario>
+  <usuario>
+    <tipo>Administrador</tipo>
+    <nombre>12314</nombre>
+    <correo>213214</correo>
+    <clave>213</clave>
+  </usuario>
 </root>

@@ -8,7 +8,11 @@ import Control.controlRegistro;
 import Estructuras.Usuario;
 import controlXml.controlXmlUser;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 /**
  *
  * @author leito
@@ -182,12 +186,15 @@ controlXmlUser controlXml;
                 controlXml.agregarUser(control.crearUser());
                  
              else {JOptionPane.showMessageDialog(this,"Debe usar las credenciales de un usuario Administrador para crear otro Administrador");
-                  verifDatosAdmin ventana = new verifDatosAdmin();
-                  ventana.setVisible(true);
+                verifDatosAdmin ventana=new verifDatosAdmin();  
+                ventana.setVisible(true);                
                   if(ventana.isSuccess())
                       controlXml.agregarUser(control.crearUser());
                   else JOptionPane.showMessageDialog(this,"Administrador invalido");
                   ventana.dispose();
+             
+             
+             
              }
              }else controlXml.agregarUser(control.crearUser());
                   VistaLogin ventana = new VistaLogin();

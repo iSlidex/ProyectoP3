@@ -145,6 +145,9 @@ controladorLogin control;
             this.success=control.isAdm(userTx.getText());
         }else this.success=false;
         this.setVisible(false);
+        synchronized(this){
+            notifyAll();        
+        }
     }//GEN-LAST:event_bttnContActionPerformed
 
     private void passTxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxMouseClicked
