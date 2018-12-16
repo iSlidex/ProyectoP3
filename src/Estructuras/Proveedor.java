@@ -27,6 +27,13 @@ public class Proveedor {
         this.productos = productos;
     }
 
+    public Proveedor(String nombre, String direccion, String telefono, String userAcargo) {
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;        
+        this.userAcargo = userAcargo;
+    }
+
 
 
     public String getNombre() {
