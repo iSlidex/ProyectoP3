@@ -156,7 +156,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
     }//GEN-LAST:event_bttnBackActionPerformed
 
     private void bttnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnExitActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_bttnExitActionPerformed
 
     /**

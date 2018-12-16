@@ -16,6 +16,10 @@ public class Empleado extends Usuario {
     public Empleado(String nombre, String correo, char[] clave, ArrayList<Proveedor> proveedores) {
         super(nombre, correo, clave, proveedores);
     }
+
+    public Empleado(String nombre, String correo, char[] clave) {
+        super(nombre, correo, clave);
+    }
         
 
            

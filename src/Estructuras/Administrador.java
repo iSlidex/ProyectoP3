@@ -16,6 +16,10 @@ public class Administrador extends Usuario {
     public Administrador(String nombre, String correo, char[] clave, ArrayList<Proveedor> proveedores) {
         super(nombre, correo, clave, proveedores);
     }
+
+    public Administrador(String nombre, String correo, char[] clave) {
+        super(nombre, correo, clave);
+    }
     
 
 }

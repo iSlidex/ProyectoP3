@@ -15,15 +15,15 @@ public class Proveedor {
     protected String direccion;
     protected String telefono;
     protected String horario;
-    protected Usuario acargo;
+    protected String userAcargo;//coreo
     protected ArrayList<Producto> productos;
 
-    public Proveedor(String nombre, String direccion, String telefono, String horario, Usuario acargo, ArrayList<Producto> productos) {
+    public Proveedor(String nombre, String direccion, String telefono, String horario, String userAcargo, ArrayList<Producto> productos) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.horario = horario;
-        this.acargo = acargo;
+        this.userAcargo = userAcargo;
         this.productos = productos;
     }
 
@@ -45,8 +45,8 @@ public class Proveedor {
         return horario;
     }
 
-    public Usuario getAcargo() {
-        return acargo;
+    public String getAcargo() {
+        return userAcargo;
     }
 
     public void setNombre(String nombre) {
@@ -65,8 +65,8 @@ public class Proveedor {
         this.horario = horario;
     }
 
-    public void setAcargo(Usuario acargo) {
-        this.acargo = acargo;
+    public void setAcargo(String userAcargo) {
+        this.userAcargo = userAcargo;
     }
     
 }

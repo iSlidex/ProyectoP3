@@ -23,6 +23,11 @@ public class Usuario {
         this.clave = clave;
         this.proveedores = proveedores;
     }
+       public Usuario(String nombre, String correo, char[] clave) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.clave = clave;        
+    }
    
 
 
