@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Vista;
-
+import Control.*;
 /**
  *
  * @author leito
@@ -16,6 +16,7 @@ public class vistaAdmin extends javax.swing.JFrame {
      */
     public vistaAdmin() {
         initComponents();
+        
     }
 
     /**
@@ -27,21 +28,78 @@ public class vistaAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bttnViewU = new javax.swing.JButton();
+        bttnViewProv = new javax.swing.JButton();
+        bttnViewProd = new javax.swing.JButton();
+        bttnRegNu = new javax.swing.JButton();
+        bttnBack = new javax.swing.JButton();
+        bttnExit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        bttnViewU.setText("Ver Usuarios");
+        bttnViewU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnViewUActionPerformed(evt);
+            }
+        });
+
+        bttnViewProv.setText("Ver Proveedores");
+
+        bttnViewProd.setText("Ver Productos");
+
+        bttnRegNu.setText("Registrar Nuevo Usuario");
+
+        bttnBack.setText("Regresar");
+
+        bttnExit.setText("Salir");
+
+        jLabel1.setText("Menu Administrador");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(bttnViewU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bttnViewProv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bttnViewProd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bttnRegNu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                        .addComponent(bttnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bttnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(bttnViewU)
+                .addGap(18, 18, 18)
+                .addComponent(bttnViewProv)
+                .addGap(18, 18, 18)
+                .addComponent(bttnViewProd)
+                .addGap(18, 18, 18)
+                .addComponent(bttnRegNu)
+                .addGap(18, 18, 18)
+                .addComponent(bttnBack)
+                .addGap(18, 18, 18)
+                .addComponent(bttnExit)
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bttnViewUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnViewUActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnViewUActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +137,12 @@ public class vistaAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bttnBack;
+    private javax.swing.JButton bttnExit;
+    private javax.swing.JButton bttnRegNu;
+    private javax.swing.JButton bttnViewProd;
+    private javax.swing.JButton bttnViewProv;
+    private javax.swing.JButton bttnViewU;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

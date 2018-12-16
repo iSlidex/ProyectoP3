@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Vista;
-
+import Control.controlRegistro;
 /**
  *
  * @author leito
@@ -16,6 +16,7 @@ public class vistaRegistro extends javax.swing.JFrame {
      */
     public vistaRegistro() {
         initComponents();
+        controlRegistro control = new controlRegistro(booAdm, bttnCancel, bttnReg, confPass, correoTx, nombreTx, passTx, this);
     }
 
     /**
