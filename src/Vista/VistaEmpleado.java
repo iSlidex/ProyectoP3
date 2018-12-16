@@ -112,11 +112,13 @@ public class VistaEmpleado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnProvActionPerformed
-        // TODO add your handling code here:
+        controlador next = new controlador(this);
+        next.activaVentana(new vistaAddProv(), this);
     }//GEN-LAST:event_bttnProvActionPerformed
 
     private void bttnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnProdActionPerformed
-        // TODO add your handling code here:
+        controlador next = new controlador(this);
+        next.activaVentana(new vistaAddProd(), this);
     }//GEN-LAST:event_bttnProdActionPerformed
 
     /**
