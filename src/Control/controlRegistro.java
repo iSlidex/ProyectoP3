@@ -10,6 +10,10 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import Estructuras.*;
+import controlXml.controlXmlUser;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 /**
  *
@@ -35,4 +39,67 @@ public class controlRegistro extends controlador {
         this.passTx = passTx;
     }
     
+    public Usuario crearUser(){
+        Usuario user = null;
+        if (this.booAdm.isSelected()) {
+            user=new Administrador(this.nombreTx.getText(), this.correoTx.getText(), this.passTx.getPassword());            
+        }else 
+            user=new Empleado(this.nombreTx.getText(), this.correoTx.getText(), this.passTx.getPassword());
+        return user;
+    }
+           public boolean sePuedeAgregarU() throws InputMismatchException{
+        //Verifica que los campos de proveedor sean correctos
+        boolean sePuede = true;
+        if ((nombreTx.getText().equals("")) || (passTx.getAccessibleContext().equals("")) || (correoTx.getText().equals("")) || (confPass.getAccessibleContext().equals(""))){
+            sePuede = false;
+        }
+        else if (nombreTx.getText().matches("^[0-9]*"))
+            //Nombre propio con numeros?
+            sePuede = false;
+        
+        else if ((passTx.getPassword().toString().length()<8) && (!(passTx.getPassword().toString().matches("^[0-9]*"))))
+            //Contraseña muy debil, debe al menos tener numeros
+            sePuede = false;
+        
+        else if (!(passTx.getPassword().toString().equals(confPass.getPassword().toString())))
+            //Contraseñas no coinciden
+            sePuede = false;
+        else if (!(correoTx.getText().matches("^[a-zA-Z_0-9]*\\@\\[a-zA-Z]\\.\\[a-zA-Z]")))
+            //Correo invalido
+            sePuede = false;    
+    return sePuede;
+    }
+    
+    public boolean nombreInvalido(){
+      if((!nombreTx.getText().equals("")))
+          if (nombreTx.getText().matches("^[0-9]*"))
+            return true;
+        else return false;   
+      else return false;
+    }
+    
+    public boolean correoInvalido(){
+       if((!correoTx.getText().equals("")))
+            if ((correoTx.getText().matches("^[a-zA-Z_0-9]*\\@\\[a-zA-Z]\\.\\[a-zA-Z]")))
+                return true;
+            else return false;        
+        else return false;   
+    }
+    
+    public boolean claveInvalida(){
+        if((!passTx.getPassword().equals("")) && (!(confPass.getPassword().equals(""))))
+            if ((passTx.getPassword().toString().equals(confPass.getPassword().toString())))
+                return((passTx.getPassword().toString().length()<8) && (!(passTx.getPassword().toString().matches("^[0-9]*"))));
+            else return false;        
+        else return false;   
+    }    
+    
+    public ArrayList<String> mensajeErrorPR(){
+        ArrayList<String> msg=new ArrayList<>();             
+        if(nombreInvalido())msg.add("Nombre");
+        if(correoInvalido())msg.add(" Correo");
+        if(claveInvalida())msg.add(" Contraseña");
+        return msg;
+    }
+
 }

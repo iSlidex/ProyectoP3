@@ -15,7 +15,7 @@ import org.jdom.output.XMLOutputter;
 
 public class controlXmlUser{
     private Element root;
-    private String fileLocation= "src//file//listauser.xml";
+    private String fileLocation= "src//files//listauser.xml";
     //constructor//
     public controlXmlUser(){
         try {

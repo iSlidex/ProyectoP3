@@ -36,4 +36,5 @@ public class controladorLogin extends controlador{
         this.passTx = passTx;
         this.userTx = userTx;
     }
+        
 }

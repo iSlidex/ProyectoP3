@@ -5,20 +5,27 @@
  */
 package Vista;
 import Control.controlRegistro;
+import Estructuras.Usuario;
+import controlXml.controlXmlUser;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 /**
  *
  * @author leito
  */
 public class vistaRegistro extends javax.swing.JFrame {
 boolean verif1,verif2;
+controlRegistro control;
+controlXmlUser controlXml;
     /**
      * Creates new form vistaRegistro
      */
     public vistaRegistro() {
         initComponents();
-        controlRegistro control = new controlRegistro(booAdm, bttnCancel, bttnReg, confPass, correoTx, nombreTx, passTx, this);
-        verif1=true;
-        verif2=true;
+         control = new controlRegistro(booAdm, bttnCancel, bttnReg, confPass, correoTx, nombreTx, passTx, this);
+         controlXml = new controlXmlUser();
+         verif1=true;
+         verif2=true;
     }
 
     /**
@@ -167,7 +174,17 @@ boolean verif1,verif2;
     }//GEN-LAST:event_booAdmActionPerformed
 
     private void bttnRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRegActionPerformed
-        // TODO add your handling code here:
+        ArrayList<Usuario> users = controlXml.todasLosUser();
+        if (this.booAdm.isSelected()) {
+             if (users.isEmpty())
+                 control.crearUser();
+             else {JOptionPane.showMessageDialog(this,"Debe usar las credenciales de un usuario Administrador para crear otro Administrador");
+                  verifDatosAdmin ventana = new verifDatosAdmin();
+             }
+             }else control.crearUser();
+        verifDatosAdmin ventana = new verifDatosAdmin();
+        ventana.setVisible(true);
+        
     }//GEN-LAST:event_bttnRegActionPerformed
 
     private void passTxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passTxActionPerformed

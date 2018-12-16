@@ -11,12 +11,13 @@ import Control.*;
  * @author leito
  */
 public class verifDatosAdmin extends javax.swing.JFrame {
-
+boolean verif;
     /**
      * Creates new form verifDatosAdmin
      */
     public verifDatosAdmin() {
         initComponents();
+        this.verif=true;
     }
 
     /**
@@ -129,11 +130,17 @@ public class verifDatosAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void passTxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxMouseClicked
-        passTx.setText("");
+       if (verif){
+       passTx.setText("");
+       this.verif=false;
+       }
     }//GEN-LAST:event_passTxMouseClicked
 
     private void passTxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passTxActionPerformed
-        passTx.setText("");
+       if (verif){
+       passTx.setText("");
+       this.verif=false;
+       }
     }//GEN-LAST:event_passTxActionPerformed
 
     private void userTxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxActionPerformed

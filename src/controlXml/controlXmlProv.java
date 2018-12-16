@@ -15,7 +15,7 @@ import org.jdom.output.XMLOutputter;
 
 public class controlXmlProv{
     private Element root;
-    private String fileLocation= "src//file//listaprov.xml";
+    private String fileLocation= "src//files//listaprov.xml";
     //constructor//
     public controlXmlProv(){
         try {
