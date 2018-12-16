@@ -49,10 +49,20 @@ public class VistaEmpleado extends javax.swing.JFrame {
         });
 
         bttnAddProd.setText("Agregar Producto");
+        bttnAddProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnAddProdActionPerformed(evt);
+            }
+        });
 
         bttnOpUser.setText("Opciones de Usuario");
 
         bttnExit.setText("Salir");
+        bttnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnExitActionPerformed(evt);
+            }
+        });
 
         bttnProv.setText("Ver Proveedores");
         bttnProv.addActionListener(new java.awt.event.ActionListener() {
@@ -69,6 +79,11 @@ public class VistaEmpleado extends javax.swing.JFrame {
         });
 
         bttnBack.setText("Regresar");
+        bttnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,18 +133,31 @@ public class VistaEmpleado extends javax.swing.JFrame {
 
     private void bttnProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnProvActionPerformed
         controlador next = new controlador(this);
-        next.activaVentana(new vistaAddProv(), this);
+        next.activaVentana(new tablaProveedores(), this);
     }//GEN-LAST:event_bttnProvActionPerformed
 
     private void bttnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnProdActionPerformed
         controlador next = new controlador(this);
-        next.activaVentana(new vistaAddProd(), this);
+        next.activaVentana(new tablaProductos(), this);
     }//GEN-LAST:event_bttnProdActionPerformed
 
     private void bttnAddProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAddProvActionPerformed
         controlador next = new controlador(this);
-        next.activaVentana(new vistaAddProd(), this);
+        next.activaVentana(new vistaAddProv(), this);
     }//GEN-LAST:event_bttnAddProvActionPerformed
+
+    private void bttnAddProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAddProdActionPerformed
+        controlador next = new controlador(this);
+        next.activaVentana(new vistaAddProd(), this);
+    }//GEN-LAST:event_bttnAddProdActionPerformed
+
+    private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnBackActionPerformed
+
+    private void bttnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnExitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnExitActionPerformed
 
     /**
      * @param args the command line arguments
