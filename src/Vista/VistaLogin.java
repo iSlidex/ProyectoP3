@@ -39,8 +39,18 @@ controladorLogin control;
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         bttnIn.setText("Ingresar");
+        bttnIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnInActionPerformed(evt);
+            }
+        });
 
         bttnExit.setText("Salir");
+        bttnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnExitActionPerformed(evt);
+            }
+        });
 
         passTx.setText("jPasswordField1");
         passTx.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -78,7 +88,6 @@ controladorLogin control;
             .addGroup(layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
@@ -90,7 +99,8 @@ controladorLogin control;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bttnReg)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(bttnExit)))
+                        .addComponent(bttnExit))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -128,8 +138,18 @@ controladorLogin control;
     }//GEN-LAST:event_passTxMouseClicked
 
     private void bttnRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRegActionPerformed
-        // TODO add your handling code here:
+       controlador next= new controlador(this);
+       next.activaVentana(new vistaRegistro(),this );
     }//GEN-LAST:event_bttnRegActionPerformed
+
+    private void bttnInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnInActionPerformed
+       controlador next= new controlador(this);
+       next.activaVentana(new VistaEmpleado(),this );
+    }//GEN-LAST:event_bttnInActionPerformed
+
+    private void bttnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_bttnExitActionPerformed
 
     /**
      * @param args the command line arguments

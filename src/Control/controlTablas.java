@@ -52,7 +52,7 @@ public class controlTablas extends controlador{
     }
     
    public void llenarTabla(listaProd cosas, JTable tablaCosas ){  
-      ArrayList<Producto> Prod= new ArrayList<>() ;
+      ArrayList<Producto> Prod;
       String[] columna = { "Tipo", "Nombre", "Precio ","Objeto" };
       
       DefaultTableModel dtm = new DefaultTableModel(null,columna){
@@ -65,16 +65,15 @@ public class controlTablas extends controlador{
         };        
     };
       Prod= cosas.getLista();
-      for (Producto per : Prod)
-          {
-              dtm.addRow(new Object[] {per.getTipo(), per.getNombre(),per.getPrecio(),per});
-          }
+      Prod.forEach((per) -> {
+          dtm.addRow(new Object[] {per.getTipo(), per.getNombre(),per.getPrecio(),per});
+        });
       tablaCosas.setModel(dtm);
       tablaCosas.setFont(new Font("perpetua",Font.BOLD,16));
    }
    
       public void llenarTabla(listaProv cosas, JTable tablaCosas ){  
-      ArrayList<Proveedor> Prov= new ArrayList<>() ;
+      ArrayList<Proveedor> Prov;
       String[] columna = { "Nombre", "Direccion", "Telefono ","Objeto" };
       
       DefaultTableModel dtm = new DefaultTableModel(null,columna){
@@ -87,10 +86,9 @@ public class controlTablas extends controlador{
         };        
     };
       Prov= cosas.getLista();
-      for (Proveedor per : Prov)
-          {
-             dtm.addRow(new Object[] {per.getNombre(), per.getDireccion(),per.getTelefono(),per});
-          }
+      Prov.forEach((per) -> {
+          dtm.addRow(new Object[] {per.getNombre(), per.getDireccion(),per.getTelefono(),per});
+        });
       tablaCosas.setModel(dtm);
       tablaCosas.setFont(new Font("perpetua",Font.BOLD,16));
    }

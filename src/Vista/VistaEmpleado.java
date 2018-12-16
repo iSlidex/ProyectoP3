@@ -32,8 +32,9 @@ public class VistaEmpleado extends javax.swing.JFrame {
         bttnAddProd = new javax.swing.JButton();
         bttnOpUser = new javax.swing.JButton();
         bttnExit = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        bttnProv = new javax.swing.JButton();
+        bttnProd = new javax.swing.JButton();
+        bttnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,19 +48,21 @@ public class VistaEmpleado extends javax.swing.JFrame {
 
         bttnExit.setText("Salir");
 
-        jButton1.setText("Ver Proveedores");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        bttnProv.setText("Ver Proveedores");
+        bttnProv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bttnProvActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Ver Productos");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        bttnProd.setText("Ver Productos");
+        bttnProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                bttnProdActionPerformed(evt);
             }
         });
+
+        bttnBack.setText("Regresar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,8 +80,9 @@ public class VistaEmpleado extends javax.swing.JFrame {
                             .addComponent(bttnAddProd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(bttnOpUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(bttnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(bttnProv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bttnProd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bttnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -87,30 +91,32 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(37, 37, 37)
-                .addComponent(jButton1)
+                .addComponent(bttnProv)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(bttnProd)
                 .addGap(18, 18, 18)
                 .addComponent(bttnAddProv)
                 .addGap(18, 18, 18)
                 .addComponent(bttnAddProd)
                 .addGap(18, 18, 18)
                 .addComponent(bttnOpUser)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addComponent(bttnBack)
                 .addGap(18, 18, 18)
                 .addComponent(bttnExit)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void bttnProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnProvActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_bttnProvActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void bttnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnProdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_bttnProdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,10 +156,11 @@ public class VistaEmpleado extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bttnAddProd;
     private javax.swing.JButton bttnAddProv;
+    private javax.swing.JButton bttnBack;
     private javax.swing.JButton bttnExit;
     private javax.swing.JButton bttnOpUser;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton bttnProd;
+    private javax.swing.JButton bttnProv;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
