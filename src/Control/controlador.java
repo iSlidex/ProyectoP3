@@ -24,6 +24,12 @@ public class controlador {
         this.passTx = passTx;
         this.userTx = userTx;
     }
+        public controlador(JButton bttnExit, JButton bttnIn, JPasswordField passTx, JTextField userTx) {
+        this.bttnExit = bttnExit;
+        this.bttnIn = bttnIn;        
+        this.passTx = passTx;
+        this.userTx = userTx;
+    }
         public static boolean isNum(String strNum) {
     boolean ret = true;
     try {
