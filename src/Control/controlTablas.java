@@ -12,6 +12,9 @@ import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import Estructuras.*;
+import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -93,5 +96,60 @@ public class controlTablas extends controlador{
       tablaCosas.setFont(new Font("perpetua",Font.BOLD,16));
    }
     
+        public void activa_Desactiva(boolean verdadOFalso){
+      Modificar.setEnabled(verdadOFalso);
+      Eliminar.setEnabled(verdadOFalso);
+      if (verdadOFalso==true){
+MouseListener b = new MouseListener() {
+
+    @Override
+    public void mouseClicked(MouseEvent me) {}
+    @Override
+    public void mousePressed(MouseEvent me) {}
+    @Override
+    public void mouseReleased(MouseEvent me) {}
+
+    @Override
+    public void mouseEntered(MouseEvent me) {
+        Modificar.setForeground(Color.blue);
+        Modificar.setFont(new Font("vrinda",3,15));
+    }
+
+    @Override
+    public void mouseExited(MouseEvent me) {
+        Modificar.setForeground(Color.black);
+        Modificar.setFont(new Font("vrinda",Font.BOLD,15));
+    }
+    };
+    Modificar.addMouseListener(b);
+    }
+    if (verdadOFalso==true){
+MouseListener c = new MouseListener() {
+
+    @Override
+    public void mouseClicked(MouseEvent me) {}
+    @Override
+    public void mousePressed(MouseEvent me) {}
+    @Override
+    public void mouseReleased(MouseEvent me) {}
+
+    @Override
+    public void mouseEntered(MouseEvent me) {
+        Eliminar.setForeground(Color.blue);
+        Eliminar.setFont(new Font("vrinda",3,15));
+    }
+
+    @Override
+    public void mouseExited(MouseEvent me) {
+        Eliminar.setForeground(Color.black);
+        Eliminar.setFont(new Font("vrinda",Font.BOLD,15));
+    }
+    };
+    Eliminar.addMouseListener(c);
+    }  
+    }
     
+    public void activaDesactiva(boolean verdadOFalso){
+      Agregar.setEnabled(verdadOFalso);     
+    }
 }

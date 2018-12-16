@@ -5,96 +5,24 @@
  */
 package Vista;
 
-import Control.*;
-import Estructuras.*;
-import java.awt.*;
 import static java.awt.Color.black;
 import static java.awt.Color.blue;
 import static java.awt.Color.red;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
+import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 /**
  *
  * @author leito
  */
-public class tablaProductos extends javax.swing.JFrame {
-controlador control;
-listaProd cosas;
-int j;
-//controlXml xml=new controlXml();
-protected ArrayList<Producto> objeto;
+public class tablaUser extends javax.swing.JFrame {
+
     /**
-     * Creates new form Vista1
+     * Creates new form tablaUser
      */
-    public tablaProductos() {
+    public tablaUser() {
         initComponents();
-       /* control = new ElecInterfaz(this,Agregar,Eliminar,Modificar,tabla);
-        objeto = xml.todasLasCosas();
-        cosas = new listaCosas(objeto);
-        this.cosas= cosas;
-        control.activa_Desactiva(false);
-         if (!cosas.existeLista()) {
-            control.activa_Desactiva(true);
-            j=1;
-        }
-        else {
-            control.activa_Desactiva(false);
-        
-            tabla = new javax.swing.JTable();
-            j=0;       
-        }
-
-        control.llenarTabla(this.cosas,tabla);
-        if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(3).setMinWidth(0);
-            tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
-        }
-        this.getContentPane().setBackground (Color.LIGHT_GRAY);
-        Agregar.requestFocus();
-        this.setIconImage(new ImageIcon(getClass().getResource("/imagen/icon.png")).getImage());
-        
-    }
-    public tablaProductos(listaCosas cosas) {
-        initComponents();
-        this.cosas=cosas;
-        
-        control = new ElecInterfaz(this,Agregar,Eliminar,Modificar,tabla);
-        if (!cosas.existeLista()) {
-            control.activa_Desactiva(true);
-            j=1;
-        }
-        else {
-            control.activa_Desactiva(false);
-        
-            tabla = new javax.swing.JTable();
-            j=0;       
-        }
-        this.getContentPane().setBackground(Color.LIGHT_GRAY);
-        control.llenarTabla(this.cosas,tabla);
-
-        if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(3).setMinWidth(0);
-            tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
-        }
-        if (!cosas.existeLista()){
-            control.activa_Desactiva(true);
-            j=1;
-        }
-        else {
-            control.activa_Desactiva(false);
-            j=0;
-        }
-        this.setIconImage(new ImageIcon(getClass().getResource("/imagen/icon.png")).getImage());
-        Agregar.requestFocus();*/
     }
 
     /**
@@ -113,12 +41,11 @@ protected ArrayList<Producto> objeto;
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         Salir = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Laboratorio 4 Electrodomesticos");
-        setResizable(false);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel3.setText("Productos");
+        jLabel3.setText("Usuarios");
         jLabel3.setFont(new Font("arial",Font.BOLD,18));
         jLabel3.setForeground(red);
 
@@ -202,14 +129,17 @@ protected ArrayList<Producto> objeto;
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Tipo", "Nombre", "Precio", "Objeto"
+                "Nombre", "Correo", "Tipo de usuario", "Objeto"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false
@@ -234,8 +164,6 @@ protected ArrayList<Producto> objeto;
             tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(3).setMaxWidth(0);
         }
-        tabla.getAccessibleContext().setAccessibleName("");
-        tabla.getAccessibleContext().setAccessibleDescription("");
 
         Salir.setFont(new Font("vrinda",Font.BOLD,15));
         Salir.setText("Salir");
@@ -274,49 +202,51 @@ protected ArrayList<Producto> objeto;
             }
         });
 
+        jButton1.setText("Ver Productos");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(359, 359, 359))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(75, 75, 75)
                 .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(18, 18, 18)
                 .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(293, 293, 293))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 40, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 40, Short.MAX_VALUE)))
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Agregar)
                     .addComponent(Modificar)
                     .addComponent(Eliminar)
-                    .addComponent(Salir))
-                .addGap(20, 20, 20))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 27, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 58, Short.MAX_VALUE)))
+                    .addComponent(Salir)
+                    .addComponent(jButton1))
+                .addContainerGap())
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarMouseClicked
@@ -324,59 +254,57 @@ protected ArrayList<Producto> objeto;
     }//GEN-LAST:event_AgregarMouseClicked
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-       /* Vista2 ventana = new Vista2(this.cosas);
-        //ventana.setVisible(true);       
+        /* vistaProveedores ventana = new vistaProveedores();
+        //ventana.setVisible(true);
         control.activaVentana(ventana,this);*/
     }//GEN-LAST:event_AgregarActionPerformed
 
+    private void AgregarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AgregarKeyPressed
+
+    }//GEN-LAST:event_AgregarKeyPressed
+
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
-       /* if (!(tabla.getSelectedRow()==-1)){
-         Electrodomestico cosaActual = (Electrodomestico) tabla.getValueAt(tabla.getSelectedRow(),3);
-         Vista2 ventana = new Vista2(this.cosas,cosaActual);
-         control.activaVentana(ventana,this);
-         }else
-            JOptionPane.showMessageDialog(this, "Selecciona una casilla");*/
+        /* if (!(tabla.getSelectedRow()==-1)){
+            Electrodomestico cosaActual = (Electrodomestico) tabla.getValueAt(tabla.getSelectedRow(),3);
+            Vista2 ventana = new Vista2(this.cosas,cosaActual);
+            control.activaVentana(ventana,this);
+        }else
+        JOptionPane.showMessageDialog(this, "Selecciona una casilla");*/
     }//GEN-LAST:event_ModificarActionPerformed
 
+    private void ModificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ModificarKeyPressed
+        /*if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+        this.ModificarActionPerformed(new ActionEvent(this, 0, ""));*/
+    }//GEN-LAST:event_ModificarKeyPressed
+
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
-      /* if (!(tabla.getSelectedRow()==-1)){
-        Electrodomestico cosaActual = (Electrodomestico) tabla.getValueAt(tabla.getSelectedRow(),3);
-        xml.borrarCosa(this.cosas.indiceCosa(cosaActual));
-        this.cosas.eliminarCosa(cosaActual);
-        
-        tablaProductos ventana = new tablaProductos(this.cosas);
-        control.activaVentana(ventana, this);
-        }else
-            JOptionPane.showMessageDialog(this, "Selecciona una casilla");*/
+        //        if (!(tabla.getSelectedRow()==-1)){
+            //            Electrodomestico cosaActual = (Electrodomestico) tabla.getValueAt(tabla.getSelectedRow(),3);
+            //            xml.borrarCosa(this.cosas.indiceCosa(cosaActual));
+            //            this.cosas.eliminarCosa(cosaActual);
+            //
+            //            Vista1 ventana = new Vista1(this.cosas);
+            //            control.activaVentana(ventana, this);
+            //        }else
+        //        JOptionPane.showMessageDialog(this, "Selecciona una casilla");
     }//GEN-LAST:event_EliminarActionPerformed
+
+    private void EliminarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EliminarKeyPressed
+        //        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+        //        this.EliminarActionPerformed(new ActionEvent(this, 0, ""));
+    }//GEN-LAST:event_EliminarKeyPressed
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_tablaMouseClicked
 
-    private void AgregarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AgregarKeyPressed
-         if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-            this.AgregarActionPerformed(new ActionEvent(this, 0, ""));
-    }//GEN-LAST:event_AgregarKeyPressed
-
-    private void ModificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ModificarKeyPressed
-         if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-            this.ModificarActionPerformed(new ActionEvent(this, 0, ""));
-    }//GEN-LAST:event_ModificarKeyPressed
-
-    private void EliminarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EliminarKeyPressed
-         if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-            this.EliminarActionPerformed(new ActionEvent(this, 0, ""));        
-    }//GEN-LAST:event_EliminarKeyPressed
-
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-       System.exit(0); 
+        //System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
 
     private void SalirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SalirKeyPressed
-         if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-           System.exit(0);      
+        //        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+        //        System.exit(0);
     }//GEN-LAST:event_SalirKeyPressed
 
     /**
@@ -396,20 +324,21 @@ protected ArrayList<Producto> objeto;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(tablaProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tablaUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(tablaProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tablaUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(tablaProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tablaUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(tablaProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tablaUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new tablaProductos().setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new tablaUser().setVisible(true);
+            }
         });
     }
 
@@ -418,6 +347,7 @@ protected ArrayList<Producto> objeto;
     private javax.swing.JButton Eliminar;
     private javax.swing.JButton Modificar;
     private javax.swing.JButton Salir;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla;

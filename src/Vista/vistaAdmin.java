@@ -16,8 +16,8 @@ public class vistaAdmin extends javax.swing.JFrame {
      */
     public vistaAdmin() {
         initComponents();
-        
-    }
+        controlVistaAdm control = new controlVistaAdm(bttnBack, bttnExit, bttnRegNu, bttnViewProd, bttnViewProv, bttnViewU, this);
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
