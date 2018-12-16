@@ -11,13 +11,14 @@ import Control.*;
  * @author leito
  */
 public class verifDatosAdmin extends javax.swing.JFrame {
-boolean verif;
+boolean verif,success;
     /**
      * Creates new form verifDatosAdmin
      */
     public verifDatosAdmin() {
         initComponents();
         this.verif=true;
+        this.success = false;
     }
 
     /**
@@ -29,8 +30,8 @@ boolean verif;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        bttnCont = new javax.swing.JButton();
+        bttnCancel = new javax.swing.JButton();
         passTx = new javax.swing.JPasswordField();
         userTx = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -40,14 +41,19 @@ boolean verif;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Continuar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        bttnCont.setText("Continuar");
+        bttnCont.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bttnContActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Cancelar");
+        bttnCancel.setText("Cancelar");
+        bttnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnCancelActionPerformed(evt);
+            }
+        });
 
         passTx.setText("jPasswordField1");
         passTx.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -95,9 +101,9 @@ boolean verif;
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passTx, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(bttnCont)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)))
+                        .addComponent(bttnCancel)))
                 .addGap(77, 77, 77))
         );
         layout.setVerticalGroup(
@@ -117,17 +123,17 @@ boolean verif;
                 .addComponent(passTx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(bttnCont)
+                    .addComponent(bttnCancel))
                 .addGap(93, 93, 93))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void bttnContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnContActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_bttnContActionPerformed
 
     private void passTxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxMouseClicked
        if (verif){
@@ -146,6 +152,10 @@ boolean verif;
     private void userTxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userTxActionPerformed
+
+    private void bttnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnCancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,8 +193,8 @@ boolean verif;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton bttnCancel;
+    private javax.swing.JButton bttnCont;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

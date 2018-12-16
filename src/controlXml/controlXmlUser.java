@@ -94,6 +94,18 @@ public class controlXmlUser{
         }
         return null;
     }
+        public static Element buscarU(List raiz, String correo) {
+        Iterator i = raiz.iterator();
+        int cont=0;
+        while (i.hasNext()) {
+            
+            Element e = (Element) i.next();
+            if (correo.equals(e.getChildText("correo"))) {
+                return e;
+            }            
+        }
+        return null;
+    }
     public boolean agregarCosa(Usuario user) {
         boolean resultado = false;
         root.addContent(userToXmlElement(user));
@@ -106,6 +118,21 @@ public class controlXmlUser{
         List cosas = this.root.getChildren("Usuario");
         while (aux != null) {
             aux = controlXmlUser.buscar(cosas, index);
+            if (aux != null) {
+                try {
+                    return userToObject(aux);
+                } catch (ParseException ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+        }
+        return null;
+    }
+        public Usuario buscarUsuario(String correo) {
+        Element aux = new Element("Usuario");
+        List users = this.root.getChildren("Usuario");
+        while (aux != null) {
+            aux = controlXmlUser.buscarU(users, correo);
             if (aux != null) {
                 try {
                     return userToObject(aux);

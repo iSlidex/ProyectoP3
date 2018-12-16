@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import Estructuras.*;
 import controlXml.controlXmlUser;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 
 /**
@@ -50,18 +51,18 @@ public class controlRegistro extends controlador {
            public boolean sePuedeAgregarU() throws InputMismatchException{
         //Verifica que los campos de proveedor sean correctos
         boolean sePuede = true;
-        if ((nombreTx.getText().equals("")) || (passTx.getAccessibleContext().equals("")) || (correoTx.getText().equals("")) || (confPass.getAccessibleContext().equals(""))){
+        if ((nombreTx.getText().equals("")) || (passTx.getPassword().equals("")) || (correoTx.getText().equals("")) || (confPass.getPassword().equals(""))){
             sePuede = false;
         }
         else if (nombreTx.getText().matches("^[0-9]*"))
             //Nombre propio con numeros?
             sePuede = false;
         
-        else if ((passTx.getPassword().toString().length()<8) && (!(passTx.getPassword().toString().matches("^[0-9]*"))))
+        else if ((Arrays.toString(passTx.getPassword()).length()<8) && (!(Arrays.toString(passTx.getPassword()).matches("^[0-9]*"))))
             //Contraseña muy debil, debe al menos tener numeros
             sePuede = false;
         
-        else if (!(passTx.getPassword().toString().equals(confPass.getPassword().toString())))
+        else if (!(Arrays.equals(passTx.getPassword(), confPass.getPassword())))
             //Contraseñas no coinciden
             sePuede = false;
         else if (!(correoTx.getText().matches("^[a-zA-Z_0-9]*\\@\\[a-zA-Z]\\.\\[a-zA-Z]")))
@@ -72,24 +73,20 @@ public class controlRegistro extends controlador {
     
     public boolean nombreInvalido(){
       if((!nombreTx.getText().equals("")))
-          if (nombreTx.getText().matches("^[0-9]*"))
-            return true;
-        else return false;   
+          return nombreTx.getText().matches("^[0-9]*");   
       else return false;
     }
     
     public boolean correoInvalido(){
        if((!correoTx.getText().equals("")))
-            if ((correoTx.getText().matches("^[a-zA-Z_0-9]*\\@\\[a-zA-Z]\\.\\[a-zA-Z]")))
-                return true;
-            else return false;        
+            return correoTx.getText().matches("^[a-zA-Z_0-9]*\\@\\[a-zA-Z]\\.\\[a-zA-Z]");        
         else return false;   
     }
     
     public boolean claveInvalida(){
         if((!passTx.getPassword().equals("")) && (!(confPass.getPassword().equals(""))))
-            if ((passTx.getPassword().toString().equals(confPass.getPassword().toString())))
-                return((passTx.getPassword().toString().length()<8) && (!(passTx.getPassword().toString().matches("^[0-9]*"))));
+            if ((Arrays.equals(passTx.getPassword(), confPass.getPassword())))
+                return((Arrays.toString(passTx.getPassword()).length()<8) && (!(Arrays.toString(passTx.getPassword()).matches("^[0-9]*"))));
             else return false;        
         else return false;   
     }    

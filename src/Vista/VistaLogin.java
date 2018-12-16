@@ -5,19 +5,26 @@
  */
 package Vista;
 import Control.*;
+import Estructuras.Usuario;
+import controlXml.controlXmlUser;
+import java.util.ArrayList;
 /**
  *
  * @author leito
  */
 public class VistaLogin extends javax.swing.JFrame {
 controladorLogin control;
+controlXmlUser controlXmlU;
 boolean verif;
+ArrayList<Usuario> users;
     /**
      * Creates new form VistaLogin
      */
     public VistaLogin() {
         initComponents();
         control= new controladorLogin(this, bttnExit, bttnIn, bttnReg, passTx, userTx);
+        controlXmlU = new controlXmlUser();
+        users = controlXmlU.todasLosUser();
         this.verif=true;
     }
 

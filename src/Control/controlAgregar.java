@@ -39,15 +39,8 @@ public class controlAgregar extends controlador{
         this.dirTx = dirTx;
         this.nombreTx = nombreTx;
         this.telfTx = telfTx;
-    }
+    }    
     
-
-    
-    
-    
-    
-
-      
     public boolean sePuedeAgregarPR() throws InputMismatchException{
         //Verifica que los campos de producto sean correctos
         boolean sePuede = true;
@@ -80,7 +73,7 @@ public class controlAgregar extends controlador{
     
     public boolean telefonoInvalido(){
        if((!telfTx.getText().equals("")))
-            if (telfTx.getText().matches("^[0-9]*\\?+\\?-"))
+            if (telfTx.getText().matches("^[0-9]*\\+?\\-?"))
                 return true;
             else return false;        
         else return false;   
@@ -88,7 +81,7 @@ public class controlAgregar extends controlador{
     
     public boolean precioInvalido(){
         if((!precioTx.getText().equals("")))
-            if (precioTx.getText().matches("^[0-9]*\\?."))
+            if (precioTx.getText().matches("^[0-9]*\\.?"))
                 return (Integer.parseInt(precioTx.getText())>=0);
             else return false;        
         else return false;   
@@ -115,7 +108,7 @@ public class controlAgregar extends controlador{
     
         public ArrayList<String> mensajeErrorP(){
         ArrayList<String> msg=new ArrayList<>();             
-        if(nombreInvalido())msg.add("Nombre del ppveedpr");
+        if(nombreInvalido())msg.add("Nombre del proveedor");
         if(direccionInvalida())msg.add(" Direccion");
         if(telefonoInvalido())msg.add(" Telefono");
         return msg;
@@ -124,5 +117,6 @@ public class controlAgregar extends controlador{
     public void actualizar(){
         
     }
+
 
 }

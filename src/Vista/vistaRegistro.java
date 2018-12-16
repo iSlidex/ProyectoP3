@@ -182,7 +182,7 @@ controlXmlUser controlXml;
                   verifDatosAdmin ventana = new verifDatosAdmin();
              }
              }else control.crearUser();
-        verifDatosAdmin ventana = new verifDatosAdmin();
+        verifDatosAdmin ventana = new verifDatosAdmin();        
         ventana.setVisible(true);
         
     }//GEN-LAST:event_bttnRegActionPerformed

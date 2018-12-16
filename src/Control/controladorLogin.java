@@ -5,6 +5,12 @@
  */
 package Control;
 
+import Estructuras.Usuario;
+import Estructuras.Empleado;
+import Estructuras.Administrador;
+import Estructuras.listaUser;
+import controlXml.controlXmlUser;
+import java.util.Arrays;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPasswordField;
@@ -36,5 +42,14 @@ public class controladorLogin extends controlador{
         this.passTx = passTx;
         this.userTx = userTx;
     }
-        
+        public boolean isAdm(Usuario user){            
+            return (user instanceof Administrador);
+        }
+        public boolean logIn(String correo,char[] clave,listaUser users){             
+            controlXmlUser control = new controlXmlUser();
+            Usuario user=control.buscarUsuario(correo);
+            if(user!=null)
+            return Arrays.equals(user.getClave(), clave);
+            else return false;
+        }
 }
