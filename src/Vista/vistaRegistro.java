@@ -40,19 +40,20 @@ boolean paso;
          
     }
     public vistaRegistro(boolean success,Usuario currenUser) {
-        initComponents();         
-         correoTx.setText(currenUser.getCorreo());         
-         passTx.setText(Arrays.toString(currenUser.getClave())); 
-         confPass.setText(Arrays.toString(currenUser.getClave()));        
-         nombreTx.setText(currenUser.getNombre());              
-         booAdm.setEnabled(currenUser instanceof Administrador);
+        initComponents();
          control = new controlRegistro(booAdm, bttnCancel, bttnReg, confPass, correoTx, nombreTx, passTx, this);
+         correoTx.setText(currenUser.getCorreo());         
+         passTx.setText(new String(currenUser.getClave())); 
+         confPass.setText(new String(currenUser.getClave()));        
+         nombreTx.setText(currenUser.getNombre());              
+         booAdm.setSelected(true);
+         
          controlXml = new controlXmlUser();
          verif1=true;
          verif2=true;
-         this.success=success;
-         ActionEvent evt = null;
-         bttnRegActionPerformed(evt);         
+         this.success=true;
+        // ActionEvent evt = null;
+         //bttnRegActionPerformed(evt);         
     }
 
     /**
@@ -87,6 +88,12 @@ boolean paso;
         jLabel3.setText("Correo: ");
 
         jLabel4.setText("Contraseña: ");
+
+        nombreTx.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                nombreTxFocusGained(evt);
+            }
+        });
 
         passTx.setText("jPasswordField1");
         passTx.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -209,15 +216,15 @@ boolean paso;
     
     private void bttnRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRegActionPerformed
         ArrayList<Usuario> users = controlXml.todasLosUser();
-        if (this.booAdm.isSelected()) {
+        if (booAdm.isSelected()) {
              if (users.isEmpty()){
                 controlXml.agregarUser(control.crearUser());
                 VistaLogin ventana = new VistaLogin();
                 control.activaVentana(ventana, this);
              }
-             else {
-                   
-                if(!this.success){
+             else {                   
+                if(!success){
+                    this.booAdm.setEnabled(true);
                     Administrador actual = (Administrador) control.crearUser();
                     JOptionPane.showMessageDialog(this,"Debe usar las credenciales de un usuario Administrador para crear otro Administrador");
                     verifDatosAdmin ventana = new verifDatosAdmin(users,actual,this); 
@@ -225,6 +232,7 @@ boolean paso;
 //                    this.setVisible(false);
                         control.activaVentana (ventana,this);                    
                 }else {
+                        booAdm.setEnabled(true);                        
                         JOptionPane.showMessageDialog(this,"Usuario Administrador creado con exito");
                         controlXml.agregarUser(control.crearUser());
                         VistaLogin ventana = new VistaLogin();
@@ -233,8 +241,7 @@ boolean paso;
              }
              }else {
                     JOptionPane.showMessageDialog(this,"Usuario creado con exito");
-                    controlXml.agregarUser(control.crearUser());
-        
+                    controlXml.agregarUser(control.crearUser());        
                     VistaLogin ventana = new VistaLogin();
                     control.activaVentana(ventana, this);
                   }
@@ -264,6 +271,13 @@ boolean paso;
         
         control.activaVentana(new VistaLogin(), this);
     }//GEN-LAST:event_bttnCancelActionPerformed
+
+    private void nombreTxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nombreTxFocusGained
+        if(success){
+         ActionEvent ola=null;
+         bttnRegActionPerformed(ola);   
+        }
+    }//GEN-LAST:event_nombreTxFocusGained
 
     /**
      * @param args the command line arguments

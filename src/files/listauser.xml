@@ -1,8 +1,56 @@
 <root>
   <usuario>
     <tipo>Administrador</tipo>
-    <nombre>123</nombre>
-    <correo>123</correo>
-    <clave>123</clave>
+    <nombre>1</nombre>
+    <correo>1</correo>
+    <clave>1</clave>
+  </usuario>
+  <usuario>
+    <tipo>Empleado</tipo>
+    <nombre>2</nombre>
+    <correo>2</correo>
+    <clave>2</clave>
+  </usuario>
+  <usuario>
+    <tipo>Empleado</tipo>
+    <nombre>3</nombre>
+    <correo>3</correo>
+    <clave>3</clave>
+  </usuario>
+  <usuario>
+    <tipo>Administrador</tipo>
+    <nombre>4</nombre>
+    <correo>4</correo>
+    <clave>4</clave>
+  </usuario>
+  <usuario>
+    <tipo>Administrador</tipo>
+    <nombre>5</nombre>
+    <correo>5</correo>
+    <clave>5</clave>
+  </usuario>
+  <usuario>
+    <tipo>Administrador</tipo>
+    <nombre>7</nombre>
+    <correo>7</correo>
+    <clave>7</clave>
+  </usuario>
+  <usuario>
+    <tipo>Administrador</tipo>
+    <nombre>12</nombre>
+    <correo>12</correo>
+    <clave>12</clave>
+  </usuario>
+  <usuario>
+    <tipo>Administrador</tipo>
+    <nombre>22</nombre>
+    <correo>22</correo>
+    <clave>22</clave>
+  </usuario>
+  <usuario>
+    <tipo>Administrador</tipo>
+    <nombre>321</nombre>
+    <correo>312</correo>
+    <clave>3123</clave>
   </usuario>
 </root>
