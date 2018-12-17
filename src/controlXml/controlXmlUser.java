@@ -184,10 +184,11 @@ public class controlXmlUser{
         public static Element buscar(List raiz, String dato) {
         Iterator i = raiz.iterator();
         while (i.hasNext()) {
-            Element e = (Element) i.next();
+            Element e = (Element) i;
             if (dato.equals(e.getChildText("correo"))) {
                 return e;
             }
+            i=(Iterator) i.next();
         }
         return null;
     }

@@ -51,7 +51,7 @@ public class controladorLogin extends controlador{
         }
         public boolean logIn(String correo,char[] clave){            
             Usuario user=control.buscarPersona(correo);            
-            return clave.toString().equals(user.getClave().toString());            
+            return Arrays.toString(clave).equals(Arrays.toString(user.getClave()));            
         }
         public Usuario logIn2(String correo,char[] clave){             
             controlXmlUser control = new controlXmlUser();
