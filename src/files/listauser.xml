@@ -1,32 +1,8 @@
 <root>
   <usuario>
     <tipo>Administrador</tipo>
-    <nombre>leo</nombre>
-    <correo>leo</correo>
-    <clave>123</clave>
-  </usuario>
-  <usuario>
-    <tipo>Empleado</tipo>
-    <nombre>123</nombre>
-    <correo>123</correo>
-    <clave>[1, 2, 3]</clave>
-  </usuario>
-  <usuario>
-    <tipo>Empleado</tipo>
     <nombre>123</nombre>
     <correo>123</correo>
     <clave>123</clave>
-  </usuario>
-  <usuario>
-    <tipo>Empleado</tipo>
-    <nombre>1233</nombre>
-    <correo>1233</correo>
-    <clave>[1, 2, 3, 3]</clave>
-  </usuario>
-  <usuario>
-    <tipo>Empleado</tipo>
-    <nombre>5555</nombre>
-    <correo>5555</correo>
-    <clave>[5, 5, 5]</clave>
   </usuario>
 </root>

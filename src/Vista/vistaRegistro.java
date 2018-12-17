@@ -5,6 +5,7 @@
  */
 package Vista;
 import Control.controlRegistro;
+import Control.controlador;
 import Estructuras.Administrador;
 import Estructuras.Usuario;
 import controlXml.controlXmlUser;
@@ -124,6 +125,11 @@ boolean paso;
         });
 
         bttnCancel.setText("Cancelar");
+        bttnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -214,10 +220,10 @@ boolean paso;
                 if(!this.success){
                     Administrador actual = (Administrador) control.crearUser();
                     JOptionPane.showMessageDialog(this,"Debe usar las credenciales de un usuario Administrador para crear otro Administrador");
-                    verifDatosAdmin ventana = new verifDatosAdmin(users,actual,this);
-                    ventana.setVisible(true);
-                    this.setVisible(false);
-                    //control.activaVentana (ventana,this);                    
+                    verifDatosAdmin ventana = new verifDatosAdmin(users,actual,this); 
+//                    ventana.setVisible(true);
+//                    this.setVisible(false);
+                        control.activaVentana (ventana,this);                    
                 }else {
                         JOptionPane.showMessageDialog(this,"Usuario Administrador creado con exito");
                         controlXml.agregarUser(control.crearUser());
@@ -253,6 +259,11 @@ boolean paso;
        this.verif2=false;
        }
     }//GEN-LAST:event_confPassMouseClicked
+
+    private void bttnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnCancelActionPerformed
+        
+        control.activaVentana(new VistaLogin(), this);
+    }//GEN-LAST:event_bttnCancelActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,6 +5,7 @@
  */
 package Vista;
 import Control.*;
+import Estructuras.Empleado;
 
 /**
  *
@@ -12,12 +13,18 @@ import Control.*;
  */
 public class VistaEmpleado extends javax.swing.JFrame {
 controladorVistaEmp control;
+Empleado currentUser;
     /**
      * Creates new form VistaEmpleado
      */
     public VistaEmpleado() {
         initComponents();
         control = new controladorVistaEmp(bttnAddProd, bttnAddProv, bttnBack, bttnExit, bttnOpUser, bttnProd, bttnProv, this);
+    }
+    public VistaEmpleado(Empleado currentUser) {
+        initComponents();
+        control = new controladorVistaEmp(bttnAddProd, bttnAddProv, bttnBack, bttnExit, bttnOpUser, bttnProd, bttnProv, this);
+        this.currentUser=currentUser;
     }
 
     /**
@@ -133,27 +140,23 @@ controladorVistaEmp control;
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnProvActionPerformed
-        controlador next = new controlador(this);
-        next.activaVentana(new tablaProveedores(), this);
+       control.activaVentana(new tablaProveedores(), this);
     }//GEN-LAST:event_bttnProvActionPerformed
 
     private void bttnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnProdActionPerformed
-        controlador next = new controlador(this);
-        next.activaVentana(new tablaProductos(), this);
+       control.activaVentana(new tablaProductos(), this);
     }//GEN-LAST:event_bttnProdActionPerformed
 
     private void bttnAddProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAddProvActionPerformed
-        controlador next = new controlador(this);
-        next.activaVentana(new vistaAddProv(), this);
+       control.activaVentana(new vistaAddProv(), this);
     }//GEN-LAST:event_bttnAddProvActionPerformed
 
     private void bttnAddProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAddProdActionPerformed
-        controlador next = new controlador(this);
-        next.activaVentana(new vistaAddProd(), this);
+       control.activaVentana(new vistaAddProd(), this);
     }//GEN-LAST:event_bttnAddProdActionPerformed
 
     private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
-        // TODO add your handling code here:
+       control.activaVentana(new VistaLogin(), this);
     }//GEN-LAST:event_bttnBackActionPerformed
 
     private void bttnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnExitActionPerformed

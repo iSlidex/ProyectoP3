@@ -161,8 +161,9 @@ Usuario currentUser;
            if(Arrays.toString(act.getClave()).equals(Arrays.toString(passTx.getPassword()))){
                if(act instanceof Administrador ){
                 vistaRegistro ventana= new vistaRegistro(true,this.currentUser);
-                    ventana.setVisible(true);
-                    this.setVisible(false);
+//                    ventana.setVisible(true);
+//                    this.setVisible(false);
+                    control.activaVentana (ventana,this);   
                }else{
                     JOptionPane.showMessageDialog(this,"Usuario no es adiministrador");
                }
