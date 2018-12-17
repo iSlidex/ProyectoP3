@@ -5,7 +5,12 @@
  */
 package Vista;
 import Control.*;
+import Estructuras.Administrador;
+import Estructuras.Usuario;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,6 +20,7 @@ public class verifDatosAdmin extends javax.swing.JFrame {
 boolean verif,success;
 controladorLogin control;
 vistaRegistro hold;
+ArrayList <Usuario> users;
     /**
      * Creates new form verifDatosAdmin
      */
@@ -26,12 +32,13 @@ vistaRegistro hold;
         control = new controladorLogin(this, bttnCont, bttnCont, passTx, userTx);
         
     }
-    public verifDatosAdmin(vistaRegistro ventana) {
+    public verifDatosAdmin(vistaRegistro ventana,ArrayList <Usuario> users) {
         initComponents();
         this.verif=true;
         this.success = false;
         control = new controladorLogin(this, bttnCont, bttnCont, passTx, userTx);
         this.hold=ventana;
+        this.users= users;
     }
     public void setSuccess(boolean success) {
         this.success = success;
@@ -147,12 +154,21 @@ vistaRegistro hold;
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnContActionPerformed
-        boolean log = control.logIn(userTx.getText(), passTx.getPassword());
-        if(log){
-            this.success=control.isAdm(userTx.getText());
-        }else this.success=false;
-        vistaRegistro ventana= new vistaRegistro(this.success,hold);
-        control.activaVentana(ventana, this);
+       Usuario act = control.log(users);
+       if(act!=null){
+           if(Arrays.toString(act.getClave()).equals(Arrays.toString(passTx.getPassword()))){
+               if(act instanceof Administrador ){
+                vistaRegistro ventana= new vistaRegistro(true,hold);
+                    ventana.setVisible(true);
+                    this.setVisible(false);
+               }else{
+                    JOptionPane.showMessageDialog(this,"Usuario no es adiministrador");
+               }
+           }
+       }else JOptionPane.showMessageDialog(this,"Ingrese un usuario valido");
+        
+        
+
     }//GEN-LAST:event_bttnContActionPerformed
 
     private void passTxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxMouseClicked

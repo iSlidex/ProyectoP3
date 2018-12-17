@@ -8,6 +8,7 @@ import Control.controlRegistro;
 import Estructuras.Usuario;
 import controlXml.controlXmlUser;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,11 +38,17 @@ boolean paso;
     public vistaRegistro(boolean success,vistaRegistro ventana) {
         initComponents();
          this.correoTx=ventana.correoTx;
+         this.correoTx.setText(ventana.correoTx.getText());
          this.passTx=ventana.passTx;
+         this.correoTx.setText(ventana.correoTx.getText());
          this.confPass=ventana.confPass;
+         this.confPass.setText(Arrays.toString(ventana.confPass.getPassword()));
          this.nombreTx=ventana.nombreTx;
+         this.nombreTx.setText(ventana.nombreTx.getText());
          this.passTx=ventana.passTx;
+         this.passTx.setText(Arrays.toString(ventana.passTx.getPassword()));
          this.booAdm=ventana.booAdm;
+         this.booAdm.setEnabled(ventana.booAdm.isEnabled());
          control = new controlRegistro(booAdm, bttnCancel, bttnReg, confPass, correoTx, nombreTx, passTx, this);
          controlXml = new controlXmlUser();
          verif1=true;
@@ -204,20 +211,27 @@ boolean paso;
                 VistaLogin ventana = new VistaLogin();
                 control.activaVentana(ventana, this);
              }
-             else {JOptionPane.showMessageDialog(this,"Debe usar las credenciales de un usuario Administrador para crear otro Administrador");
+             else {
                    
                 if(!this.success){
-                    verifDatosAdmin ventana = new verifDatosAdmin(this);
-                    control.activaVentana (ventana,this);                    
-                }else {controlXml.agregarUser(control.crearUser());
+                    JOptionPane.showMessageDialog(this,"Debe usar las credenciales de un usuario Administrador para crear otro Administrador");
+                    verifDatosAdmin ventana = new verifDatosAdmin(this,users);
+                    ventana.setVisible(true);
+                    this.setVisible(false);
+                    //control.activaVentana (ventana,this);                    
+                }else {
+                        JOptionPane.showMessageDialog(this,"Usuario Administrador creado con exito");
+                        controlXml.agregarUser(control.crearUser());
                         VistaLogin ventana = new VistaLogin();
                         control.activaVentana(ventana, this);
                 }
              }
-             }else {controlXml.agregarUser(control.crearUser());
+             }else {
+                    JOptionPane.showMessageDialog(this,"Usuario creado con exito");
+                    controlXml.agregarUser(control.crearUser());
         
-                  VistaLogin ventana = new VistaLogin();
-                  control.activaVentana(ventana, this);
+                    VistaLogin ventana = new VistaLogin();
+                    control.activaVentana(ventana, this);
                   }
         
         

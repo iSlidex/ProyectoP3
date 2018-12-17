@@ -11,4 +11,16 @@
     <correo>leo2</correo>
     <clave>111</clave>
   </usuario>
+  <usuario>
+    <tipo>Administrador</tipo>
+    <nombre>leo3</nombre>
+    <correo>leo3</correo>
+    <clave>123</clave>
+  </usuario>
+  <usuario>
+    <tipo>Administrador</tipo>
+    <nombre>leo</nombre>
+    <correo>leo6</correo>
+    <clave>[1, 2, 3]</clave>
+  </usuario>
 </root>

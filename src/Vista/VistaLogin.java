@@ -162,27 +162,18 @@ ArrayList<Usuario> users;
 
     private void bttnInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnInActionPerformed
        controladorLogin next= new controladorLogin(this, bttnExit, bttnIn, bttnReg, passTx, userTx);
-//       Usuario act = next.log(users);
-//       if(act!=null){
-//           if(Arrays.toString(act.getClave()).equals(Arrays.toString(passTx.getPassword()))){
-//               if(act instanceof Administrador ){
-//                vistaAdmin ventana =new vistaAdmin();
-//                next.activaVentana(ventana,this ); 
-//               }else{
-//                    VistaEmpleado ventana =new VistaEmpleado();
-//                     next.activaVentana(ventana,this);
-//               }
-//           }
-//       }else JOptionPane.showMessageDialog(this,"Ingrese un usuario valido");  
-       if(next.logIn(userTx.getText(), passTx.getPassword())){
-         if(next.isAdm(userTx.getText())){
-             vistaAdmin ventana =new vistaAdmin();
-             next.activaVentana(ventana,this );
-         }else {VistaEmpleado ventana =new VistaEmpleado();
-                next.activaVentana(ventana,this);
-         }
-         }else JOptionPane.showMessageDialog(this,"Ingrese un usuario valido");  
-      
+       Usuario act = next.log(users);
+       if(act!=null){
+           if(Arrays.toString(act.getClave()).equals(Arrays.toString(passTx.getPassword()))){
+               if(act instanceof Administrador ){
+                vistaAdmin ventana =new vistaAdmin();
+                next.activaVentana(ventana,this ); 
+               }else{
+                    VistaEmpleado ventana =new VistaEmpleado();
+                     next.activaVentana(ventana,this);
+               }
+           }
+       }else JOptionPane.showMessageDialog(this,"Ingrese un usuario valido");       
     }//GEN-LAST:event_bttnInActionPerformed
 
     private void bttnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnExitActionPerformed
