@@ -43,7 +43,7 @@ public class controlRegistro extends controlador {
     public Usuario crearUser(){
         Usuario user = null;
         if (this.booAdm.isSelected()) {
-            user=new Administrador(this.nombreTx.getText(), this.correoTx.getText(), this.passTx.getPassword());            
+            user=new Administrador(this.nombreTx.getText(), this.correoTx.getText(),this.passTx.getPassword());            
         }else 
             user=new Empleado(this.nombreTx.getText(), this.correoTx.getText(), this.passTx.getPassword());
         return user;

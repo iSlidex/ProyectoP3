@@ -21,6 +21,7 @@ boolean verif,success;
 controladorLogin control;
 vistaRegistro hold;
 ArrayList <Usuario> users;
+Usuario currentUser;
     /**
      * Creates new form verifDatosAdmin
      */
@@ -32,13 +33,14 @@ ArrayList <Usuario> users;
         control = new controladorLogin(this, bttnCont, bttnCont, passTx, userTx);
         
     }
-    public verifDatosAdmin(vistaRegistro ventana,ArrayList <Usuario> users) {
+    public verifDatosAdmin(ArrayList <Usuario> users,Usuario currentUser,vistaRegistro vent) {
         initComponents();
         this.verif=true;
         this.success = false;
         control = new controladorLogin(this, bttnCont, bttnCont, passTx, userTx);
-        this.hold=ventana;
+        this.hold=vent;
         this.users= users;
+        this.currentUser=currentUser;
     }
     public void setSuccess(boolean success) {
         this.success = success;
@@ -158,7 +160,7 @@ ArrayList <Usuario> users;
        if(act!=null){
            if(Arrays.toString(act.getClave()).equals(Arrays.toString(passTx.getPassword()))){
                if(act instanceof Administrador ){
-                vistaRegistro ventana= new vistaRegistro(true,hold);
+                vistaRegistro ventana= new vistaRegistro(true,this.currentUser);
                     ventana.setVisible(true);
                     this.setVisible(false);
                }else{

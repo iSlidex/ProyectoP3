@@ -6,6 +6,7 @@
 package Estructuras;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -42,6 +43,9 @@ public class Usuario {
 
     public char[] getClave() {
         return clave;
+    }
+    public String getClaveS(){
+        return Arrays.toString(clave);
     }
 
     public void setNombre(String nombre) {

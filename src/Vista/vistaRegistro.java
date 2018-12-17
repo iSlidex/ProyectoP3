@@ -5,8 +5,10 @@
  */
 package Vista;
 import Control.controlRegistro;
+import Estructuras.Administrador;
 import Estructuras.Usuario;
 import controlXml.controlXmlUser;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
@@ -34,26 +36,22 @@ boolean paso;
          verif1=true;
          verif2=true;
          success=false;
+         
     }
-    public vistaRegistro(boolean success,vistaRegistro ventana) {
-        initComponents();
-         this.correoTx=ventana.correoTx;
-         this.correoTx.setText(ventana.correoTx.getText());
-         this.passTx=ventana.passTx;
-         this.correoTx.setText(ventana.correoTx.getText());
-         this.confPass=ventana.confPass;
-         this.confPass.setText(Arrays.toString(ventana.confPass.getPassword()));
-         this.nombreTx=ventana.nombreTx;
-         this.nombreTx.setText(ventana.nombreTx.getText());
-         this.passTx=ventana.passTx;
-         this.passTx.setText(Arrays.toString(ventana.passTx.getPassword()));
-         this.booAdm=ventana.booAdm;
-         this.booAdm.setEnabled(ventana.booAdm.isEnabled());
+    public vistaRegistro(boolean success,Usuario currenUser) {
+        initComponents();         
+         correoTx.setText(currenUser.getCorreo());         
+         passTx.setText(Arrays.toString(currenUser.getClave())); 
+         confPass.setText(Arrays.toString(currenUser.getClave()));        
+         nombreTx.setText(currenUser.getNombre());              
+         booAdm.setEnabled(currenUser instanceof Administrador);
          control = new controlRegistro(booAdm, bttnCancel, bttnReg, confPass, correoTx, nombreTx, passTx, this);
          controlXml = new controlXmlUser();
          verif1=true;
          verif2=true;
          this.success=success;
+         ActionEvent evt = null;
+         bttnRegActionPerformed(evt);         
     }
 
     /**
@@ -214,8 +212,9 @@ boolean paso;
              else {
                    
                 if(!this.success){
+                    Administrador actual = (Administrador) control.crearUser();
                     JOptionPane.showMessageDialog(this,"Debe usar las credenciales de un usuario Administrador para crear otro Administrador");
-                    verifDatosAdmin ventana = new verifDatosAdmin(this,users);
+                    verifDatosAdmin ventana = new verifDatosAdmin(users,actual,this);
                     ventana.setVisible(true);
                     this.setVisible(false);
                     //control.activaVentana (ventana,this);                    
