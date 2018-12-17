@@ -5,9 +5,12 @@
  */
 package Vista;
 import Control.*;
+import Estructuras.Administrador;
 import Estructuras.Usuario;
 import controlXml.controlXmlUser;
 import java.util.ArrayList;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
 /**
  *
  * @author leito
@@ -158,8 +161,28 @@ ArrayList<Usuario> users;
     }//GEN-LAST:event_bttnRegActionPerformed
 
     private void bttnInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnInActionPerformed
-       controlador next= new controlador(this);
-       next.activaVentana(new VistaEmpleado(),this );
+       controladorLogin next= new controladorLogin(this, bttnExit, bttnIn, bttnReg, passTx, userTx);
+       Usuario act = next.log(users);
+       if(act!=null){
+           if(Arrays.toString(act.getClave()).equals(Arrays.toString(passTx.getPassword()))){
+               if(act instanceof Administrador ){
+                vistaAdmin ventana =new vistaAdmin();
+                next.activaVentana(ventana,this ); 
+               }else{
+                    VistaEmpleado ventana =new VistaEmpleado();
+                     next.activaVentana(ventana,this);
+               }
+           }
+       }else JOptionPane.showMessageDialog(this,"Ingrese un usuario valido");  
+//       if(true){
+//         if(next.isAdm(userTx.getText())){
+//             vistaAdmin ventana =new vistaAdmin();
+//             next.activaVentana(ventana,this );
+//         }else {VistaEmpleado ventana =new VistaEmpleado();
+//                next.activaVentana(ventana,this);
+//         }
+//         }else JOptionPane.showMessageDialog(this,"Ingrese un usuario valido");  
+      
     }//GEN-LAST:event_bttnInActionPerformed
 
     private void bttnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnExitActionPerformed

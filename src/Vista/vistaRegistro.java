@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 /**
@@ -21,6 +22,7 @@ public class vistaRegistro extends javax.swing.JFrame {
 boolean verif1,verif2,success;
 controlRegistro control;
 controlXmlUser controlXml;
+boolean paso;
     /**
      * Creates new form vistaRegistro
      */
@@ -30,6 +32,21 @@ controlXmlUser controlXml;
          controlXml = new controlXmlUser();
          verif1=true;
          verif2=true;
+         success=false;
+    }
+    public vistaRegistro(boolean success,vistaRegistro ventana) {
+        initComponents();
+         this.correoTx=ventana.correoTx;
+         this.passTx=ventana.passTx;
+         this.confPass=ventana.confPass;
+         this.nombreTx=ventana.nombreTx;
+         this.passTx=ventana.passTx;
+         this.booAdm=ventana.booAdm;
+         control = new controlRegistro(booAdm, bttnCancel, bttnReg, confPass, correoTx, nombreTx, passTx, this);
+         controlXml = new controlXmlUser();
+         verif1=true;
+         verif2=true;
+         this.success=success;
     }
 
     /**
@@ -182,23 +199,26 @@ controlXmlUser controlXml;
     private void bttnRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRegActionPerformed
         ArrayList<Usuario> users = controlXml.todasLosUser();
         if (this.booAdm.isSelected()) {
-             if (users.isEmpty())
+             if (users.isEmpty()){
                 controlXml.agregarUser(control.crearUser());
-                 
-             else {JOptionPane.showMessageDialog(this,"Debe usar las credenciales de un usuario Administrador para crear otro Administrador");
-                verifDatosAdmin ventana=new verifDatosAdmin();  
-                ventana.setVisible(true);                
-                  if(ventana.isSuccess())
-                      controlXml.agregarUser(control.crearUser());
-                  else JOptionPane.showMessageDialog(this,"Administrador invalido");
-                  ventana.dispose();
-             
-             
-             
+                VistaLogin ventana = new VistaLogin();
+                control.activaVentana(ventana, this);
              }
-             }else controlXml.agregarUser(control.crearUser());
+             else {JOptionPane.showMessageDialog(this,"Debe usar las credenciales de un usuario Administrador para crear otro Administrador");
+                   
+                if(!this.success){
+                    verifDatosAdmin ventana = new verifDatosAdmin(this);
+                    control.activaVentana (ventana,this);                    
+                }else {controlXml.agregarUser(control.crearUser());
+                        VistaLogin ventana = new VistaLogin();
+                        control.activaVentana(ventana, this);
+                }
+             }
+             }else {controlXml.agregarUser(control.crearUser());
+        
                   VistaLogin ventana = new VistaLogin();
                   control.activaVentana(ventana, this);
+                  }
         
         
     }//GEN-LAST:event_bttnRegActionPerformed

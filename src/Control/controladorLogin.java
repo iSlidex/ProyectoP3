@@ -10,6 +10,7 @@ import Estructuras.Empleado;
 import Estructuras.Administrador;
 import Estructuras.listaUser;
 import controlXml.controlXmlUser;
+import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,6 +27,7 @@ public class controladorLogin extends controlador{
     private JButton bttnReg;  
     private JPasswordField passTx;
     private JTextField userTx;
+    controlXmlUser control = new controlXmlUser();
     
         public controladorLogin(JFrame ventana,JButton bttnExit, JButton bttnIn, JButton bttnReg, JPasswordField passTx, JTextField userTx) {
         super(ventana);
@@ -47,12 +49,9 @@ public class controladorLogin extends controlador{
             Usuario user=control.buscarUsuario(correo);            
             return (user instanceof Administrador);
         }
-        public boolean logIn(String correo,char[] clave){             
-            controlXmlUser control = new controlXmlUser();
-            Usuario user=control.buscarUsuario(correo);
-            if(user!=null)
-                return Arrays.equals(user.getClave(), clave);
-            return false;
+        public boolean logIn(String correo,char[] clave){            
+            Usuario user=control.buscarPersona(correo);            
+            return clave.toString().equals(user.getClave().toString());            
         }
         public Usuario logIn2(String correo,char[] clave){             
             controlXmlUser control = new controlXmlUser();
@@ -61,4 +60,12 @@ public class controladorLogin extends controlador{
                 return user;
             return null;
         }
+        public Usuario log(ArrayList<Usuario> users){
+           for(Usuario act : users){
+           if (act.getCorreo().equals(userTx.getText())) 
+              return act; 
+           }
+        return null;
+       }
 }
+

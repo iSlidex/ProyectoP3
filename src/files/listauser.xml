@@ -1,8 +1,14 @@
 <root>
   <usuario>
     <tipo>Administrador</tipo>
-    <nombre>12314</nombre>
-    <correo>213214</correo>
-    <clave>213</clave>
+    <nombre>leo</nombre>
+    <correo>leo1</correo>
+    <clave>123</clave>
+  </usuario>
+  <usuario>
+    <tipo>Empleado</tipo>
+    <nombre>leo2</nombre>
+    <correo>leo2</correo>
+    <clave>111</clave>
   </usuario>
 </root>

@@ -96,9 +96,7 @@ public class controlXmlUser{
     }
         public static Element buscarU(List raiz, String correo) {
         Iterator i = raiz.iterator();
-        int cont=0;
         while (i.hasNext()) {
-            
             Element e = (Element) i.next();
             if (correo.equals(e.getChildText("correo"))) {
                 return e;
@@ -143,6 +141,7 @@ public class controlXmlUser{
         }
         return null;
     }
+    
         public boolean actualizarCosa(Usuario user, int index) {
             boolean resultado = false;
             Element aux = new Element("Usuario");
@@ -182,7 +181,32 @@ public class controlXmlUser{
             }
             return resultado;
         }
-    
+        public static Element buscar(List raiz, String dato) {
+        Iterator i = raiz.iterator();
+        while (i.hasNext()) {
+            Element e = (Element) i.next();
+            if (dato.equals(e.getChildText("correo"))) {
+                return e;
+            }
+        }
+        return null;
+    }
+        public Usuario buscarPersona(String correo) {
+        Element aux = new Element("Usuario");
+        List Usuarios = this.root.getChildren("Usuario");
+        
+            aux = controlXmlUser.buscar(Usuarios, correo);
+            if (aux != null) {
+                try {
+                    return userToObject(aux);
+                } catch (ParseException ex) {
+                    System.out.println(ex.getMessage());
+                }
+            
+        }
+        return null;
+    }
+
 }
 
 
