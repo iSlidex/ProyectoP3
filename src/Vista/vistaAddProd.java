@@ -47,7 +47,7 @@ ArrayList<Proveedor>  list;
             jComboBox1.setSelectedItem(prod.getProv());
             nombreTx.setText(prod.getNombre());
             codigoTx.setText(prod.getId());
-            precioTx.setText(Float.toString(prod.getPrecio()));
+            precioTx.setText(Double.toString(prod.getPrecio()));
         }else modificando=false;
     }
 
@@ -102,8 +102,6 @@ ArrayList<Proveedor>  list;
                 bttnContActionPerformed(evt);
             }
         });
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel5.setText("Proveedor");
 

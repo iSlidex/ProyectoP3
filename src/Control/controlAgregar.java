@@ -153,7 +153,11 @@ public class controlAgregar extends controlador{
             list.incluirProd(index, prod);
         }
         public Producto añadirProd(String prov,listaProd proveedores){
-        Producto prod= new Producto(nombreTx.getText(),combo.getSelectedItem().toString(),Float.parseFloat(precioTx.getText()) ,codigoTx.getText());        
+            System.out.println(combo.getSelectedItem().toString());
+            System.out.println(nombreTx.getText());
+            
+            System.out.println(codigoTx.getText());
+        Producto prod= new Producto(nombreTx.getText(),combo.getSelectedItem().toString(),Double.parseDouble(precioTx.getText()) ,codigoTx.getText());        
         proveedores.incluirProd(prod);
         return prod;
     }

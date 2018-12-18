@@ -39,7 +39,7 @@ public class controlXmlProd{
         Element id = new Element("id");
         id.setText(prod.getId());
         Element precio = new Element("Precio");
-        precio.setText(Float.toString(prod.getPrecio()));
+        precio.setText(Double.toString(prod.getPrecio()));
         Element prov = new Element("prov");
         prov.setText(prod.getProv());
 //        Producto.addContent(tipo);

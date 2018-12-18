@@ -12,10 +12,10 @@ package Estructuras;
 public class Producto {
     protected String nombre;
     protected String prov;   
-    protected float precio;    
+    protected double precio;    
     protected String id;
 
-    public Producto(String nombre, String prov, float precio,String id) {
+    public Producto(String nombre, String prov, double precio,String id) {
         this.nombre = nombre;
         this.prov = prov;
         //this.tipo = tipo;
@@ -24,7 +24,10 @@ public class Producto {
     }
 
     public Producto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         nombre="";
+         prov="";   
+         precio=0;    
+         id="";
     }
 
     public String getNombre() {
@@ -44,7 +47,7 @@ public class Producto {
     }
 
 
-    public float getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 

@@ -144,7 +144,7 @@ Empleado currentUser;
     }//GEN-LAST:event_bttnProvActionPerformed
 
     private void bttnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnProdActionPerformed
-       control.activaVentana(new tablaProductos(), this);
+       control.activaVentana(new tablaProductos(currentUser), this);
     }//GEN-LAST:event_bttnProdActionPerformed
 
     private void bttnAddProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAddProvActionPerformed
