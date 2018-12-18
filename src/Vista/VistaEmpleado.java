@@ -148,7 +148,7 @@ Empleado currentUser;
     }//GEN-LAST:event_bttnProdActionPerformed
 
     private void bttnAddProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAddProvActionPerformed
-       control.activaVentana(new vistaAddProv(), this);
+       control.activaVentana(new vistaAddProv(currentUser,null,null), this);
     }//GEN-LAST:event_bttnAddProvActionPerformed
 
     private void bttnAddProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAddProdActionPerformed

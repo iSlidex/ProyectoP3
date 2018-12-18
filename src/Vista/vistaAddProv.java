@@ -9,6 +9,7 @@ import Estructuras.Proveedor;
 import Estructuras.Usuario;
 import Estructuras.listaProv;
 import controlXml.controlXmlProv;
+import java.util.ArrayList;
 
 /**
  *
@@ -21,6 +22,7 @@ boolean modificando;
 controlXmlProv xml=new controlXmlProv();
 listaProv proveedores;
 Proveedor provAct;
+ArrayList<Proveedor> list;
     /**
      * Creates new form vistaAddProv
      */
@@ -31,15 +33,21 @@ Proveedor provAct;
        initComponents();
        
        control= new controlAgregar(bttnCancel, bttnCont, dirTx, nombreTx, telfTx, this);
-       this.proveedores = proveedores;
-       this.provAct= provActual;
+       
+       
        this.currentUser = currentUser;
        if (provActual!=null){
+       this.proveedores = proveedores;
        modificando=true;
+       this.provAct= provActual;
        dirTx.setText(provActual.getDireccion());
        nombreTx.setText(provActual.getNombre());
        telfTx.setText(provActual.getTelefono());
-       }else modificando=false;
+       }else {
+           modificando=false;
+           list = xml.todasLosUser();
+           this.proveedores=new listaProv(list);
+       }
     }
 
     /**
@@ -153,7 +161,9 @@ Proveedor provAct;
                 control.agregarProv(currentUser.getCorreo(),proveedores,p,index);                
                 xml.actualizarCosa(p, index);
             }else{
-               Proveedor prov = control.añadirProv(this.currentUser.getNombre(),proveedores);        
+            
+            System.out.println(currentUser.getNombre());
+               Proveedor prov = control.añadirProv(currentUser.getNombre(),proveedores);        
                xml.agregarCosa(prov);
             }
         control.activaVentana(new tablaProveedores(currentUser), this);
