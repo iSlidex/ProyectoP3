@@ -54,11 +54,11 @@ ArrayList<Producto> objeto;
             control.activa_Desactiva(false);        
             tabla = new javax.swing.JTable();             
         }
-        control.llenarTabla(this.cosas,tabla);
+        control.llenarTablaProd(this.cosas,tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(3).setMinWidth(0);
-            tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(4).setMinWidth(0);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(4).setMaxWidth(0);
         }
         this.getContentPane().setBackground (Color.LIGHT_GRAY);
         Agregar.requestFocus();
@@ -301,12 +301,12 @@ ArrayList<Producto> objeto;
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
-       /* if (!(tabla.getSelectedRow()==-1)){
-         Electrodomestico cosaActual = (Electrodomestico) tabla.getValueAt(tabla.getSelectedRow(),3);
-         Vista2 ventana = new Vista2(this.cosas,cosaActual);
-         control.activaVentana(ventana,this);
+        if (!(tabla.getSelectedRow()==-1)){
+         Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),4);
+         
+         control.activaVentana(new vistaAddProd(this.currentUser,this.cosas),this);
          }else
-            JOptionPane.showMessageDialog(this, "Selecciona una casilla");*/
+            JOptionPane.showMessageDialog(this, "Selecciona una casilla");
     }//GEN-LAST:event_ModificarActionPerformed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed

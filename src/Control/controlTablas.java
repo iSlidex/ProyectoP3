@@ -54,7 +54,7 @@ public class controlTablas extends controlador{
 //        this.lista = cosas;
 //    }
     
-   public void llenarTabla(listaProd cosas, JTable tablaCosas ){  
+   public void llenarTablaProd(listaProd cosas, JTable tablaCosas ){  
       ArrayList<Producto> Prod;
       String[] columna = { "Codigo", "Nombre", "Precio ","Proveedor","Objeto" };
       
@@ -69,7 +69,7 @@ public class controlTablas extends controlador{
     };
       Prod= cosas.getLista();
       Prod.forEach((per) -> {
-          dtm.addRow(new Object[] {per.getId(), per.getNombre(),per.getPrecio(),per});
+          dtm.addRow(new Object[] {per.getId(), per.getNombre(),per.getPrecio(),per.getProv(),per});
         });
       tablaCosas.setModel(dtm);
       tablaCosas.setFont(new Font("perpetua",Font.BOLD,16));

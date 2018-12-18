@@ -27,16 +27,6 @@ Proveedor provAct;
     public vistaAddProv() {
         initComponents();
     }
-    /*
-        public vistaAddProv(Usuario currentUser) {
-        initComponents();
-        control= new controlAgregar(bttnCancel, bttnCont, dirTx, nombreTx, telfTx, this);
-        modificando=false;
-        
-        this.currentUser = currentUser;
-        control= new controlAgregar(bttnCancel, bttnCont, dirTx, nombreTx, telfTx, this);
-    }*/
-
     vistaAddProv(Usuario currentUser,listaProv proveedores, Proveedor provActual) {
        initComponents();
        
