@@ -1,11 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
-
 <root>
-    
+  <Proveedor>
+    <Nombre>22</Nombre>
+    <Direccion>2</Direccion>
+    <Telefono>2</Telefono>
+    <User>2</User>
+  </Proveedor>
+  <Proveedor>
+    <Nombre>22</Nombre>
+    <Direccion>2</Direccion>
+    <Telefono>2</Telefono>
+    <User>2</User>
+  </Proveedor>
+  <Proveedor>
+    <Nombre>33</Nombre>
+    <Direccion>33</Direccion>
+    <Telefono>33</Telefono>
+    <User>2</User>
+  </Proveedor>
+  <Proveedor>
+    <Nombre>34</Nombre>
+    <Direccion>32</Direccion>
+    <Telefono>421</Telefono>
+    <User>2</User>
+  </Proveedor>
+  <Proveedor>
+    <Nombre>3234</Nombre>
+    <Direccion>1234</Direccion>
+    <Telefono>1234</Telefono>
+    <User>2</User>
+  </Proveedor>
+  <Proveedor>
+    <Nombre>123124</Nombre>
+    <Direccion>1234123</Direccion>
+    <Telefono>123124</Telefono>
+    <User>2</User>
+  </Proveedor>
+  <Proveedor>
+    <Nombre>Hola</Nombre>
+    <Direccion>mira</Direccion>
+    <Telefono>que hace</Telefono>
+    <User>2</User>
+  </Proveedor>
 </root>

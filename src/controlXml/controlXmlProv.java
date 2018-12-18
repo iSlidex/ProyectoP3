@@ -18,6 +18,7 @@ public class controlXmlProv{
     private String fileLocation= "src//files//listaprov.xml";
     //constructor//
     public controlXmlProv(){
+        System.out.println("holakase");
         try {
             SAXBuilder builder = new SAXBuilder(false);
             Document doc = null;
@@ -87,6 +88,7 @@ public class controlXmlProv{
         return null;
     }
     public boolean agregarCosa(Proveedor prod) {
+        System.out.println("gol");
         boolean resultado = false;
         root.addContent(provToXmlElement(prod));
         resultado = updateDocument();

@@ -18,7 +18,7 @@ public class vistaAddProv extends javax.swing.JFrame {
 Usuario currentUser;
 controlAgregar control;
 boolean modificando;
-controlXmlProv xml;
+controlXmlProv xml=new controlXmlProv();
 listaProv proveedores;
 Proveedor provAct;
     /**
@@ -28,22 +28,27 @@ Proveedor provAct;
         initComponents();
     }
         public vistaAddProv(Usuario currentUser) {
-        modificando=false;
         initComponents();
+        control= new controlAgregar(bttnCancel, bttnCont, dirTx, nombreTx, telfTx, this);
+        modificando=false;
+        
         this.currentUser = currentUser;
         control= new controlAgregar(bttnCancel, bttnCont, dirTx, nombreTx, telfTx, this);
     }
 
     vistaAddProv(Usuario currentUser,listaProv proveedores, Proveedor provActual) {
        initComponents();
-       modificando=true;
+       
        control= new controlAgregar(bttnCancel, bttnCont, dirTx, nombreTx, telfTx, this);
        this.proveedores = proveedores;
        this.provAct= provActual;
        this.currentUser = currentUser;
+       if (provActual!=null){
+       modificando=true;
        dirTx.setText(provActual.getDireccion());
        nombreTx.setText(provActual.getNombre());
        telfTx.setText(provActual.getTelefono());
+       }else modificando=false;
     }
 
     /**
@@ -83,6 +88,11 @@ Proveedor provAct;
         });
 
         bttnCancel.setText("Cancelar");
+        bttnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -153,9 +163,16 @@ Proveedor provAct;
                 xml.actualizarCosa(prov, index);
             }else{
                Proveedor prov = control.añadirProv(this.currentUser.getNombre(),this.proveedores);
-                xml.agregarCosa(prov);
+               System.out.println(prov.getClass().getSimpleName());        
+               System.out.println(prov.getAcargo());        
+               xml.agregarCosa(prov);
             }
+        control.activaVentana(new tablaProveedores(currentUser), this);
     }//GEN-LAST:event_bttnContActionPerformed
+
+    private void bttnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnCancelActionPerformed
+        control.activaVentana(new tablaProveedores(currentUser), this);
+    }//GEN-LAST:event_bttnCancelActionPerformed
 
     /**
      * @param args the command line arguments

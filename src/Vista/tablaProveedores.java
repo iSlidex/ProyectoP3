@@ -18,6 +18,7 @@ import Estructuras.listaProv;
 import controlXml.controlXmlProv;
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,6 +31,7 @@ controlXmlProv xml=new controlXmlProv();
 controlTablas control;
 Usuario currentUser;
 ArrayList<Proveedor> objeto;
+vistaAddProv vent;
     /**
      * Creates new form vistaProveedores
      */
@@ -292,7 +294,11 @@ ArrayList<Proveedor> objeto;
     }//GEN-LAST:event_AgregarMouseClicked
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-       control.activaVentana(new vistaAddProv(currentUser),this);
+        if (vent==null){
+        this.vent = new vistaAddProv(this.currentUser,proveedores,null);
+        vent.setVisible(true);
+        }
+       //control.activaVentana(vent,this);
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void AgregarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AgregarKeyPressed
@@ -302,9 +308,9 @@ ArrayList<Proveedor> objeto;
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
        if (!(tabla.getSelectedRow()==-1)){
             Proveedor provActual = (Proveedor) tabla.getValueAt(tabla.getSelectedRow(),3);
-            control.activaVentana(new vistaAddProv(this.proveedores,provActual),this);
+            control.activaVentana(new vistaAddProv(this.currentUser,this.proveedores,provActual),this);
        }else
-                JOptionPane.showMessageDialog(this, "Selecciona una casilla");
+                    JOptionPane.showMessageDialog(this, "Selecciona una casilla");
     }//GEN-LAST:event_ModificarActionPerformed
 
     private void ModificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ModificarKeyPressed
