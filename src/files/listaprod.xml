@@ -1,21 +1,21 @@
 <root>
   <Producto>
+    <Nombre>0</Nombre>
+    <id>0</id>
+    <Precio>0.0</Precio>
+    <prov>123</prov>
+  </Producto>
+  <Producto>
+    <Nombre>1</Nombre>
+    <id>1</id>
+    <Precio>1.0</Precio>
+    <prov>123</prov>
+  </Producto>
+  <Producto>
     <Nombre>312</Nombre>
     <id>123</id>
     <Precio>123.0</Precio>
     <prov>5123</prov>
-  </Producto>
-  <Producto>
-    <Nombre>555</Nombre>
-    <id>555</id>
-    <Precio>555.0</Precio>
-    <prov>nullo</prov>
-  </Producto>
-  <Producto>
-    <Nombre>521</Nombre>
-    <id>512312</id>
-    <Precio>2145123.0</Precio>
-    <prov>123</prov>
   </Producto>
   <Producto>
     <Nombre>41213</Nombre>

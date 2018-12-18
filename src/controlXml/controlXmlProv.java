@@ -77,8 +77,7 @@ public class controlXmlProv{
     public static Element buscar(List raiz, int index) {
         Iterator i = raiz.iterator();
         int cont=0;
-        while (i.hasNext()) {
-            
+        while (i.hasNext()) {            
             Element e = (Element) i.next();
             if (index==cont) {
                 return e;

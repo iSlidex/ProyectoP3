@@ -6,27 +6,39 @@
     <User>2</User>
   </Proveedor>
   <Proveedor>
-    <Nombre>2131521</Nombre>
-    <Direccion>3123</Direccion>
-    <Telefono>4213214</Telefono>
+    <Nombre>pos</Nombre>
+    <Direccion>pos</Direccion>
+    <Telefono>pos</Telefono>
     <User>2</User>
   </Proveedor>
   <Proveedor>
-    <Nombre>5123</Nombre>
-    <Direccion>312321</Direccion>
-    <Telefono>21421321</Telefono>
+    <Nombre>21315213</Nombre>
+    <Direccion>33123</Direccion>
+    <Telefono>42132143</Telefono>
+    <User>2</User>
+  </Proveedor>
+  <Proveedor>
+    <Nombre>51233</Nombre>
+    <Direccion>3123213</Direccion>
+    <Telefono>214213213</Telefono>
+    <User>2</User>
+  </Proveedor>
+  <Proveedor>
+    <Nombre>nullo2</Nombre>
+    <Direccion>nullo2</Direccion>
+    <Telefono>nullo2</Telefono>
     <User>2</User>
   </Proveedor>
   <Proveedor>
     <Nombre>123</Nombre>
-    <Direccion>213</Direccion>
+    <Direccion>123</Direccion>
     <Telefono>123</Telefono>
     <User>2</User>
   </Proveedor>
   <Proveedor>
-    <Nombre>nullo</Nombre>
-    <Direccion>nullo</Direccion>
-    <Telefono>nullo</Telefono>
+    <Nombre>123</Nombre>
+    <Direccion>123</Direccion>
+    <Telefono>123</Telefono>
     <User>2</User>
   </Proveedor>
 </root>

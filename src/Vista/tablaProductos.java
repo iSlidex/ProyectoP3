@@ -303,8 +303,8 @@ ArrayList<Producto> objeto;
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
         if (!(tabla.getSelectedRow()==-1)){
          Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),4);
-         
-         control.activaVentana(new vistaAddProd(this.currentUser,this.cosas),this);
+            
+         control.activaVentana(new vistaAddProd(this.currentUser,this.cosas,cosaActual),this);
          }else
             JOptionPane.showMessageDialog(this, "Selecciona una casilla");
     }//GEN-LAST:event_ModificarActionPerformed
