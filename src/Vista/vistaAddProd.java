@@ -75,6 +75,11 @@ ArrayList<Proveedor>  list;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         bttnCancel.setText("Cancelar");
+        bttnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnCancelActionPerformed(evt);
+            }
+        });
 
         nombreTx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,12 +188,16 @@ ArrayList<Proveedor>  list;
                Producto prov = control.añadirProd(jComboBox1.getSelectedItem().toString(),prods);      
                xml2.agregarCosa(prov);
             }
-        control.activaVentana(new tablaProveedores(currentUser), this);
+        control.activaVentana(new tablaProductos(currentUser), this);
     }//GEN-LAST:event_bttnContActionPerformed
 
     private void codigoTxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoTxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_codigoTxActionPerformed
+
+    private void bttnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnCancelActionPerformed
+        control.activaVentana(new tablaProductos(currentUser), this);
+    }//GEN-LAST:event_bttnCancelActionPerformed
 
     /**
      * @param args the command line arguments

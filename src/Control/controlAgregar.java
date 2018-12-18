@@ -42,14 +42,14 @@ public class controlAgregar extends controlador{
         this.nombreTx = nombreTx;
         this.telfTx = telfTx;
     }
-    public controlAgregar(JComboBox combo,JButton bttnCancel, JButton bttnCont, JTextField dirTx, JTextField nombreTx, JTextField telfTx, JFrame ventana) {
+    public controlAgregar(JComboBox combo,JButton bttnCancel, JButton bttnCont, JTextField codigoTx, JTextField nombreTx, JTextField precio, JFrame ventana) {
         super(ventana);
         this.combo=combo;
         this.bttnCancel = bttnCancel;
         this.bttnCont = bttnCont;
-        this.dirTx = dirTx;
+        this.codigoTx = codigoTx;
         this.nombreTx = nombreTx;
-        this.telfTx = telfTx;
+        this.precioTx = precio;
     }   
     
     public boolean sePuedeAgregarPR() throws InputMismatchException{

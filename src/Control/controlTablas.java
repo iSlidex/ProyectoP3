@@ -56,7 +56,7 @@ public class controlTablas extends controlador{
     
    public void llenarTabla(listaProd cosas, JTable tablaCosas ){  
       ArrayList<Producto> Prod;
-      String[] columna = { "Codigo", "Nombre", "Precio ","Objeto" };
+      String[] columna = { "Codigo", "Nombre", "Precio ","Proveedor","Objeto" };
       
       DefaultTableModel dtm = new DefaultTableModel(null,columna){
         @Override
