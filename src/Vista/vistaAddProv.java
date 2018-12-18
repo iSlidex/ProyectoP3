@@ -5,18 +5,45 @@
  */
 package Vista;
 import Control.*;
+import Estructuras.Proveedor;
+import Estructuras.Usuario;
+import Estructuras.listaProv;
+import controlXml.controlXmlProv;
 
 /**
  *
  * @author leito
  */
 public class vistaAddProv extends javax.swing.JFrame {
-
+Usuario currentUser;
+controlAgregar control;
+boolean modificando;
+controlXmlProv xml;
+listaProv proveedores;
+Proveedor provAct;
     /**
      * Creates new form vistaAddProv
      */
     public vistaAddProv() {
         initComponents();
+    }
+        public vistaAddProv(Usuario currentUser) {
+        modificando=false;
+        initComponents();
+        this.currentUser = currentUser;
+        control= new controlAgregar(bttnCancel, bttnCont, dirTx, nombreTx, telfTx, this);
+    }
+
+    vistaAddProv(Usuario currentUser,listaProv proveedores, Proveedor provActual) {
+       initComponents();
+       modificando=true;
+       control= new controlAgregar(bttnCancel, bttnCont, dirTx, nombreTx, telfTx, this);
+       this.proveedores = proveedores;
+       this.provAct= provActual;
+       this.currentUser = currentUser;
+       dirTx.setText(provActual.getDireccion());
+       nombreTx.setText(provActual.getNombre());
+       telfTx.setText(provActual.getTelefono());
     }
 
     /**
@@ -49,6 +76,11 @@ public class vistaAddProv extends javax.swing.JFrame {
         jLabel4.setText("Telefono: ");
 
         bttnCont.setText("Continuar");
+        bttnCont.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnContActionPerformed(evt);
+            }
+        });
 
         bttnCancel.setText("Cancelar");
 
@@ -70,12 +102,13 @@ public class vistaAddProv extends javax.swing.JFrame {
                                 .addComponent(dirTx, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(nombreTx, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(nombreTx, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(24, 24, 24))
             .addGroup(layout.createSequentialGroup()
                 .addGap(101, 101, 101)
@@ -110,6 +143,19 @@ public class vistaAddProv extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bttnContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnContActionPerformed
+         
+        if (modificando) {
+                int index = this.proveedores.indiceProv(provAct);
+                this.proveedores. eliminarProv(provAct);
+                Proveedor prov = control.añadirProv(this.currentUser.getNombre(),this.proveedores,index);
+                xml.actualizarCosa(prov, index);
+            }else{
+               Proveedor prov = control.añadirProv(this.currentUser.getNombre(),this.proveedores);
+                xml.agregarCosa(prov);
+            }
+    }//GEN-LAST:event_bttnContActionPerformed
 
     /**
      * @param args the command line arguments

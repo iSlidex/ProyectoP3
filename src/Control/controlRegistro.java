@@ -15,6 +15,7 @@ import controlXml.controlXmlUser;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -48,6 +49,20 @@ public class controlRegistro extends controlador {
             user=new Empleado(this.nombreTx.getText(), this.correoTx.getText(), this.passTx.getPassword());
         return user;
     }
+    
+    public static boolean correoEsValido(String email) 
+    { 
+        String raiz = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
+                            "[a-zA-Z0-9_+&*-]+)*@" + 
+                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" + 
+                            "A-Z]{2,7}$"; 
+                              
+        Pattern pat = Pattern.compile(raiz); 
+        if (email == null) 
+            return false; 
+        return pat.matcher(email).matches(); 
+    } 
+    
            public boolean sePuedeAgregarU() throws InputMismatchException{
         //Verifica que los campos de proveedor sean correctos
         boolean sePuede = true;
@@ -65,9 +80,12 @@ public class controlRegistro extends controlador {
         else if (!(Arrays.equals(passTx.getPassword(), confPass.getPassword())))
             //Contraseñas no coinciden
             sePuede = false;
-        else if (!(correoTx.getText().matches("^[a-zA-Z_0-9]*\\@\\[a-zA-Z]\\.\\[a-zA-Z]")))
+        
+
+        else if (!(correoEsValido(correoTx.getText())))
             //Correo invalido
-            sePuede = false;    
+            sePuede = false;  
+        
     return sePuede;
     }
     
@@ -79,23 +97,33 @@ public class controlRegistro extends controlador {
     
     public boolean correoInvalido(){
        if((!correoTx.getText().equals("")))
-            return correoTx.getText().matches("^[a-zA-Z_0-9]*\\@\\[a-zA-Z]\\.\\[a-zA-Z]");        
+            return (correoEsValido(correoTx.getText()));        
         else return false;   
     }
     
-    public boolean claveInvalida(){
+    public boolean claveDebil(){
         if((!passTx.getPassword().equals("")) && (!(confPass.getPassword().equals(""))))
-            if ((Arrays.equals(passTx.getPassword(), confPass.getPassword())))
-                return((Arrays.toString(passTx.getPassword()).length()<8) && (!(Arrays.toString(passTx.getPassword()).matches("^[0-9]*"))));
-            else return false;        
-        else return false;   
-    }    
+            return ((Arrays.toString(passTx.getPassword()).length()<8) || (!(Arrays.toString(passTx.getPassword()).matches("^[0-9]*"))));
+        else return true;   
+    }   
+    
+    public boolean claveCoincide(){
+    if (Arrays.equals(passTx.getPassword(), confPass.getPassword()))
+        return true;
+    else return false;
+    }
+    
     
     public ArrayList<String> mensajeErrorPR(){
         ArrayList<String> msg=new ArrayList<>();             
-        if(nombreInvalido())msg.add("Nombre");
-        if(correoInvalido())msg.add(" Correo");
-        if(claveInvalida())msg.add(" Contraseña");
+        if(nombreInvalido())msg.add("1. Nombre\n");
+        if(!correoInvalido())msg.add("2. Correo: Debe poseer el siguiente formato\n nombre@direccion.dominio\n");
+        if(claveDebil() || (!(claveCoincide())))
+            msg.add("3. Contraseña:");
+        if (claveDebil())
+            msg.add(" es muy débil, debe tener al menos 8 caracteres y tener al menos un caracter numerico\n");
+        if (!(claveCoincide()))
+            msg.add(" Contraseña y Confirmar contraseña deben ser iguales\n");
         return msg;
     }
 

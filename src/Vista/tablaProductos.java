@@ -28,12 +28,16 @@ public class tablaProductos extends javax.swing.JFrame {
 controlador control;
 listaProd cosas;
 int j;
+Usuario currentUser;
 //controlXml xml=new controlXml();
 protected ArrayList<Producto> objeto;
     /**
      * Creates new form Vista1
      */
     public tablaProductos() {
+        initComponents();      
+    }
+        public tablaProductos(Usuario currentUser) {
         initComponents();
        /* control = new ElecInterfaz(this,Agregar,Eliminar,Modificar,tabla);
         objeto = xml.todasLasCosas();
@@ -96,6 +100,7 @@ protected ArrayList<Producto> objeto;
         this.setIconImage(new ImageIcon(getClass().getResource("/imagen/icon.png")).getImage());
         Agregar.requestFocus();*/
     }
+  
 
     /**
      * This method is called from within the constructor to initialize the form.

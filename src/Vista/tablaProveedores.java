@@ -12,18 +12,54 @@ import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import Control.*;
+import Estructuras.Proveedor;
+import Estructuras.Usuario;
+import Estructuras.listaProv;
+import controlXml.controlXmlProv;
+import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author leito
  */
 public class tablaProveedores extends javax.swing.JFrame {
-
+listaProv proveedores;
+controlXmlProv xml=new controlXmlProv();
+controlTablas control;
+Usuario currentUser;
+ArrayList<Proveedor> objeto;
     /**
      * Creates new form vistaProveedores
      */
     public tablaProveedores() {
         initComponents();
+        controlTablas control = new controlTablas(Agregar, Eliminar, Modificar, Salir, tabla, this);
+    
+    }
+    public tablaProveedores(Usuario currentUser) {
+        initComponents();
+        controlTablas control = new controlTablas(Agregar, Eliminar, Modificar, Salir, tabla, this);
+        this.currentUser = currentUser;
+        objeto = xml.todasLosUser();
+        proveedores = new listaProv(objeto);
+        control.activa_Desactiva(false);
+         if (!proveedores.existeProv()) {
+            control.activa_Desactiva(true);        
+        }
+        else {
+            control.activa_Desactiva(false);        
+            tabla = new javax.swing.JTable();             
+        }
+        control.llenarTabla(this.proveedores,tabla);
+        if (tabla.getColumnModel().getColumnCount() > 0) {
+            tabla.getColumnModel().getColumn(3).setMinWidth(0);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+        }
+        this.getContentPane().setBackground (Color.LIGHT_GRAY);
+        Agregar.requestFocus();
     }
 
     /**
@@ -256,9 +292,7 @@ public class tablaProveedores extends javax.swing.JFrame {
     }//GEN-LAST:event_AgregarMouseClicked
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-       /* vistaProveedores ventana = new vistaProveedores();
-        //ventana.setVisible(true);
-        control.activaVentana(ventana,this);*/
+       control.activaVentana(new vistaAddProv(currentUser),this);
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void AgregarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AgregarKeyPressed
@@ -266,12 +300,11 @@ public class tablaProveedores extends javax.swing.JFrame {
     }//GEN-LAST:event_AgregarKeyPressed
 
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
-       /* if (!(tabla.getSelectedRow()==-1)){
-            Electrodomestico cosaActual = (Electrodomestico) tabla.getValueAt(tabla.getSelectedRow(),3);
-            Vista2 ventana = new Vista2(this.cosas,cosaActual);
-            control.activaVentana(ventana,this);
-        }else
-        JOptionPane.showMessageDialog(this, "Selecciona una casilla");*/
+       if (!(tabla.getSelectedRow()==-1)){
+            Proveedor provActual = (Proveedor) tabla.getValueAt(tabla.getSelectedRow(),3);
+            control.activaVentana(new vistaAddProv(this.proveedores,provActual),this);
+       }else
+                JOptionPane.showMessageDialog(this, "Selecciona una casilla");
     }//GEN-LAST:event_ModificarActionPerformed
 
     private void ModificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ModificarKeyPressed

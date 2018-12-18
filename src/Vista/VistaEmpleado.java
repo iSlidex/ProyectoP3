@@ -140,7 +140,7 @@ Empleado currentUser;
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnProvActionPerformed
-       control.activaVentana(new tablaProveedores(), this);
+       control.activaVentana(new tablaProveedores(currentUser), this);
     }//GEN-LAST:event_bttnProvActionPerformed
 
     private void bttnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnProdActionPerformed

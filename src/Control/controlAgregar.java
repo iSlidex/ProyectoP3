@@ -31,9 +31,9 @@ public class controlAgregar extends controlador{
         this.precioTx = precioTx;
     }
     
-        public controlAgregar(JButton bttnCancel, JButton bttnCont, JTextField dirTx, JTextField nombreTx, JTextField telfTx, JFrame ventana,List lista) {
+        public controlAgregar(JButton bttnCancel, JButton bttnCont, JTextField dirTx, JTextField nombreTx, JTextField telfTx, JFrame ventana) {
         super(ventana);
-        this.lista = lista;
+        
         this.bttnCancel = bttnCancel;
         this.bttnCont = bttnCont;
         this.dirTx = dirTx;
@@ -116,6 +116,16 @@ public class controlAgregar extends controlador{
     
     public void actualizar(){
         
+    }
+        public Proveedor añadirProv(String uAcargo,listaProv proveedores,int index){
+        Proveedor prov= new Proveedor(nombreTx.getText(),dirTx.getText() ,telfTx.getText() ,uAcargo);        
+        proveedores.incluirProv(index,prov);
+        return prov;
+    }
+        public Proveedor añadirProv(String uAcargo,listaProv proveedores){
+        Proveedor prov= new Proveedor(nombreTx.getText(),dirTx.getText() ,telfTx.getText() ,uAcargo);        
+        proveedores.incluirProv(prov);
+        return prov;
     }
 
 

@@ -15,8 +15,12 @@ import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import javax.swing.SwingWorker;
 /**
  *
@@ -95,7 +99,6 @@ boolean paso;
             }
         });
 
-        passTx.setText("jPasswordField1");
         passTx.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 passTxMouseClicked(evt);
@@ -109,7 +112,6 @@ boolean paso;
 
         jLabel5.setText("Comfirmar Contraseña:");
 
-        confPass.setText("jPasswordField2");
         confPass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 confPassMouseClicked(evt);
@@ -216,6 +218,21 @@ boolean paso;
     
     private void bttnRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRegActionPerformed
         ArrayList<Usuario> users = controlXml.todasLosUser();
+        
+        control = new controlRegistro(booAdm, bttnCancel, bttnReg, confPass, correoTx, nombreTx, passTx, this);
+        if (control.sePuedeAgregarU()){
+            control.crearUser();
+            controlXml.agregarUser(control.crearUser());
+            VistaLogin ventana = new VistaLogin();
+            control.activaVentana(ventana, this);
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Revisa los siguientes campos: "+control.mensajeErrorPR());
+        }
+        
+        
+        
+        
         if (booAdm.isSelected()) {
              if (users.isEmpty()){
                 controlXml.agregarUser(control.crearUser());
@@ -231,7 +248,8 @@ boolean paso;
 //                    ventana.setVisible(true);
 //                    this.setVisible(false);
                         control.activaVentana (ventana,this);                    
-                }else {
+                }
+                else {
                         booAdm.setEnabled(true);                        
                         JOptionPane.showMessageDialog(this,"Usuario Administrador creado con exito");
                         controlXml.agregarUser(control.crearUser());
@@ -239,7 +257,9 @@ boolean paso;
                         control.activaVentana(ventana, this);
                 }
              }
-             }else {
+        }
+        
+        else if ((booAdm.isSelected())&& (control.sePuedeAgregarU())) {
                     JOptionPane.showMessageDialog(this,"Usuario creado con exito");
                     controlXml.agregarUser(control.crearUser());        
                     VistaLogin ventana = new VistaLogin();

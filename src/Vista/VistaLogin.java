@@ -6,6 +6,7 @@
 package Vista;
 import Control.*;
 import Estructuras.Administrador;
+import Estructuras.Empleado;
 import Estructuras.Usuario;
 import controlXml.controlXmlUser;
 import java.util.ArrayList;
@@ -169,11 +170,11 @@ ArrayList<Usuario> users;
                System.out.println("entro2");
                if(act instanceof Administrador ){
                    System.out.println("entro3");
-                vistaAdmin ventana =new vistaAdmin();
+                vistaAdmin ventana =new vistaAdmin((Administrador) act);
                 next.activaVentana(ventana,this ); 
                }else{
                    System.out.println("entro4");
-                    VistaEmpleado ventana =new VistaEmpleado();
+                    VistaEmpleado ventana =new VistaEmpleado((Empleado) act);
                      next.activaVentana(ventana,this);
                }
            }

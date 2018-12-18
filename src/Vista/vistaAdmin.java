@@ -5,18 +5,23 @@
  */
 package Vista;
 import Control.*;
+import Estructuras.Administrador;
 /**
  *
  * @author leito
  */
 public class vistaAdmin extends javax.swing.JFrame {
-
+controlVistaAdm control;
     /**
      * Creates new form vistaAdmin
      */
     public vistaAdmin() {
         initComponents();
-        controlVistaAdm control = new controlVistaAdm(bttnBack, bttnExit, bttnRegNu, bttnViewProd, bttnViewProv, bttnViewU, this);
+        control = new controlVistaAdm(bttnBack, bttnExit, bttnRegNu, bttnViewProd, bttnViewProv, bttnViewU, this);
+        }
+        public vistaAdmin(Administrador currentUser) {
+        initComponents();
+        control = new controlVistaAdm(bttnBack, bttnExit, bttnRegNu, bttnViewProd, bttnViewProv, bttnViewU, this);
         }
 
     /**
@@ -50,10 +55,25 @@ public class vistaAdmin extends javax.swing.JFrame {
         bttnViewProd.setText("Ver Productos");
 
         bttnRegNu.setText("Registrar Nuevo Usuario");
+        bttnRegNu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnRegNuActionPerformed(evt);
+            }
+        });
 
-        bttnBack.setText("Regresar");
+        bttnBack.setText("Cerrar Sesion");
+        bttnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnBackActionPerformed(evt);
+            }
+        });
 
         bttnExit.setText("Salir");
+        bttnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnExitActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Menu Administrador");
 
@@ -71,7 +91,7 @@ public class vistaAdmin extends javax.swing.JFrame {
                         .addComponent(bttnRegNu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
                         .addComponent(bttnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bttnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(74, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -100,6 +120,18 @@ public class vistaAdmin extends javax.swing.JFrame {
     private void bttnViewUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnViewUActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bttnViewUActionPerformed
+
+    private void bttnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_bttnExitActionPerformed
+
+    private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
+        control.activaVentana(new VistaLogin(), this);
+    }//GEN-LAST:event_bttnBackActionPerformed
+
+    private void bttnRegNuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRegNuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnRegNuActionPerformed
 
     /**
      * @param args the command line arguments

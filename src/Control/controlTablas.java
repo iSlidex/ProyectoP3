@@ -28,31 +28,29 @@ public class controlTablas extends controlador{
     private JButton Eliminar;
     private JButton Modificar;
     private JButton Salir;
-    private JLabel jLabel3;
-    private JScrollPane jScrollPane1;
-    private JTable tabla;
-    List lista;
 
-    public controlTablas(JButton Agregar, JButton Eliminar, JButton Modificar, JButton Salir, JLabel jLabel3, JScrollPane jScrollPane1, JTable tabla, List lista, JFrame ventana) {
+    
+    private JTable tabla;
+   
+
+    public controlTablas(JButton Agregar, JButton Eliminar, JButton Modificar, JButton Salir, JTable tabla, JFrame ventana) {
         super(ventana);
         this.Agregar = Agregar;
         this.Eliminar = Eliminar;
         this.Modificar = Modificar;
         this.Salir = Salir;
-        this.jLabel3 = jLabel3;
-        this.jScrollPane1 = jScrollPane1;
         this.tabla = tabla;
-        this.lista = lista;
+        
     }
     
     
     public controlTablas(JFrame ventana) {
         super(ventana);
     }
-    public controlTablas(JFrame ventana, List cosas) {
-        super(ventana);
-        this.lista = cosas;
-    }
+//    public controlTablas(JFrame ventana, List cosas) {
+//        super(ventana);
+//        this.lista = cosas;
+//    }
     
    public void llenarTabla(listaProd cosas, JTable tablaCosas ){  
       ArrayList<Producto> Prod;
@@ -152,4 +150,5 @@ MouseListener c = new MouseListener() {
     public void activaDesactiva(boolean verdadOFalso){
       Agregar.setEnabled(verdadOFalso);     
     }
+
 }

@@ -34,7 +34,7 @@
                       <Component id="bttnBack" alignment="0" max="32767" attributes="0"/>
                       <Component id="bttnExit" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jLabel1" min="-2" pref="102" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="163" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="74" max="32767" attributes="0"/>
           </Group>
@@ -85,16 +85,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrar Nuevo Usuario"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnRegNuActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bttnBack">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Regresar"/>
+        <Property name="text" type="java.lang.String" value="Cerrar Sesion"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnBackActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bttnExit">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnExitActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
