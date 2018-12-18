@@ -112,18 +112,24 @@ public class controlXmlProd{
         }
         return null;
     }
+        public boolean agregarCosa(Producto prod,int index) {        
+        boolean resultado = false;
+        root.addContent(index, prodToXmlElement(prod));
+        resultado = updateDocument();
+        return resultado;
+    }
         public boolean actualizarCosa(Producto prod, int index) {
             boolean resultado = false;
             Element aux = new Element("Producto");
             List cosas = this.root.getChildren("Producto");
-            while (aux != null) {
+            
                 aux = controlXmlProd.buscar(cosas,index );
                 if (aux != null) {
                     cosas.remove(aux);
                     resultado = updateDocument();
                 }
-            }
-            agregarCosa(prod);
+            
+            agregarCosa(prod,index);
             return resultado;
         }
         public boolean borrarCosa(Integer index) {
