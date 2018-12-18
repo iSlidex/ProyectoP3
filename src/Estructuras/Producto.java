@@ -12,29 +12,32 @@ package Estructuras;
 public class Producto {
     protected String nombre;
     protected String prov;   
-    protected float precio;
-    protected String tipo;
+    protected float precio;    
     protected String id;
 
-    public Producto(String nombre, String prov, float precio, String tipo,String id) {
+    public Producto(String nombre, String prov, float precio,String id) {
         this.nombre = nombre;
         this.prov = prov;
-        this.tipo = tipo;
+        //this.tipo = tipo;
         this.precio = precio;
         this.id = id;
+    }
+
+    public Producto() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
+//public String getTipo() {
+//    return tipo;
+//}
+//
+//public void setTipo(String tipo) {
+//    this.tipo = tipo;
+//}
 
     public String getProv() {
         return prov;

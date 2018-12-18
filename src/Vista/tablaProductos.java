@@ -7,6 +7,7 @@ package Vista;
 
 import Control.*;
 import Estructuras.*;
+import controlXml.controlXmlProd;
 import java.awt.*;
 import static java.awt.Color.black;
 import static java.awt.Color.blue;
@@ -25,12 +26,14 @@ import javax.swing.JPanel;
  * @author leito
  */
 public class tablaProductos extends javax.swing.JFrame {
-controlador control;
+controlTablas control;
 listaProd cosas;
 int j;
 Usuario currentUser;
+controlXmlProd xml= new controlXmlProd();
+vistaAddProd vent;
 //controlXml xml=new controlXml();
-protected ArrayList<Producto> objeto;
+ArrayList<Producto> objeto;
     /**
      * Creates new form Vista1
      */
@@ -39,22 +42,18 @@ protected ArrayList<Producto> objeto;
     }
         public tablaProductos(Usuario currentUser) {
         initComponents();
-       /* control = new ElecInterfaz(this,Agregar,Eliminar,Modificar,tabla);
-        objeto = xml.todasLasCosas();
-        cosas = new listaCosas(objeto);
-        this.cosas= cosas;
+        control = new controlTablas(Agregar, Eliminar, Modificar, Salir, tabla, this);
+        this.currentUser = currentUser;
+        objeto = xml.todasLosUser();
+        cosas = new listaProd(objeto);
         control.activa_Desactiva(false);
-         if (!cosas.existeLista()) {
-            control.activa_Desactiva(true);
-            j=1;
+         if (!cosas.existeProd()) {
+            control.activa_Desactiva(true);        
         }
         else {
-            control.activa_Desactiva(false);
-        
-            tabla = new javax.swing.JTable();
-            j=0;       
+            control.activa_Desactiva(false);        
+            tabla = new javax.swing.JTable();             
         }
-
         control.llenarTabla(this.cosas,tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
             tabla.getColumnModel().getColumn(3).setMinWidth(0);
@@ -63,43 +62,9 @@ protected ArrayList<Producto> objeto;
         }
         this.getContentPane().setBackground (Color.LIGHT_GRAY);
         Agregar.requestFocus();
-        this.setIconImage(new ImageIcon(getClass().getResource("/imagen/icon.png")).getImage());
         
     }
-    public tablaProductos(listaCosas cosas) {
-        initComponents();
-        this.cosas=cosas;
-        
-        control = new ElecInterfaz(this,Agregar,Eliminar,Modificar,tabla);
-        if (!cosas.existeLista()) {
-            control.activa_Desactiva(true);
-            j=1;
-        }
-        else {
-            control.activa_Desactiva(false);
-        
-            tabla = new javax.swing.JTable();
-            j=0;       
-        }
-        this.getContentPane().setBackground(Color.LIGHT_GRAY);
-        control.llenarTabla(this.cosas,tabla);
 
-        if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(3).setMinWidth(0);
-            tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
-        }
-        if (!cosas.existeLista()){
-            control.activa_Desactiva(true);
-            j=1;
-        }
-        else {
-            control.activa_Desactiva(false);
-            j=0;
-        }
-        this.setIconImage(new ImageIcon(getClass().getResource("/imagen/icon.png")).getImage());
-        Agregar.requestFocus();*/
-    }
   
 
     /**
@@ -199,25 +164,25 @@ protected ArrayList<Producto> objeto;
         tabla.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Tipo", "Nombre", "Precio", "Objeto"
+                "Tipo", "Nombre", "Precio", "Proveedor", "Objeto"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -235,9 +200,9 @@ protected ArrayList<Producto> objeto;
         });
         jScrollPane1.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(3).setMinWidth(0);
-            tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(4).setMinWidth(0);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(4).setMaxWidth(0);
         }
         tabla.getAccessibleContext().setAccessibleName("");
         tabla.getAccessibleContext().setAccessibleDescription("");
@@ -288,7 +253,7 @@ protected ArrayList<Producto> objeto;
                 .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
                 .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -296,17 +261,17 @@ protected ArrayList<Producto> objeto;
                     .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(293, 293, 293))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 40, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 40, Short.MAX_VALUE)))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(48, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(50, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 217, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Agregar)
                     .addComponent(Modificar)
@@ -314,10 +279,10 @@ protected ArrayList<Producto> objeto;
                     .addComponent(Salir))
                 .addGap(20, 20, 20))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 27, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(59, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 58, Short.MAX_VALUE)))
+                    .addContainerGap(89, Short.MAX_VALUE)))
         );
 
         pack();
@@ -329,9 +294,8 @@ protected ArrayList<Producto> objeto;
     }//GEN-LAST:event_AgregarMouseClicked
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-       /* Vista2 ventana = new Vista2(this.cosas);
-        //ventana.setVisible(true);       
-        control.activaVentana(ventana,this);*/
+       this.vent = new vistaAddProd(this.currentUser,cosas,null);
+       control.activaVentana(this.vent,this);
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed

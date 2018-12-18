@@ -16,6 +16,7 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
@@ -28,6 +29,7 @@ public class controlTablas extends controlador{
     private JButton Eliminar;
     private JButton Modificar;
     private JButton Salir;
+    private JComboBox combo;
 
     
     private JTable tabla;
@@ -54,7 +56,7 @@ public class controlTablas extends controlador{
     
    public void llenarTabla(listaProd cosas, JTable tablaCosas ){  
       ArrayList<Producto> Prod;
-      String[] columna = { "Tipo", "Nombre", "Precio ","Objeto" };
+      String[] columna = { "Codigo", "Nombre", "Precio ","Objeto" };
       
       DefaultTableModel dtm = new DefaultTableModel(null,columna){
         @Override
@@ -62,12 +64,12 @@ public class controlTablas extends controlador{
             return false;        
         }
         Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class, Producto.class
+                java.lang.String.class, java.lang.String.class, java.lang.Float.class,java.lang.String.class, Producto.class
         };        
     };
       Prod= cosas.getLista();
       Prod.forEach((per) -> {
-          dtm.addRow(new Object[] {per.getTipo(), per.getNombre(),per.getPrecio(),per});
+          dtm.addRow(new Object[] {per.getId(), per.getNombre(),per.getPrecio(),per});
         });
       tablaCosas.setModel(dtm);
       tablaCosas.setFont(new Font("perpetua",Font.BOLD,16));
@@ -150,5 +152,8 @@ MouseListener c = new MouseListener() {
     public void activaDesactiva(boolean verdadOFalso){
       Agregar.setEnabled(verdadOFalso);     
     }
-
+    public void llenarComboProv(){
+        
+    }
+    
 }

@@ -32,8 +32,8 @@ public class controlXmlProd{
     private Element prodToXmlElement(Producto prod){
 
         Element Producto = new Element("Producto");
-        Element tipo = new Element("Tipo");
-        tipo.setText(prod.getTipo());
+//        Element tipo = new Element("Tipo");
+//        tipo.setText(prod.getTipo());
         Element nombre = new Element("Nombre");
         nombre.setText(prod.getNombre());
         Element id = new Element("id");
@@ -42,7 +42,7 @@ public class controlXmlProd{
         precio.setText(Float.toString(prod.getPrecio()));
         Element prov = new Element("prov");
         prov.setText(prod.getProv());
-        Producto.addContent(tipo);
+//        Producto.addContent(tipo);
         Producto.addContent(nombre);
         Producto.addContent(id);
         Producto.addContent(precio);        
@@ -52,7 +52,7 @@ public class controlXmlProd{
     /*Método que retorna un Electrodomestico. A este metodo se le manda un Element y con
     sus datos se hará los pasos requeridos para crear el Electrodomestico*/
     private Producto prodToObject(Element element) throws ParseException {
-        Producto prod = new Producto(element.getChildText("Nombre"),element.getChildText("prov"),Float.parseFloat(element.getChildText("Precio")),element.getChildText("tipo"),element.getChildText("id"));
+        Producto prod = new Producto(element.getChildText("Nombre"),element.getChildText("prov"),Float.parseFloat(element.getChildText("Precio")),element.getChildText("id"));
        return prod;
     }
     

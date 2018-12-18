@@ -7,6 +7,7 @@ import static java.awt.SystemColor.text;
 import java.util.regex.Pattern;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
@@ -20,6 +21,7 @@ public class controlAgregar extends controlador{
     private JTextField precioTx;
     private JTextField dirTx;    
     private JTextField telfTx;
+    private JComboBox combo;
 
     public controlAgregar(List lista, JButton bttnCancel, JButton bttnCont, JTextField codigoTx, JTextField nombreTx, JTextField precioTx, JFrame ventana) {
         super(ventana);
@@ -39,7 +41,16 @@ public class controlAgregar extends controlador{
         this.dirTx = dirTx;
         this.nombreTx = nombreTx;
         this.telfTx = telfTx;
-    }    
+    }
+    public controlAgregar(JComboBox combo,JButton bttnCancel, JButton bttnCont, JTextField dirTx, JTextField nombreTx, JTextField telfTx, JFrame ventana) {
+        super(ventana);
+        this.combo=combo;
+        this.bttnCancel = bttnCancel;
+        this.bttnCont = bttnCont;
+        this.dirTx = dirTx;
+        this.nombreTx = nombreTx;
+        this.telfTx = telfTx;
+    }   
     
     public boolean sePuedeAgregarPR() throws InputMismatchException{
         //Verifica que los campos de producto sean correctos
@@ -134,6 +145,21 @@ public class controlAgregar extends controlador{
             prov.setTelefono(telfTx.getText());
             list.incluirProv(index, prov);
         }
+        public void agregarProd(String prov,listaProd list, Producto prod,int index){
+            prod.setProv(prov);
+            prod.setId(codigoTx.getText());
+            prod.setNombre(nombreTx.getText());
+            prod.setPrecio(Float.parseFloat(precioTx.getText()));
+            list.incluirProd(index, prod);
+        }
+        public Producto añadirProd(String prov,listaProd proveedores){
+        Producto prod= new Producto(nombreTx.getText(),combo.getSelectedItem().toString(),Float.parseFloat(precioTx.getText()) ,codigoTx.getText());        
+        proveedores.incluirProd(prod);
+        return prod;
+    }
 
+    public void llenarComboProv(){
+        
+    }
 
 }

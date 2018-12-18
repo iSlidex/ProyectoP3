@@ -142,19 +142,24 @@ public class controlXmlUser{
         }
         return null;
     }
-    
+            public boolean agregarCosa(Usuario prod,int index) {        
+              boolean resultado = false;
+              root.addContent(index, userToXmlElement(prod));
+              resultado = updateDocument();
+              return resultado;
+          }
         public boolean actualizarCosa(Usuario user, int index) {
             boolean resultado = false;
             Element aux = new Element("Usuario");
             List cosas = this.root.getChildren("Usuario");
-            while (aux != null) {
+            
                 aux = controlXmlUser.buscar(cosas,index );
                 if (aux != null) {
                     cosas.remove(aux);
                     resultado = updateDocument();
                 }
-            }
-            agregarCosa(user);
+            
+            agregarCosa(user,index);
             return resultado;
         }
         public boolean borrarCosa(Integer index) {

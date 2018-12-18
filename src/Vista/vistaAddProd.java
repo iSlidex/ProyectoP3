@@ -5,18 +5,46 @@
  */
 package Vista;
 import Control.*;
+import Estructuras.Producto;
+import Estructuras.Proveedor;
+import Estructuras.Usuario;
+import Estructuras.listaProd;
+import controlXml.controlXmlProd;
+import controlXml.controlXmlProv;
 
+    /**
 /**
  *
  * @author leito
  */
 public class vistaAddProd extends javax.swing.JFrame {
+Usuario currentUser;
+controlAgregar control;
+boolean modificando;
+controlXmlProv xml=new controlXmlProv();
+controlXmlProd xml2=new controlXmlProd();
+listaProd prods;
+Proveedor provAct;
+Producto prod;
 
     /**
      * Creates new form vistaAddProd
      */
     public vistaAddProd() {
         initComponents();
+    }
+    public vistaAddProd(Usuario currentUser,listaProd prods,Producto prod) {
+        initComponents();
+        control =new controlAgregar(jComboBox1, bttnCancel, bttnCont, codigoTx, nombreTx, precioTx, this);
+        this.prods = prods;
+        this.prod=prod;
+        if(prod!=null){
+            modificando=true;
+            jComboBox1.setSelectedItem(prod.getProv());
+            nombreTx.setText(prod.getNombre());
+            codigoTx.setText(prod.getId());
+            precioTx.setText(Float.toString(prod.getPrecio()));
+        }else modificando=false;
     }
 
     /**
@@ -37,10 +65,24 @@ public class vistaAddProd extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         bttnCont = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         bttnCancel.setText("Cancelar");
+
+        nombreTx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreTxActionPerformed(evt);
+            }
+        });
+
+        codigoTx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codigoTxActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Añadir Producto: ");
 
@@ -51,6 +93,15 @@ public class vistaAddProd extends javax.swing.JFrame {
         jLabel4.setText("Codigo:");
 
         bttnCont.setText("Continuar");
+        bttnCont.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnContActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel5.setText("Proveedor");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,32 +111,40 @@ public class vistaAddProd extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(95, 95, 95)
+                        .addComponent(bttnCont)
+                        .addGap(31, 31, 31)
+                        .addComponent(bttnCancel)
+                        .addGap(114, 114, 114))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nombreTx)
-                            .addComponent(codigoTx)
-                            .addComponent(precioTx))))
-                .addGap(24, 24, 24))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addComponent(bttnCont)
-                .addGap(31, 31, 31)
-                .addComponent(bttnCancel)
-                .addContainerGap(114, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nombreTx)
+                                    .addComponent(codigoTx)
+                                    .addComponent(precioTx)
+                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(nombreTx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -101,11 +160,33 @@ public class vistaAddProd extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bttnCont)
                     .addComponent(bttnCancel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(17, 17, 17))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void nombreTxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreTxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreTxActionPerformed
+
+    private void bttnContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnContActionPerformed
+        Producto p = new Producto();
+        if (modificando) {
+                int index = prods.indiceProd(prod);                
+                this.prods.eliminarProd(prod);
+                control.agregarProd(jComboBox1.getSelectedItem().toString(),prods,p,index);                
+                xml2.actualizarCosa(p, index);
+            }else{
+               Producto prov = control.añadirProd(jComboBox1.getSelectedItem().toString(),prods);      
+               xml2.agregarCosa(prov);
+            }
+        control.activaVentana(new tablaProveedores(currentUser), this);
+    }//GEN-LAST:event_bttnContActionPerformed
+
+    private void codigoTxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoTxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_codigoTxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,10 +227,12 @@ public class vistaAddProd extends javax.swing.JFrame {
     private javax.swing.JButton bttnCancel;
     private javax.swing.JButton bttnCont;
     private javax.swing.JTextField codigoTx;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField nombreTx;
     private javax.swing.JTextField precioTx;
     // End of variables declaration//GEN-END:variables
