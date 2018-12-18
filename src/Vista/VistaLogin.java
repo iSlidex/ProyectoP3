@@ -9,8 +9,14 @@ import Estructuras.Administrador;
 import Estructuras.Empleado;
 import Estructuras.Usuario;
 import controlXml.controlXmlUser;
+import java.awt.Color;
+import static java.awt.Color.black;
+import static java.awt.Color.blue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
@@ -32,6 +38,7 @@ ArrayList<Usuario> users;
         controlXmlU = new controlXmlUser();
         users = controlXmlU.todasLosUser();
         this.verif=true;
+        this.getContentPane().setBackground (Color.LIGHT_GRAY);
     }
 
     /**
@@ -53,6 +60,7 @@ ArrayList<Usuario> users;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
+        bttnIn.setFont(new Font("vrinda",Font.BOLD,15));
         bttnIn.setText("Ingresar");
         bttnIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,7 +72,37 @@ ArrayList<Usuario> users;
                 bttnInKeyPressed(evt);
             }
         });
+        MouseListener a = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
 
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnIn.setForeground(blue);
+                bttnIn.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnIn.setForeground(black);
+                bttnIn.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnIn.addMouseListener(a);
+        bttnIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnInActionPerformed(evt);
+            }
+        });
+
+        bttnExit.setFont(new Font("vrinda",Font.BOLD,15));
         bttnExit.setText("Salir");
         bttnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +112,35 @@ ArrayList<Usuario> users;
         bttnExit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 bttnExitKeyPressed(evt);
+            }
+        });
+        MouseListener b = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnExit.setForeground(blue);
+                bttnExit.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnExit.setForeground(black);
+                bttnExit.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnExit.addMouseListener(b);
+        bttnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnExitActionPerformed(evt);
             }
         });
 
@@ -100,10 +167,13 @@ ArrayList<Usuario> users;
             }
         });
 
+        jLabel1.setFont(new Font("Verdana",Font.BOLD,12));
         jLabel1.setText("Usuario :");
 
+        jLabel2.setFont(new Font("Verdana",Font.BOLD,12));
         jLabel2.setText("Contraseña :");
 
+        bttnReg.setFont(new Font("vrinda",Font.BOLD,15));
         bttnReg.setText("Registrarse");
         bttnReg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,6 +183,35 @@ ArrayList<Usuario> users;
         bttnReg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 bttnRegKeyPressed(evt);
+            }
+        });
+        MouseListener c = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnReg.setForeground(blue);
+                bttnReg.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnReg.setForeground(black);
+                bttnReg.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnReg.addMouseListener(c);
+        bttnReg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnRegActionPerformed(evt);
             }
         });
 

@@ -6,8 +6,14 @@
 package Vista;
 import Control.*;
 import Estructuras.Empleado;
+import java.awt.Color;
+import static java.awt.Color.black;
+import static java.awt.Color.blue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  *
@@ -22,11 +28,13 @@ Empleado currentUser;
     public VistaEmpleado() {
         initComponents();
         control = new controladorVistaEmp(bttnAddProd, bttnAddProv, bttnBack, bttnExit, bttnOpUser, bttnProd, bttnProv, this);
+        this.getContentPane().setBackground (Color.LIGHT_GRAY);
     }
     public VistaEmpleado(Empleado currentUser) {
         initComponents();
         control = new controladorVistaEmp(bttnAddProd, bttnAddProv, bttnBack, bttnExit, bttnOpUser, bttnProd, bttnProv, this);
         this.currentUser=currentUser;
+        this.getContentPane().setBackground (Color.LIGHT_GRAY);
     }
 
     /**
@@ -49,8 +57,11 @@ Empleado currentUser;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new Font("arial",Font.BOLD,27));
+        jLabel1.setForeground(Color.DARK_GRAY);
         jLabel1.setText("Menu:");
 
+        bttnAddProv.setFont(new Font("vrinda",Font.BOLD,15));
         bttnAddProv.setText("Agregar Proveedor");
         bttnAddProv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,7 +73,37 @@ Empleado currentUser;
                 bttnAddProvKeyPressed(evt);
             }
         });
+        MouseListener c = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
 
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnAddProv.setForeground(blue);
+                bttnAddProv.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnAddProv.setForeground(black);
+                bttnAddProv.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnAddProv.addMouseListener(c);
+        bttnAddProv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnAddProvActionPerformed(evt);
+            }
+        });
+
+        bttnAddProd.setFont(new Font("vrinda",Font.BOLD,15));
         bttnAddProd.setText("Agregar Producto");
         bttnAddProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,7 +115,37 @@ Empleado currentUser;
                 bttnAddProdKeyPressed(evt);
             }
         });
+        MouseListener b = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
 
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnAddProd.setForeground(blue);
+                bttnAddProd.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnAddProd.setForeground(black);
+                bttnAddProd.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnAddProd.addMouseListener(b);
+        bttnAddProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnAddProdActionPerformed(evt);
+            }
+        });
+
+        bttnOpUser.setFont(new Font("vrinda",Font.BOLD,15));
         bttnOpUser.setText("Opciones de Usuario");
         bttnOpUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +157,32 @@ Empleado currentUser;
                 bttnOpUserKeyPressed(evt);
             }
         });
+        MouseListener f = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
 
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnOpUser.setForeground(blue);
+                bttnOpUser.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnOpUser.setForeground(black);
+                bttnOpUser.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnOpUser.addMouseListener(f);
+
+        bttnExit.setFont(new Font("vrinda",Font.BOLD,15));
         bttnExit.setText("Salir");
         bttnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +194,37 @@ Empleado currentUser;
                 bttnExitKeyPressed(evt);
             }
         });
+        MouseListener e = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
 
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnExit.setForeground(blue);
+                bttnExit.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnExit.setForeground(black);
+                bttnExit.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnExit.addMouseListener(e);
+        bttnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnExitActionPerformed(evt);
+            }
+        });
+
+        bttnProv.setFont(new Font("vrinda",Font.BOLD,15));
         bttnProv.setText("Ver Proveedores");
         bttnProv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,7 +236,37 @@ Empleado currentUser;
                 bttnProvKeyPressed(evt);
             }
         });
+        MouseListener a = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
 
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnProv.setForeground(blue);
+                bttnProv.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnProv.setForeground(black);
+                bttnProv.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnProv.addMouseListener(a);
+        bttnProv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnProvActionPerformed(evt);
+            }
+        });
+
+        bttnProd.setFont(new Font("vrinda",Font.BOLD,15));
         bttnProd.setText("Ver Productos");
         bttnProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,8 +278,38 @@ Empleado currentUser;
                 bttnProdKeyPressed(evt);
             }
         });
+        MouseListener g = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnProd.setForeground(blue);
+                bttnProd.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnProd.setForeground(black);
+                bttnProd.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnProd.addMouseListener(g);
+        bttnProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnProdActionPerformed(evt);
+            }
+        });
 
         bttnBack.setText("Regresar");
+        bttnBack.setFont(new Font("vrinda",Font.BOLD,15));
         bttnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bttnBackActionPerformed(evt);
@@ -132,6 +318,35 @@ Empleado currentUser;
         bttnBack.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 bttnBackKeyPressed(evt);
+            }
+        });
+        MouseListener d = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnBack.setForeground(blue);
+                bttnBack.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnBack.setForeground(black);
+                bttnBack.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnBack.addMouseListener(d);
+        bttnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnBackActionPerformed(evt);
             }
         });
 
