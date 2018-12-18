@@ -6,6 +6,18 @@
     <prov>foo</prov>
   </Producto>
   <Producto>
+    <Nombre>4245</Nombre>
+    <id>653</id>
+    <Precio>666.0</Precio>
+    <prov>51233</prov>
+  </Producto>
+  <Producto>
+    <Nombre>4353</Nombre>
+    <id>21352</id>
+    <Precio>664.0</Precio>
+    <prov>foo</prov>
+  </Producto>
+  <Producto>
     <Nombre>0</Nombre>
     <id>0</id>
     <Precio>0.0</Precio>
@@ -16,17 +28,5 @@
     <id>0</id>
     <Precio>0.0</Precio>
     <prov>123</prov>
-  </Producto>
-  <Producto>
-    <Nombre>312</Nombre>
-    <id>123</id>
-    <Precio>0.0</Precio>
-    <prov>foo</prov>
-  </Producto>
-  <Producto>
-    <Nombre>123</Nombre>
-    <id>123</id>
-    <Precio>123.0</Precio>
-    <prov>foo</prov>
   </Producto>
 </root>

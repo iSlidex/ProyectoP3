@@ -41,4 +41,10 @@
     <Telefono>123</Telefono>
     <User>2</User>
   </Proveedor>
+  <Proveedor>
+    <Nombre>123</Nombre>
+    <Direccion>123</Direccion>
+    <Telefono>123</Telefono>
+    <User>2</User>
+  </Proveedor>
 </root>
