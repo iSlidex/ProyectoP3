@@ -158,8 +158,10 @@ public class controlAgregar extends controlador{
         return prod;
     }
 
-    public void llenarComboProv(){
-        
+    public void llenarComboProv(ArrayList<Proveedor>  list){
+        for (Proveedor i : list){
+            combo.addItem(i.getNombre());
+        }        
     }
 
 }

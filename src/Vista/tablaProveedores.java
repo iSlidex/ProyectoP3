@@ -313,6 +313,7 @@ vistaAddProv vent;
         this.vent = new vistaAddProv(this.currentUser,proveedores,null);
         vent.setVisible(true);
    }*/ this.vent = new vistaAddProv(this.currentUser,proveedores,null);
+       
        control.activaVentana(this.vent,this);
     }//GEN-LAST:event_AgregarActionPerformed
 

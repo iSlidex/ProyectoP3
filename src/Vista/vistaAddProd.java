@@ -11,6 +11,7 @@ import Estructuras.Usuario;
 import Estructuras.listaProd;
 import controlXml.controlXmlProd;
 import controlXml.controlXmlProv;
+import java.util.ArrayList;
 
     /**
 /**
@@ -26,6 +27,7 @@ controlXmlProd xml2=new controlXmlProd();
 listaProd prods;
 Proveedor provAct;
 Producto prod;
+ArrayList<Proveedor>  list;
 
     /**
      * Creates new form vistaAddProd
@@ -38,6 +40,8 @@ Producto prod;
         control =new controlAgregar(jComboBox1, bttnCancel, bttnCont, codigoTx, nombreTx, precioTx, this);
         this.prods = prods;
         this.prod=prod;
+        list = xml.todasLosUser();
+        control.llenarComboProv(list);
         if(prod!=null){
             modificando=true;
             jComboBox1.setSelectedItem(prod.getProv());
