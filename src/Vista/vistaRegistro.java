@@ -99,6 +99,7 @@ boolean paso;
             }
         });
 
+        passTx.setText("jPasswordField1");
         passTx.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 passTxMouseClicked(evt);
@@ -112,6 +113,7 @@ boolean paso;
 
         jLabel5.setText("Comfirmar Contraseña:");
 
+        confPass.setText("jPasswordField2");
         confPass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 confPassMouseClicked(evt);
@@ -210,10 +212,6 @@ boolean paso;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void booAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booAdmActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_booAdmActionPerformed
-
 
     
     private void bttnRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRegActionPerformed
@@ -298,6 +296,10 @@ boolean paso;
          bttnRegActionPerformed(ola);   
         }
     }//GEN-LAST:event_nombreTxFocusGained
+
+    private void booAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booAdmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_booAdmActionPerformed
 
     /**
      * @param args the command line arguments

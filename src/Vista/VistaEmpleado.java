@@ -6,6 +6,8 @@
 package Vista;
 import Control.*;
 import Estructuras.Empleado;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -55,6 +57,11 @@ Empleado currentUser;
                 bttnAddProvActionPerformed(evt);
             }
         });
+        bttnAddProv.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bttnAddProvKeyPressed(evt);
+            }
+        });
 
         bttnAddProd.setText("Agregar Producto");
         bttnAddProd.addActionListener(new java.awt.event.ActionListener() {
@@ -62,13 +69,33 @@ Empleado currentUser;
                 bttnAddProdActionPerformed(evt);
             }
         });
+        bttnAddProd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bttnAddProdKeyPressed(evt);
+            }
+        });
 
         bttnOpUser.setText("Opciones de Usuario");
+        bttnOpUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnOpUserActionPerformed(evt);
+            }
+        });
+        bttnOpUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bttnOpUserKeyPressed(evt);
+            }
+        });
 
         bttnExit.setText("Salir");
         bttnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bttnExitActionPerformed(evt);
+            }
+        });
+        bttnExit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bttnExitKeyPressed(evt);
             }
         });
 
@@ -78,6 +105,11 @@ Empleado currentUser;
                 bttnProvActionPerformed(evt);
             }
         });
+        bttnProv.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bttnProvKeyPressed(evt);
+            }
+        });
 
         bttnProd.setText("Ver Productos");
         bttnProd.addActionListener(new java.awt.event.ActionListener() {
@@ -85,11 +117,21 @@ Empleado currentUser;
                 bttnProdActionPerformed(evt);
             }
         });
+        bttnProd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bttnProdKeyPressed(evt);
+            }
+        });
 
         bttnBack.setText("Regresar");
         bttnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bttnBackActionPerformed(evt);
+            }
+        });
+        bttnBack.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bttnBackKeyPressed(evt);
             }
         });
 
@@ -162,6 +204,45 @@ Empleado currentUser;
     private void bttnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bttnExitActionPerformed
+
+    private void bttnProvKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnProvKeyPressed
+                if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            this.bttnProvActionPerformed(new ActionEvent(this, 0, ""));
+    }//GEN-LAST:event_bttnProvKeyPressed
+
+    private void bttnProdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnProdKeyPressed
+                if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            this.bttnProdActionPerformed(new ActionEvent(this, 0, ""));
+    }//GEN-LAST:event_bttnProdKeyPressed
+
+    private void bttnAddProvKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnAddProvKeyPressed
+                if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            this.bttnAddProvActionPerformed(new ActionEvent(this, 0, ""));
+    }//GEN-LAST:event_bttnAddProvKeyPressed
+
+    private void bttnAddProdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnAddProdKeyPressed
+        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            this.bttnAddProdActionPerformed(new ActionEvent(this, 0, ""));
+    }//GEN-LAST:event_bttnAddProdKeyPressed
+
+    private void bttnOpUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnOpUserKeyPressed
+        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            this.bttnOpUserActionPerformed(new ActionEvent(this, 0, ""));
+    }//GEN-LAST:event_bttnOpUserKeyPressed
+
+    private void bttnBackKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnBackKeyPressed
+        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            this.bttnBackActionPerformed(new ActionEvent(this, 0, ""));
+    }//GEN-LAST:event_bttnBackKeyPressed
+
+    private void bttnExitKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnExitKeyPressed
+        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            System.exit(0);
+    }//GEN-LAST:event_bttnExitKeyPressed
+
+    private void bttnOpUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnOpUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnOpUserActionPerformed
 
     /**
      * @param args the command line arguments

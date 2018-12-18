@@ -82,6 +82,7 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnAddProvActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="bttnAddProvKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bttnAddProd">
@@ -90,12 +91,17 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnAddProdActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="bttnAddProdKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bttnOpUser">
       <Properties>
         <Property name="text" type="java.lang.String" value="Opciones de Usuario"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnOpUserActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="bttnOpUserKeyPressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bttnExit">
       <Properties>
@@ -103,6 +109,7 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnExitActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="bttnExitKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bttnProv">
@@ -111,6 +118,7 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnProvActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="bttnProvKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bttnProd">
@@ -119,6 +127,7 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnProdActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="bttnProdKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bttnBack">
@@ -127,6 +136,7 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnBackActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="bttnBackKeyPressed"/>
       </Events>
     </Component>
   </SubComponents>
