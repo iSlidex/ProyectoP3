@@ -1,80 +1,32 @@
 <root>
   <Proveedor>
-    <Nombre>22</Nombre>
-    <Direccion>2</Direccion>
-    <Telefono>2</Telefono>
+    <Nombre>foo</Nombre>
+    <Direccion>foo</Direccion>
+    <Telefono>foo</Telefono>
     <User>2</User>
   </Proveedor>
   <Proveedor>
-    <Nombre>22</Nombre>
-    <Direccion>2</Direccion>
-    <Telefono>2</Telefono>
+    <Nombre>2131521</Nombre>
+    <Direccion>3123</Direccion>
+    <Telefono>4213214</Telefono>
     <User>2</User>
   </Proveedor>
   <Proveedor>
-    <Nombre>33</Nombre>
-    <Direccion>33</Direccion>
-    <Telefono>33</Telefono>
-    <User>2</User>
-  </Proveedor>
-  <Proveedor>
-    <Nombre>34</Nombre>
-    <Direccion>32</Direccion>
-    <Telefono>421</Telefono>
-    <User>2</User>
-  </Proveedor>
-  <Proveedor>
-    <Nombre>3234</Nombre>
-    <Direccion>1234</Direccion>
-    <Telefono>1234</Telefono>
-    <User>2</User>
-  </Proveedor>
-  <Proveedor>
-    <Nombre>123124</Nombre>
-    <Direccion>1234123</Direccion>
-    <Telefono>123124</Telefono>
-    <User>2</User>
-  </Proveedor>
-  <Proveedor>
-    <Nombre>Hola</Nombre>
-    <Direccion>mira</Direccion>
-    <Telefono>que hace</Telefono>
+    <Nombre>5123</Nombre>
+    <Direccion>312321</Direccion>
+    <Telefono>21421321</Telefono>
     <User>2</User>
   </Proveedor>
   <Proveedor>
     <Nombre>123</Nombre>
-    <Direccion>21412312</Direccion>
-    <Telefono>312412</Telefono>
+    <Direccion>213</Direccion>
+    <Telefono>123</Telefono>
     <User>2</User>
   </Proveedor>
   <Proveedor>
-    <Nombre>33</Nombre>
-    <Direccion>3</Direccion>
-    <Telefono>3</Telefono>
-    <User>2</User>
-  </Proveedor>
-  <Proveedor>
-    <Nombre>512</Nombre>
-    <Direccion>512</Direccion>
-    <Telefono>512</Telefono>
-    <User>2</User>
-  </Proveedor>
-  <Proveedor>
-    <Nombre>111</Nombre>
-    <Direccion>111</Direccion>
-    <Telefono>111</Telefono>
-    <User>2</User>
-  </Proveedor>
-  <Proveedor>
-    <Nombre>dot</Nombre>
-    <Direccion>dot</Direccion>
-    <Telefono>dot</Telefono>
-    <User>2</User>
-  </Proveedor>
-  <Proveedor>
-    <Nombre>555</Nombre>
-    <Direccion>555</Direccion>
-    <Telefono>555</Telefono>
+    <Nombre>nullo</Nombre>
+    <Direccion>nullo</Direccion>
+    <Telefono>nullo</Telefono>
     <User>2</User>
   </Proveedor>
 </root>

@@ -158,12 +158,10 @@ Proveedor provAct;
     private void bttnContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnContActionPerformed
          Proveedor p = new Proveedor();
         if (modificando) {
-                int index = proveedores.indiceProv(provAct);
-                System.out.println(Integer.toString(index));
+                int index = proveedores.indiceProv(provAct);                
                 this.proveedores.eliminarProv(provAct);
-                Proveedor prov = control.añadirProv(this.currentUser.getNombre(),proveedores,index);
-                System.out.println(prov.getNombre());
-                xml.actualizarCosa(prov, index);
+                control.agregarProv(currentUser.getCorreo(),proveedores,p,index);                
+                xml.actualizarCosa(p, index);
             }else{
                Proveedor prov = control.añadirProv(this.currentUser.getNombre(),proveedores);
                System.out.println(prov.getClass().getSimpleName());        

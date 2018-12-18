@@ -87,8 +87,7 @@ public class controlXmlProv{
         }
         return null;
     }
-    public boolean agregarCosa(Proveedor prod) {
-        System.out.println("gol");
+    public boolean agregarCosa(Proveedor prod) {        
         boolean resultado = false;
         root.addContent(provToXmlElement(prod));
         resultado = updateDocument();
@@ -96,8 +95,8 @@ public class controlXmlProv{
     }
 
     public Proveedor buscarCosa(Integer index) {
-        Element aux = new Element("Producto");
-        List cosas = this.root.getChildren("Producto");
+        Element aux = new Element("Proveedor");
+        List cosas = this.root.getChildren("Proveedor");
         while (aux != null) {
             aux = controlXmlProv.buscar(cosas, index);
             if (aux != null) {
@@ -110,24 +109,30 @@ public class controlXmlProv{
         }
         return null;
     }
+        public boolean agregarCosa(Proveedor prod,int index) {        
+        boolean resultado = false;
+        root.addContent(index, provToXmlElement(prod));
+        resultado = updateDocument();
+        return resultado;
+    }
         public boolean actualizarCosa(Proveedor prod, int index) {
             boolean resultado = false;
-            Element aux = new Element("Producto");
-            List cosas = this.root.getChildren("Producto");
-            while (aux != null) {
+            Element aux = new Element("Proveedor");
+            List cosas = this.root.getChildren("Proveedor");
+        
                 aux = controlXmlProv.buscar(cosas,index );
                 if (aux != null) {
                     cosas.remove(aux);
                     resultado = updateDocument();
                 }
-            }
-            agregarCosa(prod);
+            
+            agregarCosa(prod,index);
             return resultado;
         }
         public boolean borrarCosa(Integer index) {
             boolean resultado = false;
-            Element aux = new Element("Producto");
-            List cosas = this.root.getChildren("Producto");
+            Element aux = new Element("Proveedor");
+            List cosas = this.root.getChildren("Proveedor");
             aux = controlXmlProv.buscar(cosas, index);
             if (aux != null) {
                     cosas.remove(aux);

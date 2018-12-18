@@ -127,8 +127,12 @@ public class controlAgregar extends controlador{
         proveedores.incluirProv(prov);
         return prov;
     }
-        public void agregarProv(listaProv list, Proveedor prov,int index){
-            
+        public void agregarProv(String userAcargo,listaProv list, Proveedor prov,int index){
+            prov.setAcargo(userAcargo);
+            prov.setDireccion(dirTx.getText());
+            prov.setNombre(nombreTx.getText());
+            prov.setTelefono(telfTx.getText());
+            list.incluirProv(index, prov);
         }
 
 
