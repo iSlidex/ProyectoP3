@@ -324,7 +324,7 @@ vistaAddProv vent;
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
        if (!(tabla.getSelectedRow()==-1)){
             Proveedor provActual = (Proveedor) tabla.getValueAt(tabla.getSelectedRow(),3);
-            System.out.println(provActual.getDireccion());
+            
             control.activaVentana(new vistaAddProv(this.currentUser,this.proveedores,provActual),this);
        }else
                     JOptionPane.showMessageDialog(this, "Selecciona una casilla");

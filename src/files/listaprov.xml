@@ -6,9 +6,15 @@
     <User>2</User>
   </Proveedor>
   <Proveedor>
-    <Nombre>pos</Nombre>
-    <Direccion>pos</Direccion>
-    <Telefono>pos</Telefono>
+    <Nombre>3</Nombre>
+    <Direccion>3</Direccion>
+    <Telefono>3</Telefono>
+    <User>2</User>
+  </Proveedor>
+  <Proveedor>
+    <Nombre>b</Nombre>
+    <Direccion>b</Direccion>
+    <Telefono>b</Telefono>
     <User>2</User>
   </Proveedor>
   <Proveedor>
@@ -27,12 +33,6 @@
     <Nombre>nullo2</Nombre>
     <Direccion>nullo2</Direccion>
     <Telefono>nullo2</Telefono>
-    <User>2</User>
-  </Proveedor>
-  <Proveedor>
-    <Nombre>123</Nombre>
-    <Direccion>123</Direccion>
-    <Telefono>123</Telefono>
     <User>2</User>
   </Proveedor>
   <Proveedor>

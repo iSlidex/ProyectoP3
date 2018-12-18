@@ -180,8 +180,7 @@ ArrayList<Proveedor>  list;
     private void bttnContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnContActionPerformed
         Producto p = new Producto();
         if (modificando) {
-                int index = prods.indiceProd(prod);
-                System.out.println(index);                
+                int index = prods.indiceProd(prod);                                
                 this.prods.eliminarProd(prod);
                 control.agregarProd(jComboBox1.getSelectedItem().toString(),prods,p,index);                
                 xml2.actualizarCosa(p, index);

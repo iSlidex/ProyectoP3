@@ -117,14 +117,12 @@ public class controlXmlProv{
         public boolean actualizarCosa(Proveedor prod, int index) {
             boolean resultado = false;
             Element aux = new Element("Proveedor");
-            List cosas = this.root.getChildren("Proveedor");
-        
+            List cosas = this.root.getChildren("Proveedor");        
                 aux = controlXmlProv.buscar(cosas,index );
                 if (aux != null) {
                     cosas.remove(aux);
                     resultado = updateDocument();
-                }
-            
+                }            
             agregarCosa(prod,index);
             return resultado;
         }

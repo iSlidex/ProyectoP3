@@ -149,13 +149,11 @@ Proveedor provAct;
          Proveedor p = new Proveedor();
         if (modificando) {
                 int index = proveedores.indiceProv(provAct);                
-                this.proveedores.eliminarProv(provAct);
+                proveedores.eliminarProv(provAct);
                 control.agregarProv(currentUser.getCorreo(),proveedores,p,index);                
                 xml.actualizarCosa(p, index);
             }else{
-               Proveedor prov = control.añadirProv(this.currentUser.getNombre(),proveedores);
-               System.out.println(prov.getClass().getSimpleName());        
-               System.out.println(prov.getAcargo());        
+               Proveedor prov = control.añadirProv(this.currentUser.getNombre(),proveedores);        
                xml.agregarCosa(prov);
             }
         control.activaVentana(new tablaProveedores(currentUser), this);
