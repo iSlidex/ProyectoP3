@@ -165,15 +165,15 @@ ArrayList<Usuario> users;
        controladorLogin next= new controladorLogin(this, bttnExit, bttnIn, bttnReg, passTx, userTx);
        Usuario act = next.log(users);
        if(act!=null){
-           System.out.println("entro1");
+           
            if(Arrays.toString(act.getClave()).equals(Arrays.toString(passTx.getPassword()))){
-               System.out.println("entro2");
+               
                if(act instanceof Administrador ){
-                   System.out.println("entro3");
+                   
                 vistaAdmin ventana =new vistaAdmin((Administrador) act);
                 next.activaVentana(ventana,this ); 
                }else{
-                   System.out.println("entro4");
+                   
                     VistaEmpleado ventana =new VistaEmpleado((Empleado) act);
                      next.activaVentana(ventana,this);
                }

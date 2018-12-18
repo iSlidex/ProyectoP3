@@ -127,6 +127,9 @@ public class controlAgregar extends controlador{
         proveedores.incluirProv(prov);
         return prov;
     }
+        public void agregarProv(listaProv list, Proveedor prov,int index){
+            
+        }
 
 
 }

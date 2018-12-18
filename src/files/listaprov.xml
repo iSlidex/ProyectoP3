@@ -41,4 +41,40 @@
     <Telefono>que hace</Telefono>
     <User>2</User>
   </Proveedor>
+  <Proveedor>
+    <Nombre>123</Nombre>
+    <Direccion>21412312</Direccion>
+    <Telefono>312412</Telefono>
+    <User>2</User>
+  </Proveedor>
+  <Proveedor>
+    <Nombre>33</Nombre>
+    <Direccion>3</Direccion>
+    <Telefono>3</Telefono>
+    <User>2</User>
+  </Proveedor>
+  <Proveedor>
+    <Nombre>512</Nombre>
+    <Direccion>512</Direccion>
+    <Telefono>512</Telefono>
+    <User>2</User>
+  </Proveedor>
+  <Proveedor>
+    <Nombre>111</Nombre>
+    <Direccion>111</Direccion>
+    <Telefono>111</Telefono>
+    <User>2</User>
+  </Proveedor>
+  <Proveedor>
+    <Nombre>dot</Nombre>
+    <Direccion>dot</Direccion>
+    <Telefono>dot</Telefono>
+    <User>2</User>
+  </Proveedor>
+  <Proveedor>
+    <Nombre>555</Nombre>
+    <Direccion>555</Direccion>
+    <Telefono>555</Telefono>
+    <User>2</User>
+  </Proveedor>
 </root>

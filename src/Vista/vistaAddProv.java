@@ -27,6 +27,7 @@ Proveedor provAct;
     public vistaAddProv() {
         initComponents();
     }
+    /*
         public vistaAddProv(Usuario currentUser) {
         initComponents();
         control= new controlAgregar(bttnCancel, bttnCont, dirTx, nombreTx, telfTx, this);
@@ -34,7 +35,7 @@ Proveedor provAct;
         
         this.currentUser = currentUser;
         control= new controlAgregar(bttnCancel, bttnCont, dirTx, nombreTx, telfTx, this);
-    }
+    }*/
 
     vistaAddProv(Usuario currentUser,listaProv proveedores, Proveedor provActual) {
        initComponents();
@@ -155,14 +156,16 @@ Proveedor provAct;
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnContActionPerformed
-         
+         Proveedor p = new Proveedor();
         if (modificando) {
-                int index = this.proveedores.indiceProv(provAct);
-                this.proveedores. eliminarProv(provAct);
-                Proveedor prov = control.añadirProv(this.currentUser.getNombre(),this.proveedores,index);
+                int index = proveedores.indiceProv(provAct);
+                System.out.println(Integer.toString(index));
+                this.proveedores.eliminarProv(provAct);
+                Proveedor prov = control.añadirProv(this.currentUser.getNombre(),proveedores,index);
+                System.out.println(prov.getNombre());
                 xml.actualizarCosa(prov, index);
             }else{
-               Proveedor prov = control.añadirProv(this.currentUser.getNombre(),this.proveedores);
+               Proveedor prov = control.añadirProv(this.currentUser.getNombre(),proveedores);
                System.out.println(prov.getClass().getSimpleName());        
                System.out.println(prov.getAcargo());        
                xml.agregarCosa(prov);

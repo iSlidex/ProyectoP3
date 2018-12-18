@@ -34,6 +34,15 @@ public class Proveedor {
         this.userAcargo = userAcargo;
     }
 
+    public Proveedor() {
+     nombre="";
+     direccion="";
+     telefono="";
+     horario="";
+     userAcargo="";//coreo
+     productos=null;
+    }
+
 
 
     public String getNombre() {

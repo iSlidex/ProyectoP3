@@ -12,11 +12,15 @@ import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import Control.*;
+import Estructuras.Administrador;
+import Estructuras.Empleado;
 import Estructuras.Proveedor;
 import Estructuras.Usuario;
 import Estructuras.listaProv;
 import controlXml.controlXmlProv;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -37,12 +41,12 @@ vistaAddProv vent;
      */
     public tablaProveedores() {
         initComponents();
-        controlTablas control = new controlTablas(Agregar, Eliminar, Modificar, Salir, tabla, this);
+        control = new controlTablas(Agregar, Eliminar, Modificar, Salir, tabla, this);
     
     }
     public tablaProveedores(Usuario currentUser) {
         initComponents();
-        controlTablas control = new controlTablas(Agregar, Eliminar, Modificar, Salir, tabla, this);
+        control = new controlTablas(Agregar, Eliminar, Modificar, Salir, tabla, this);
         this.currentUser = currentUser;
         objeto = xml.todasLosUser();
         proveedores = new listaProv(objeto);
@@ -81,6 +85,7 @@ vistaAddProv vent;
         tabla = new javax.swing.JTable();
         Salir = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        bttnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -243,6 +248,13 @@ vistaAddProv vent;
 
         jButton1.setText("Ver Productos");
 
+        bttnRegresar.setText("Regresar");
+        bttnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnRegresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -256,7 +268,7 @@ vistaAddProv vent;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(41, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -264,6 +276,8 @@ vistaAddProv vent;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bttnRegresar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -282,7 +296,8 @@ vistaAddProv vent;
                     .addComponent(Modificar)
                     .addComponent(Eliminar)
                     .addComponent(Salir)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(bttnRegresar))
                 .addContainerGap())
         );
 
@@ -294,11 +309,11 @@ vistaAddProv vent;
     }//GEN-LAST:event_AgregarMouseClicked
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-        if (vent==null){
+     /*   if (vent==null){
         this.vent = new vistaAddProv(this.currentUser,proveedores,null);
         vent.setVisible(true);
-        }
-       //control.activaVentana(vent,this);
+   }*/ this.vent = new vistaAddProv(this.currentUser,proveedores,null);
+       control.activaVentana(this.vent,this);
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void AgregarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AgregarKeyPressed
@@ -308,31 +323,30 @@ vistaAddProv vent;
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
        if (!(tabla.getSelectedRow()==-1)){
             Proveedor provActual = (Proveedor) tabla.getValueAt(tabla.getSelectedRow(),3);
+            System.out.println(provActual.getDireccion());
             control.activaVentana(new vistaAddProv(this.currentUser,this.proveedores,provActual),this);
        }else
                     JOptionPane.showMessageDialog(this, "Selecciona una casilla");
     }//GEN-LAST:event_ModificarActionPerformed
 
     private void ModificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ModificarKeyPressed
-        /*if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-        this.ModificarActionPerformed(new ActionEvent(this, 0, ""));*/
+        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+        this.ModificarActionPerformed(new ActionEvent(this, 0, ""));
     }//GEN-LAST:event_ModificarKeyPressed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
-//        if (!(tabla.getSelectedRow()==-1)){
-//            Electrodomestico cosaActual = (Electrodomestico) tabla.getValueAt(tabla.getSelectedRow(),3);
-//            xml.borrarCosa(this.cosas.indiceCosa(cosaActual));
-//            this.cosas.eliminarCosa(cosaActual);
-//
-//            Vista1 ventana = new Vista1(this.cosas);
-//            control.activaVentana(ventana, this);
-//        }else
-//        JOptionPane.showMessageDialog(this, "Selecciona una casilla");
+        if (!(tabla.getSelectedRow()==-1)){
+            Proveedor cosaActual = (Proveedor) tabla.getValueAt(tabla.getSelectedRow(),3);
+            xml.borrarCosa(this.proveedores.indiceProv(cosaActual));
+            this.proveedores.eliminarProv(cosaActual);        
+            control.activaVentana(new tablaProveedores(currentUser), this);
+        }else
+        JOptionPane.showMessageDialog(this, "Selecciona una casilla");
     }//GEN-LAST:event_EliminarActionPerformed
 
     private void EliminarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EliminarKeyPressed
-//        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-//        this.EliminarActionPerformed(new ActionEvent(this, 0, ""));
+        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+        this.EliminarActionPerformed(new ActionEvent(this, 0, ""));
     }//GEN-LAST:event_EliminarKeyPressed
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
@@ -341,13 +355,19 @@ vistaAddProv vent;
     }//GEN-LAST:event_tablaMouseClicked
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-        //System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
 
     private void SalirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SalirKeyPressed
-//        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-//        System.exit(0);
+        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+        System.exit(0);
     }//GEN-LAST:event_SalirKeyPressed
+
+    private void bttnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRegresarActionPerformed
+        if(currentUser instanceof Administrador)
+            control.activaVentana(new vistaAdmin((Administrador) currentUser),this);
+        else control.activaVentana(new VistaEmpleado((Empleado) currentUser),this);
+    }//GEN-LAST:event_bttnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -392,6 +412,7 @@ vistaAddProv vent;
     private javax.swing.JButton Eliminar;
     private javax.swing.JButton Modificar;
     private javax.swing.JButton Salir;
+    private javax.swing.JButton bttnRegresar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
