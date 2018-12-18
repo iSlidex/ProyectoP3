@@ -29,4 +29,10 @@
     <Precio>0.0</Precio>
     <prov>123</prov>
   </Producto>
+  <Producto>
+    <Nombre>2</Nombre>
+    <id>2</id>
+    <Precio>2.0</Precio>
+    <prov>nullo2</prov>
+  </Producto>
 </root>

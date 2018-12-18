@@ -28,6 +28,7 @@ listaProd prods;
 Proveedor provAct;
 Producto prod;
 ArrayList<Proveedor>  list;
+ArrayList<Producto>  list2;
 
     /**
      * Creates new form vistaAddProd
@@ -38,17 +39,21 @@ ArrayList<Proveedor>  list;
     public vistaAddProd(Usuario currentUser,listaProd prods,Producto prod) {
         initComponents();
         control =new controlAgregar(jComboBox1, bttnCancel, bttnCont, codigoTx, nombreTx, precioTx, this);
-        this.prods = prods;
-        this.prod=prod;
+        list2= xml2.todasLosUser();
         list = xml.todasLosUser();
         control.llenarComboProv(list);
         if(prod!=null){
+            this.prods = prods;
+            this.prod=prod;
             modificando=true;
             jComboBox1.setSelectedItem(prod.getProv());
             nombreTx.setText(prod.getNombre());
             codigoTx.setText(prod.getId());
             precioTx.setText(Double.toString(prod.getPrecio()));
-        }else modificando=false;
+        }else{ modificando=false;
+            this.prods = new listaProd(list2);       
+               
+        }
     }
 
     /**
