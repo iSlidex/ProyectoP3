@@ -13,8 +13,6 @@ import java.awt.Color;
 import static java.awt.Color.black;
 import static java.awt.Color.blue;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -62,16 +60,6 @@ ArrayList<Usuario> users;
 
         bttnIn.setFont(new Font("vrinda",Font.BOLD,15));
         bttnIn.setText("Ingresar");
-        bttnIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnInActionPerformed(evt);
-            }
-        });
-        bttnIn.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                bttnInKeyPressed(evt);
-            }
-        });
         MouseListener a = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent me) {}
@@ -104,16 +92,6 @@ ArrayList<Usuario> users;
 
         bttnExit.setFont(new Font("vrinda",Font.BOLD,15));
         bttnExit.setText("Salir");
-        bttnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnExitActionPerformed(evt);
-            }
-        });
-        bttnExit.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                bttnExitKeyPressed(evt);
-            }
-        });
         MouseListener b = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent me) {}
@@ -144,12 +122,8 @@ ArrayList<Usuario> users;
             }
         });
 
+        passTx.setFont(new Font("verdana",0,12));
         passTx.setText("jPasswordField1");
-        passTx.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                passTxFocusGained(evt);
-            }
-        });
         passTx.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 passTxMouseClicked(evt);
@@ -161,6 +135,7 @@ ArrayList<Usuario> users;
             }
         });
 
+        userTx.setFont(new Font("verdana",0,12));
         userTx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userTxActionPerformed(evt);
@@ -175,16 +150,6 @@ ArrayList<Usuario> users;
 
         bttnReg.setFont(new Font("vrinda",Font.BOLD,15));
         bttnReg.setText("Registrarse");
-        bttnReg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnRegActionPerformed(evt);
-            }
-        });
-        bttnReg.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                bttnRegKeyPressed(evt);
-            }
-        });
         MouseListener c = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent me) {}
@@ -305,28 +270,6 @@ ArrayList<Usuario> users;
     private void bttnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bttnExitActionPerformed
-
-    private void passTxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passTxFocusGained
-       if (verif){
-       passTx.setText("");
-       this.verif=false;
-       }
-    }//GEN-LAST:event_passTxFocusGained
-
-    private void bttnInKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnInKeyPressed
-        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-            this.bttnInActionPerformed(new ActionEvent(this, 0, ""));
-    }//GEN-LAST:event_bttnInKeyPressed
-
-    private void bttnRegKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnRegKeyPressed
-        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-            this.bttnRegActionPerformed(new ActionEvent(this, 0, ""));
-    }//GEN-LAST:event_bttnRegKeyPressed
-
-    private void bttnExitKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnExitKeyPressed
-          if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-            System.exit(0);
-    }//GEN-LAST:event_bttnExitKeyPressed
 
     /**
      * @param args the command line arguments

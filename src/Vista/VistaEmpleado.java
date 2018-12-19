@@ -28,7 +28,7 @@ Empleado currentUser;
     public VistaEmpleado() {
         initComponents();
         control = new controladorVistaEmp(bttnAddProd, bttnAddProv, bttnBack, bttnExit, bttnOpUser, bttnProd, bttnProv, this);
-        this.getContentPane().setBackground (Color.LIGHT_GRAY);
+        //this.getContentPane().setBackground (Color.LIGHT_GRAY);
     }
     public VistaEmpleado(Empleado currentUser) {
         initComponents();
