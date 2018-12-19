@@ -143,6 +143,11 @@ Usuario currentUser;
                 confPassMouseClicked(evt);
             }
         });
+        confPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confPassActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new Font("vrinda",Font.BOLD,13));
         jLabel6.setText("Administrador: ");
@@ -379,8 +384,8 @@ Usuario currentUser;
     }//GEN-LAST:event_booAdmActionPerformed
 
     private void passTxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passTxFocusGained
-       if (verif2){
-       confPass.setText("");
+       if (verif1){
+       passTx.setText("");
        this.verif2=false;
        }
     }//GEN-LAST:event_passTxFocusGained
@@ -391,6 +396,10 @@ Usuario currentUser;
        this.verif2=false;
        }
     }//GEN-LAST:event_confPassFocusGained
+
+    private void confPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_confPassActionPerformed
 
     /**
      * @param args the command line arguments
