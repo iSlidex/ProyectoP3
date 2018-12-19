@@ -67,7 +67,11 @@ public class controlRegistro extends controlador {
            public boolean sePuedeAgregarU() throws InputMismatchException{
         //Verifica que los campos de proveedor sean correctos
         boolean sePuede = true;
-        if ((nombreTx.getText().equals("")) || (passTx.getPassword().equals("")) || (correoTx.getText().equals("")) || (confPass.getPassword().equals(""))){
+        if (xml.buscarPersona(correoTx.getText())!=null){
+            System.out.println(xml.buscarPersona(correoTx.getText()).getNombre());
+            //Usuario existe
+            sePuede = false; 
+        }else       if ((nombreTx.getText().equals("")) || (passTx.getPassword().equals("")) || (correoTx.getText().equals("")) || (confPass.getPassword().equals(""))){
             sePuede = false;
         }
         else if (nombreTx.getText().matches("^[0-9]*"))
@@ -86,9 +90,7 @@ public class controlRegistro extends controlador {
         else if (!(correoEsValido(correoTx.getText())))
             //Correo invalido
             sePuede = false;  
-        else if (xml.buscarUsuario(correoTx.getText())!=null)
-            //Usuario existe
-            sePuede = false; 
+        
     return sePuede;
     }
     
@@ -98,7 +100,7 @@ public class controlRegistro extends controlador {
       else return false;
     }
     public boolean existeUser(){
-            return((!correoTx.getText().equals(""))&&(xml.buscarUsuario(correoTx.getText())!=null));
+            return(xml.buscarPersona(correoTx.getText())!=null);
     }
     
     public boolean correoInvalido(){
@@ -132,7 +134,7 @@ public class controlRegistro extends controlador {
             msg.add(" es muy débil, debe tener al menos 8 caracteres y tener al menos un caracter numerico\n");
         if (!(claveCoincide()))
             msg.add(" Contraseña y Confirmar contraseña deben ser iguales\n");
-        if (xml.buscarUsuario(correoTx.getText())!=null)
+        if (existeUser())
             msg.add(" El usuario existe\n");
         return msg;
     }

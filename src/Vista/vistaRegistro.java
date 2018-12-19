@@ -8,6 +8,7 @@ import Control.controlRegistro;
 import Control.controlador;
 import Estructuras.Administrador;
 import Estructuras.Usuario;
+import Estructuras.listaUser;
 import controlXml.controlXmlUser;
 import java.awt.Color;
 import static java.awt.Color.black;
@@ -38,6 +39,8 @@ controlRegistro control;
 controlXmlUser controlXml;
 boolean paso;
 Usuario currentUser;
+ArrayList<Usuario> listausers;
+    listaUser list;
     /**
      * Creates new form vistaRegistro
      */
@@ -63,6 +66,8 @@ Usuario currentUser;
          controlXml = new controlXmlUser();
          verif1=true;
          verif2=true;
+         listausers=controlXml.todasLosUser();
+         list=new listaUser(listausers);
          this.success=true;
          this.getContentPane().setBackground (Color.LIGHT_GRAY);
         // ActionEvent evt = null;
