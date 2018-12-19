@@ -136,6 +136,11 @@ ArrayList<Usuario> users;
 
         passTx.setFont(new Font("verdana",0,12));
         passTx.setText("jPasswordField1");
+        passTx.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passTxFocusGained(evt);
+            }
+        });
         passTx.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 passTxMouseClicked(evt);
@@ -302,6 +307,13 @@ ArrayList<Usuario> users;
        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
            System.exit(0);
     }//GEN-LAST:event_bttnExitKeyPressed
+
+    private void passTxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passTxFocusGained
+       if (verif){
+       passTx.setText("");
+       this.verif=false;
+       }
+    }//GEN-LAST:event_passTxFocusGained
 
     /**
      * @param args the command line arguments
