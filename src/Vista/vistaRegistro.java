@@ -299,45 +299,31 @@ Usuario currentUser;
         
         control = new controlRegistro(booAdm, bttnCancel, bttnReg, confPass, correoTx, nombreTx, passTx, this);
         if (control.sePuedeAgregarU()){
-            control.crearUser();
-            controlXml.agregarUser(control.crearUser());
-            VistaLogin ventana = new VistaLogin();
-            control.activaVentana(ventana, this);
-        }
-        else{
-            JOptionPane.showMessageDialog(this,"Revisa los siguientes campos: "+control.mensajeErrorPR());
-        }
-        
-        
-        
-        
-        if (booAdm.isSelected()) {
-             if (users.isEmpty()){
-                controlXml.agregarUser(control.crearUser());
-                VistaLogin ventana = new VistaLogin();
-                control.activaVentana(ventana, this);
-             }
-             else {                   
-                if(!success){
-                    this.booAdm.setEnabled(true);
-                    Administrador actual = (Administrador) control.crearUser();
-                    JOptionPane.showMessageDialog(this,"Debe usar las credenciales de un usuario Administrador para crear otro Administrador");
-                    verifDatosAdmin ventana = new verifDatosAdmin(users,actual,this); 
-//                    ventana.setVisible(true);
-//                    this.setVisible(false);
-                        control.activaVentana (ventana,this);                    
+            if (booAdm.isSelected()) {
+                if (users.isEmpty()){
+                   controlXml.agregarUser(control.crearUser());
+                   VistaLogin ventana = new VistaLogin();
+                   control.activaVentana(ventana, this);
                 }
-                else {
-                        if (controlXml.buscarPersona(currentUser.getCorreo())!=null){
-                        booAdm.setEnabled(true);                        
-                        JOptionPane.showMessageDialog(this,"Usuario Administrador creado con exito");
-                        controlXml.agregarUser(control.crearUser());
-                        VistaLogin ventana = new VistaLogin();
-                        control.activaVentana(ventana, this);
-                        }
+                else {                   
+                   if(!success){
+                       this.booAdm.setEnabled(true);
+                       Administrador actual = (Administrador) control.crearUser();
+                       JOptionPane.showMessageDialog(this,"Debe usar las credenciales de un usuario Administrador para crear otro Administrador");
+                       verifDatosAdmin ventana = new verifDatosAdmin(users,actual,this); 
+                       control.activaVentana (ventana,this);                    
+                   }
+                   else {
+                           if (controlXml.buscarPersona(currentUser.getCorreo())!=null){
+                           booAdm.setEnabled(true);                        
+                           JOptionPane.showMessageDialog(this,"Usuario Administrador creado con exito");
+                           controlXml.agregarUser(control.crearUser());
+                           VistaLogin ventana = new VistaLogin();
+                           control.activaVentana(ventana, this);
+                           }
+                   }
                 }
-             }
-        }
+           }
         
         else if ((booAdm.isSelected())&& (control.sePuedeAgregarU())) {
                     JOptionPane.showMessageDialog(this,"Usuario creado con exito");
@@ -345,6 +331,11 @@ Usuario currentUser;
                     VistaLogin ventana = new VistaLogin();
                     control.activaVentana(ventana, this);
                   }
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Revisa los siguientes campos: "+control.mensajeErrorPR());
+        }                   
+       
         
         
     }//GEN-LAST:event_bttnRegActionPerformed

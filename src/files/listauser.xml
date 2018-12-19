@@ -59,4 +59,10 @@
     <correo>ruiz</correo>
     <clave>leo123</clave>
   </usuario>
+  <usuario>
+    <tipo>Empleado</tipo>
+    <nombre>leo</nombre>
+    <correo>leo@leo.com</correo>
+    <clave>leo123456</clave>
+  </usuario>
 </root>
