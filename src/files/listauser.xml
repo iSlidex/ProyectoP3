@@ -65,4 +65,22 @@
     <correo>leo@leo.com</correo>
     <clave>leo123456</clave>
   </usuario>
+  <usuario>
+    <tipo>Empleado</tipo>
+    <nombre>leoo</nombre>
+    <correo>lol@lol.com</correo>
+    <clave>leo123456</clave>
+  </usuario>
+  <usuario>
+    <tipo>Empleado</tipo>
+    <nombre>ooopa</nombre>
+    <correo>lol@lol.com</correo>
+    <clave>leo123456</clave>
+  </usuario>
+  <usuario>
+    <tipo>Empleado</tipo>
+    <nombre>qwqweqw1</nombre>
+    <correo>lol@lol.com</correo>
+    <clave>leo123456</clave>
+  </usuario>
 </root>

@@ -325,7 +325,7 @@ Usuario currentUser;
                 }
            }
         
-        else if ((booAdm.isSelected())&& (control.sePuedeAgregarU())) {
+        else  {
                     JOptionPane.showMessageDialog(this,"Usuario creado con exito");
                     controlXml.agregarUser(control.crearUser());        
                     VistaLogin ventana = new VistaLogin();

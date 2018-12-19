@@ -29,6 +29,7 @@ public class controlRegistro extends controlador {
     private JTextField correoTx;
     private JTextField nombreTx;
     private JPasswordField passTx;
+    controlXmlUser xml =new controlXmlUser();
 
     public controlRegistro(JCheckBox booAdm, JButton bttnCancel, JButton bttnReg, JPasswordField confPass, JTextField correoTx, JTextField nombreTx, JPasswordField passTx, JFrame ventana) {
         super(ventana);
@@ -85,7 +86,9 @@ public class controlRegistro extends controlador {
         else if (!(correoEsValido(correoTx.getText())))
             //Correo invalido
             sePuede = false;  
-        
+        else if (xml.buscarUsuario(correoTx.getText())!=null)
+            //Usuario existe
+            sePuede = false; 
     return sePuede;
     }
     
@@ -93,6 +96,9 @@ public class controlRegistro extends controlador {
       if((!nombreTx.getText().equals("")))
           return nombreTx.getText().matches("^[0-9]*");   
       else return false;
+    }
+    public boolean existeUser(){
+            return((!correoTx.getText().equals(""))&&(xml.buscarUsuario(correoTx.getText())!=null));
     }
     
     public boolean correoInvalido(){
@@ -126,6 +132,8 @@ public class controlRegistro extends controlador {
             msg.add(" es muy débil, debe tener al menos 8 caracteres y tener al menos un caracter numerico\n");
         if (!(claveCoincide()))
             msg.add(" Contraseña y Confirmar contraseña deben ser iguales\n");
+        if (xml.buscarUsuario(correoTx.getText())!=null)
+            msg.add(" El usuario existe\n");
         return msg;
     }
 
