@@ -318,15 +318,15 @@ ArrayList<Producto> objeto;
     }//GEN-LAST:event_ModificarActionPerformed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
-      /* if (!(tabla.getSelectedRow()==-1)){
-        Electrodomestico cosaActual = (Electrodomestico) tabla.getValueAt(tabla.getSelectedRow(),3);
-        xml.borrarCosa(this.cosas.indiceCosa(cosaActual));
-        this.cosas.eliminarCosa(cosaActual);
+       if (!(tabla.getSelectedRow()==-1)){
+        Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),4);
+        xml.borrarCosa(this.cosas.indiceProd(cosaActual));
+        this.cosas.eliminarProd(cosaActual);
         
-        tablaProductos ventana = new tablaProductos(this.cosas);
+        tablaProductos ventana = new tablaProductos(currentUser);
         control.activaVentana(ventana, this);
         }else
-            JOptionPane.showMessageDialog(this, "Selecciona una casilla");*/
+            JOptionPane.showMessageDialog(this, "Selecciona una casilla");
     }//GEN-LAST:event_EliminarActionPerformed
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
