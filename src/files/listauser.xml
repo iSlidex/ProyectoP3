@@ -53,4 +53,10 @@
     <correo>312</correo>
     <clave>3123</clave>
   </usuario>
+  <usuario>
+    <tipo>Administrador</tipo>
+    <nombre>Leo</nombre>
+    <correo>ruiz</correo>
+    <clave>leo123</clave>
+  </usuario>
 </root>

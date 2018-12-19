@@ -110,21 +110,33 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Registro de usuario : "/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel1.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,13));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre:"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel2.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,13));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Correo: "/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel3.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,13));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="text" type="java.lang.String" value="Contrase&#xf1;a: "/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel4.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,13));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="nombreTx">
       <Events>
@@ -146,6 +158,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Comfirmar Contrase&#xf1;a:"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel5.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,13));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JPasswordField" name="confPass">
       <Properties>
@@ -159,6 +174,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Administrador: "/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel6.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,13));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JCheckBox" name="booAdm">
       <Events>
@@ -172,6 +190,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnRegActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="bttnReg.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,15));&#xa;MouseListener c = new MouseListener() {&#xa;            @Override&#xa;            public void mouseClicked(MouseEvent me) {}&#xa;&#xa;            @Override&#xa;            public void mousePressed(MouseEvent me) {}&#xa;&#xa;            @Override&#xa;            public void mouseReleased(MouseEvent me) {&#xa;            }&#xa;&#xa;            @Override&#xa;            public void mouseEntered(MouseEvent me) {&#xa;                bttnReg.setForeground(blue);&#xa;                bttnReg.setFont(new Font(&quot;vrinda&quot;,3,15));&#xa;            }&#xa;&#xa;            @Override&#xa;            public void mouseExited(MouseEvent me) {&#xa;                bttnReg.setForeground(black);&#xa;                bttnReg.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,15));&#xa;            }&#xa;        };&#xa;        bttnReg.addMouseListener(c);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="bttnCancel">
       <Properties>
@@ -180,6 +201,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnCancelActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="bttnCancel.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,15));&#xa;MouseListener e = new MouseListener() {&#xa;            @Override&#xa;            public void mouseClicked(MouseEvent me) {}&#xa;&#xa;            @Override&#xa;            public void mousePressed(MouseEvent me) {}&#xa;&#xa;            @Override&#xa;            public void mouseReleased(MouseEvent me) {&#xa;            }&#xa;&#xa;            @Override&#xa;            public void mouseEntered(MouseEvent me) {&#xa;                bttnCancel.setForeground(blue);&#xa;                bttnCancel.setFont(new Font(&quot;vrinda&quot;,3,15));&#xa;            }&#xa;&#xa;            @Override&#xa;            public void mouseExited(MouseEvent me) {&#xa;                bttnCancel.setForeground(black);&#xa;                bttnCancel.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,15));&#xa;            }&#xa;        };&#xa;        bttnCancel.addMouseListener(e);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

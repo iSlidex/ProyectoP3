@@ -93,8 +93,8 @@ vistaAddProv vent;
         jLabel3.setFont(new Font("arial",Font.BOLD,18));
         jLabel3.setForeground(red);
 
-        Agregar.setFont(new Font("vrinda",Font.BOLD,15));
         Agregar.setText("Agregar");
+        Agregar.setFont(new Font("vrinda",Font.BOLD,15));
         MouseListener a = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent me) {}
@@ -246,8 +246,58 @@ vistaAddProv vent;
             }
         });
 
+        jButton1.setFont(new Font("vrinda",Font.BOLD,15));
+        MouseListener aa = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                jButton1.setForeground(blue);
+                jButton1.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                jButton1.setForeground(black);
+                jButton1.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        jButton1.addMouseListener(aa);
         jButton1.setText("Ver Productos");
 
+        bttnRegresar.setFont(new Font("vrinda",Font.BOLD,15));
+        MouseListener bb = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnRegresar.setForeground(blue);
+                bttnRegresar.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnRegresar.setForeground(black);
+                bttnRegresar.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnRegresar.addMouseListener(bb);
         bttnRegresar.setText("Regresar");
         bttnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

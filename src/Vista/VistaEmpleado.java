@@ -97,11 +97,6 @@ Empleado currentUser;
             }
         };
         bttnAddProv.addMouseListener(c);
-        bttnAddProv.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnAddProvActionPerformed(evt);
-            }
-        });
 
         bttnAddProd.setFont(new Font("vrinda",Font.BOLD,15));
         bttnAddProd.setText("Agregar Producto");
@@ -139,11 +134,6 @@ Empleado currentUser;
             }
         };
         bttnAddProd.addMouseListener(b);
-        bttnAddProd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnAddProdActionPerformed(evt);
-            }
-        });
 
         bttnOpUser.setFont(new Font("vrinda",Font.BOLD,15));
         bttnOpUser.setText("Opciones de Usuario");
@@ -224,8 +214,8 @@ Empleado currentUser;
             }
         });
 
-        bttnProv.setFont(new Font("vrinda",Font.BOLD,15));
         bttnProv.setText("Ver Proveedores");
+        bttnProv.setFont(new Font("vrinda",Font.BOLD,15));
         bttnProv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bttnProvActionPerformed(evt);
@@ -260,11 +250,6 @@ Empleado currentUser;
             }
         };
         bttnProv.addMouseListener(a);
-        bttnProv.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnProvActionPerformed(evt);
-            }
-        });
 
         bttnProd.setFont(new Font("vrinda",Font.BOLD,15));
         bttnProd.setText("Ver Productos");
@@ -302,11 +287,6 @@ Empleado currentUser;
             }
         };
         bttnProd.addMouseListener(g);
-        bttnProd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnProdActionPerformed(evt);
-            }
-        });
 
         bttnBack.setText("Regresar");
         bttnBack.setFont(new Font("vrinda",Font.BOLD,15));
@@ -344,11 +324,6 @@ Empleado currentUser;
             }
         };
         bttnBack.addMouseListener(d);
-        bttnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnBackActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

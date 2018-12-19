@@ -165,8 +165,8 @@ ArrayList<Usuario> users;
         jLabel2.setFont(new Font("Verdana",Font.BOLD,12));
         jLabel2.setText("Contraseña :");
 
-        bttnReg.setFont(new Font("vrinda",Font.BOLD,15));
         bttnReg.setText("Registrarse");
+        bttnReg.setFont(new Font("vrinda",Font.BOLD,15));
         MouseListener c = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent me) {}

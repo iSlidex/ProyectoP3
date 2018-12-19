@@ -73,7 +73,7 @@ public class controlRegistro extends controlador {
             //Nombre propio con numeros?
             sePuede = false;
         
-        else if ((Arrays.toString(passTx.getPassword()).length()<8) && (!(Arrays.toString(passTx.getPassword()).matches("^[0-9]*"))))
+        else if ((Arrays.toString(passTx.getPassword()).length()<8) || (!(Arrays.toString(passTx.getPassword()).matches("^[0-9]*"))))
             //Contraseña muy debil, debe al menos tener numeros
             sePuede = false;
         
@@ -103,7 +103,9 @@ public class controlRegistro extends controlador {
     
     public boolean claveDebil(){
         if((!passTx.getPassword().equals("")) && (!(confPass.getPassword().equals(""))))
-            return ((Arrays.toString(passTx.getPassword()).length()<8) || (!(Arrays.toString(passTx.getPassword()).matches("^[0-9]*"))));
+            if ((Arrays.toString(passTx.getPassword()).length()<8) || (!(Arrays.toString(passTx.getPassword()).matches("^[0-9]*"))))
+                return true;
+            else return false;
         else return true;   
     }   
     

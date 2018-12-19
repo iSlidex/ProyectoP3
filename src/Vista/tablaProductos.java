@@ -209,7 +209,6 @@ ArrayList<Producto> objeto;
         tabla.getAccessibleContext().setAccessibleDescription("");
 
         Salir.setFont(new Font("vrinda",Font.BOLD,15));
-        Salir.setText("Salir");
         MouseListener d = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent me) {}
@@ -234,6 +233,7 @@ ArrayList<Producto> objeto;
             }
         };
         Salir.addMouseListener(d);
+        Salir.setText("Salir");
         Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SalirActionPerformed(evt);
@@ -246,9 +246,39 @@ ArrayList<Producto> objeto;
         });
 
         bttnRegresar.setText("Regresar");
+        bttnRegresar.setFont(new Font("vrinda",Font.BOLD,15));
+        MouseListener de = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnRegresar.setForeground(blue);
+                bttnRegresar.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnRegresar.setForeground(black);
+                bttnRegresar.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnRegresar.addMouseListener(de);
         bttnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bttnRegresarActionPerformed(evt);
+            }
+        });
+        bttnRegresar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bttnRegresarKeyPressed(evt);
             }
         });
 
@@ -363,6 +393,11 @@ ArrayList<Producto> objeto;
             control.activaVentana(new vistaAdmin((Administrador) currentUser),this);
         else control.activaVentana(new VistaEmpleado((Empleado) currentUser),this);
     }//GEN-LAST:event_bttnRegresarActionPerformed
+
+    private void bttnRegresarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnRegresarKeyPressed
+        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            this.bttnRegresarActionPerformed(new ActionEvent(this, 0, "")); 
+    }//GEN-LAST:event_bttnRegresarKeyPressed
 
     /**
      * @param args the command line arguments

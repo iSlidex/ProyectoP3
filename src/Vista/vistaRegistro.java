@@ -9,6 +9,10 @@ import Control.controlador;
 import Estructuras.Administrador;
 import Estructuras.Usuario;
 import controlXml.controlXmlUser;
+import java.awt.Color;
+import static java.awt.Color.black;
+import static java.awt.Color.blue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,6 +26,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingWorker;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 /**
  *
  * @author leito
@@ -41,6 +47,7 @@ boolean paso;
          verif1=true;
          verif2=true;
          success=false;
+         this.getContentPane().setBackground (Color.LIGHT_GRAY);
          
     }
     public vistaRegistro(boolean success,Usuario currenUser) {
@@ -56,6 +63,7 @@ boolean paso;
          verif1=true;
          verif2=true;
          this.success=true;
+         this.getContentPane().setBackground (Color.LIGHT_GRAY);
         // ActionEvent evt = null;
          //bttnRegActionPerformed(evt);         
     }
@@ -85,12 +93,16 @@ boolean paso;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new Font("vrinda",Font.BOLD,13));
         jLabel1.setText("Registro de usuario : ");
 
+        jLabel2.setFont(new Font("vrinda",Font.BOLD,13));
         jLabel2.setText("Nombre:");
 
+        jLabel3.setFont(new Font("vrinda",Font.BOLD,13));
         jLabel3.setText("Correo: ");
 
+        jLabel4.setFont(new Font("vrinda",Font.BOLD,13));
         jLabel4.setText("Contraseña: ");
 
         nombreTx.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -111,6 +123,7 @@ boolean paso;
             }
         });
 
+        jLabel5.setFont(new Font("vrinda",Font.BOLD,13));
         jLabel5.setText("Comfirmar Contraseña:");
 
         confPass.setText("jPasswordField2");
@@ -120,6 +133,7 @@ boolean paso;
             }
         });
 
+        jLabel6.setFont(new Font("vrinda",Font.BOLD,13));
         jLabel6.setText("Administrador: ");
 
         booAdm.addActionListener(new java.awt.event.ActionListener() {
@@ -128,6 +142,31 @@ boolean paso;
             }
         });
 
+        bttnReg.setFont(new Font("vrinda",Font.BOLD,15));
+        MouseListener c = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnReg.setForeground(blue);
+                bttnReg.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnReg.setForeground(black);
+                bttnReg.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnReg.addMouseListener(c);
         bttnReg.setText("Registrar");
         bttnReg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,6 +174,31 @@ boolean paso;
             }
         });
 
+        bttnCancel.setFont(new Font("vrinda",Font.BOLD,15));
+        MouseListener e = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnCancel.setForeground(blue);
+                bttnCancel.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnCancel.setForeground(black);
+                bttnCancel.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnCancel.addMouseListener(e);
         bttnCancel.setText("Cancelar");
         bttnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

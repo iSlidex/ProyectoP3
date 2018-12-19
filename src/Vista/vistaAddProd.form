@@ -104,6 +104,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnCancelActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="bttnCancel.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,15));&#xa;MouseListener b = new MouseListener() {&#xa;            @Override&#xa;            public void mouseClicked(MouseEvent me) {}&#xa;&#xa;            @Override&#xa;            public void mousePressed(MouseEvent me) {}&#xa;&#xa;            @Override&#xa;            public void mouseReleased(MouseEvent me) {&#xa;            }&#xa;&#xa;            @Override&#xa;            public void mouseEntered(MouseEvent me) {&#xa;                bttnCancel.setForeground(blue);&#xa;                bttnCancel.setFont(new Font(&quot;vrinda&quot;,3,15));&#xa;            }&#xa;&#xa;            @Override&#xa;            public void mouseExited(MouseEvent me) {&#xa;                bttnCancel.setForeground(black);&#xa;                bttnCancel.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,15));&#xa;            }&#xa;        };&#xa;        bttnCancel.addMouseListener(b);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="nombreTx">
       <Events>
@@ -121,21 +124,33 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="A&#xf1;adir Producto: "/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel1.setFont(new Font(&quot;arial&quot;,Font.BOLD,18));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre: "/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel2.setFont(new Font(&quot;arial&quot;,Font.BOLD,18));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Precio: "/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel3.setFont(new Font(&quot;arial&quot;,Font.BOLD,18));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="text" type="java.lang.String" value="Codigo:"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel4.setFont(new Font(&quot;arial&quot;,Font.BOLD,18));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="bttnCont">
       <Properties>
@@ -144,6 +159,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnContActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="bttnCont.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,15));&#xa;MouseListener a = new MouseListener() {&#xa;            @Override&#xa;            public void mouseClicked(MouseEvent me) {}&#xa;&#xa;            @Override&#xa;            public void mousePressed(MouseEvent me) {}&#xa;&#xa;            @Override&#xa;            public void mouseReleased(MouseEvent me) {&#xa;            }&#xa;&#xa;            @Override&#xa;            public void mouseEntered(MouseEvent me) {&#xa;                bttnCont.setForeground(blue);&#xa;                bttnCont.setFont(new Font(&quot;vrinda&quot;,3,15));&#xa;            }&#xa;&#xa;            @Override&#xa;            public void mouseExited(MouseEvent me) {&#xa;                bttnCont.setForeground(black);&#xa;                bttnCont.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,15));&#xa;            }&#xa;        };&#xa;        bttnCont.addMouseListener(a);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBox1">
       <Properties>
@@ -159,6 +177,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Proveedor"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel5.setFont(new Font(&quot;arial&quot;,Font.BOLD,18));"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

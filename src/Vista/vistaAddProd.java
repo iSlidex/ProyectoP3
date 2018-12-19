@@ -11,6 +11,12 @@ import Estructuras.Usuario;
 import Estructuras.listaProd;
 import controlXml.controlXmlProd;
 import controlXml.controlXmlProv;
+import java.awt.Color;
+import static java.awt.Color.black;
+import static java.awt.Color.blue;
+import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
     /**
@@ -38,6 +44,7 @@ ArrayList<Producto>  list2;
     }
     public vistaAddProd(Usuario currentUser,listaProd prods,Producto prod) {
         initComponents();
+        this.getContentPane().setBackground (Color.LIGHT_GRAY);
         control =new controlAgregar(jComboBox1, bttnCancel, bttnCont, codigoTx, nombreTx, precioTx, this);
         list2= xml2.todasLosUser();
         list = xml.todasLosUser();
@@ -80,6 +87,31 @@ ArrayList<Producto>  list2;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         bttnCancel.setText("Cancelar");
+        bttnCancel.setFont(new Font("vrinda",Font.BOLD,15));
+        MouseListener b = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnCancel.setForeground(blue);
+                bttnCancel.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnCancel.setForeground(black);
+                bttnCancel.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnCancel.addMouseListener(b);
         bttnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bttnCancelActionPerformed(evt);
@@ -98,21 +130,51 @@ ArrayList<Producto>  list2;
             }
         });
 
+        jLabel1.setFont(new Font("arial",Font.BOLD,18));
         jLabel1.setText("Añadir Producto: ");
 
+        jLabel2.setFont(new Font("arial",Font.BOLD,18));
         jLabel2.setText("Nombre: ");
 
+        jLabel3.setFont(new Font("arial",Font.BOLD,18));
         jLabel3.setText("Precio: ");
 
+        jLabel4.setFont(new Font("arial",Font.BOLD,18));
         jLabel4.setText("Codigo:");
 
         bttnCont.setText("Continuar");
+        bttnCont.setFont(new Font("vrinda",Font.BOLD,15));
+        MouseListener a = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnCont.setForeground(blue);
+                bttnCont.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnCont.setForeground(black);
+                bttnCont.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnCont.addMouseListener(a);
         bttnCont.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bttnContActionPerformed(evt);
             }
         });
 
+        jLabel5.setFont(new Font("arial",Font.BOLD,18));
         jLabel5.setText("Proveedor");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

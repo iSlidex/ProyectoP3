@@ -6,6 +6,12 @@
 package Vista;
 import Control.*;
 import Estructuras.Administrador;
+import java.awt.Color;
+import static java.awt.Color.black;
+import static java.awt.Color.blue;
+import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 /**
  *
  * @author leito
@@ -18,10 +24,12 @@ controlVistaAdm control;
     public vistaAdmin() {
         initComponents();
         control = new controlVistaAdm(bttnBack, bttnExit, bttnRegNu, bttnViewProd, bttnViewProv, bttnViewU, this);
+        this.getContentPane().setBackground (Color.LIGHT_GRAY);
         }
         public vistaAdmin(Administrador currentUser) {
         initComponents();
         control = new controlVistaAdm(bttnBack, bttnExit, bttnRegNu, bttnViewProd, bttnViewProv, bttnViewU, this);
+        this.getContentPane().setBackground (Color.LIGHT_GRAY);
         }
 
     /**
@@ -43,6 +51,31 @@ controlVistaAdm control;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        bttnViewU.setFont(new Font("vrinda",Font.BOLD,15));
+        MouseListener a = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnViewU.setForeground(blue);
+                bttnViewU.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnViewU.setForeground(black);
+                bttnViewU.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnViewU.addMouseListener(a);
         bttnViewU.setText("Ver Usuarios");
         bttnViewU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,10 +83,85 @@ controlVistaAdm control;
             }
         });
 
+        bttnViewProv.setFont(new Font("vrinda",Font.BOLD,15));
+        MouseListener b = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnViewProv.setForeground(blue);
+                bttnViewProv.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnViewProv.setForeground(black);
+                bttnViewProv.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnViewProv.addMouseListener(b);
         bttnViewProv.setText("Ver Proveedores");
 
+        bttnViewProd.setFont(new Font("vrinda",Font.BOLD,15));
+        MouseListener c = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnViewProd.setForeground(blue);
+                bttnViewProd.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnViewProd.setForeground(black);
+                bttnViewProd.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnViewProd.addMouseListener(c);
         bttnViewProd.setText("Ver Productos");
 
+        bttnRegNu.setFont(new Font("vrinda",Font.BOLD,15));
+        MouseListener d = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnRegNu.setForeground(blue);
+                bttnRegNu.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnRegNu.setForeground(black);
+                bttnRegNu.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnRegNu.addMouseListener(d);
         bttnRegNu.setText("Registrar Nuevo Usuario");
         bttnRegNu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +169,31 @@ controlVistaAdm control;
             }
         });
 
+        bttnBack.setFont(new Font("vrinda",Font.BOLD,15));
+        MouseListener e = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnBack.setForeground(blue);
+                bttnBack.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnBack.setForeground(black);
+                bttnBack.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnBack.addMouseListener(e);
         bttnBack.setText("Cerrar Sesion");
         bttnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +201,31 @@ controlVistaAdm control;
             }
         });
 
+        bttnExit.setFont(new Font("vrinda",Font.BOLD,15));
+        MouseListener f = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnExit.setForeground(blue);
+                bttnExit.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnExit.setForeground(black);
+                bttnExit.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnExit.addMouseListener(f);
         bttnExit.setText("Salir");
         bttnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,6 +233,7 @@ controlVistaAdm control;
             }
         });
 
+        jLabel1.setFont(new Font("arial",Font.BOLD,18));
         jLabel1.setText("Menu Administrador");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -91,15 +250,15 @@ controlVistaAdm control;
                         .addComponent(bttnRegNu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
                         .addComponent(bttnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bttnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(74, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bttnViewU)
                 .addGap(18, 18, 18)
                 .addComponent(bttnViewProv)

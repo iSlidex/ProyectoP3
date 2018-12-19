@@ -9,6 +9,12 @@ import Estructuras.Proveedor;
 import Estructuras.Usuario;
 import Estructuras.listaProv;
 import controlXml.controlXmlProv;
+import java.awt.Color;
+import static java.awt.Color.black;
+import static java.awt.Color.blue;
+import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 /**
@@ -31,7 +37,7 @@ ArrayList<Proveedor> list;
     }
     vistaAddProv(Usuario currentUser,listaProv proveedores, Proveedor provActual) {
        initComponents();
-       
+       this.getContentPane().setBackground (Color.LIGHT_GRAY);
        control= new controlAgregar(bttnCancel, bttnCont, dirTx, nombreTx, telfTx, this);
        
        
@@ -71,14 +77,43 @@ ArrayList<Proveedor> list;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new Font("arial",Font.BOLD,18));
         jLabel1.setText("Añadir Proveedor: ");
 
+        jLabel2.setFont(new Font("arial",Font.BOLD,18));
         jLabel2.setText("Nombre: ");
 
+        jLabel3.setFont(new Font("arial",Font.BOLD,18));
         jLabel3.setText("Direccion:");
 
+        jLabel4.setFont(new Font("arial",Font.BOLD,18));
         jLabel4.setText("Telefono: ");
 
+        bttnCont.setFont(new Font("vrinda",Font.BOLD,15));
+        MouseListener a = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnCont.setForeground(blue);
+                bttnCont.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnCont.setForeground(black);
+                bttnCont.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnCont.addMouseListener(a);
         bttnCont.setText("Continuar");
         bttnCont.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +121,31 @@ ArrayList<Proveedor> list;
             }
         });
 
+        bttnCancel.setFont(new Font("vrinda",Font.BOLD,15));
+        MouseListener b = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                bttnCancel.setForeground(blue);
+                bttnCancel.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                bttnCancel.setForeground(black);
+                bttnCancel.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        bttnCancel.addMouseListener(b);
         bttnCancel.setText("Cancelar");
         bttnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
