@@ -95,6 +95,26 @@ public class controlTablas extends controlador{
       tablaCosas.setModel(dtm);
       tablaCosas.setFont(new Font("perpetua",Font.BOLD,16));
    }
+     public void llenarTabla(listaUser user, JTable tablaCosas ){  
+      ArrayList<Usuario> Prov;
+      String[] columna = { "Nombre", "Correo", "Tipo de Usuario ","Objeto" };
+      
+      DefaultTableModel dtm = new DefaultTableModel(null,columna){
+        @Override
+        public boolean isCellEditable(int rowIndex, int mColIndex) {
+            return false;        
+        }
+        Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Float.class, Producto.class
+        };        
+    };
+      Prov= user.getLista();
+      Prov.forEach((per) -> {
+          dtm.addRow(new Object[] {per.getNombre(), per.getNombre(),per.getClass().getSimpleName(),per});
+        });
+      tablaCosas.setModel(dtm);
+      tablaCosas.setFont(new Font("perpetua",Font.BOLD,16));
+   } 
     
         public void activa_Desactiva(boolean verdadOFalso){
       Modificar.setEnabled(verdadOFalso);

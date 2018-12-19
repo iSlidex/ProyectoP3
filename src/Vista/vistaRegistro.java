@@ -37,6 +37,7 @@ boolean verif1,verif2,success;
 controlRegistro control;
 controlXmlUser controlXml;
 boolean paso;
+Usuario currentUser;
     /**
      * Creates new form vistaRegistro
      */
@@ -58,7 +59,7 @@ boolean paso;
          confPass.setText(new String(currenUser.getClave()));        
          nombreTx.setText(currenUser.getNombre());              
          booAdm.setSelected(true);
-         
+         currentUser=currenUser;
          controlXml = new controlXmlUser();
          verif1=true;
          verif2=true;
@@ -312,11 +313,13 @@ boolean paso;
                         control.activaVentana (ventana,this);                    
                 }
                 else {
+                        if (controlXml.buscarPersona(currentUser.getCorreo())!=null){
                         booAdm.setEnabled(true);                        
                         JOptionPane.showMessageDialog(this,"Usuario Administrador creado con exito");
                         controlXml.agregarUser(control.crearUser());
                         VistaLogin ventana = new VistaLogin();
                         control.activaVentana(ventana, this);
+                        }
                 }
              }
         }
@@ -355,7 +358,7 @@ boolean paso;
     }//GEN-LAST:event_bttnCancelActionPerformed
 
     private void nombreTxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nombreTxFocusGained
-        if(success){
+        if((success)&&(nombreTx.getText().equals(""))){
          ActionEvent ola=null;
          bttnRegActionPerformed(ola);   
         }

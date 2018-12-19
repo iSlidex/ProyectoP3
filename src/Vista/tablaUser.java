@@ -5,24 +5,63 @@
  */
 package Vista;
 
+import Control.controlTablas;
+import Estructuras.Usuario;
+import Estructuras.listaProv;
+import Estructuras.listaUser;
+import controlXml.controlXmlUser;
+import java.awt.Color;
 import static java.awt.Color.black;
 import static java.awt.Color.blue;
 import static java.awt.Color.red;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author leito
  */
 public class tablaUser extends javax.swing.JFrame {
-
+controlTablas control;
+listaUser users;
+int j;
+Usuario currentUser;
+controlXmlUser xml= new controlXmlUser();
+ArrayList<Usuario> objeto;
     /**
      * Creates new form tablaUser
      */
     public tablaUser() {
         initComponents();
+    }
+    public tablaUser(Usuario currentUser) {
+        initComponents();
+        this.currentUser=currentUser;
+                control = new controlTablas(Agregar, Eliminar, Modificar, Salir, tabla, this);
+        this.currentUser = currentUser;
+        objeto = xml.todasLosUser();
+        users = new listaUser(objeto);
+        control.activa_Desactiva(false);
+         if (!users.existeUser()) {
+            control.activa_Desactiva(true);        
+        }
+        else {
+            control.activa_Desactiva(false);        
+            tabla = new javax.swing.JTable();             
+        }
+        control.llenarTabla(this.users,tabla);
+        if (tabla.getColumnModel().getColumnCount() > 0) {
+            tabla.getColumnModel().getColumn(3).setMinWidth(0);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+        }
+        this.getContentPane().setBackground (Color.LIGHT_GRAY);
+        Agregar.requestFocus();
     }
 
     /**
@@ -283,20 +322,20 @@ public class tablaUser extends javax.swing.JFrame {
     }//GEN-LAST:event_ModificarKeyPressed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
-        //        if (!(tabla.getSelectedRow()==-1)){
-            //            Electrodomestico cosaActual = (Electrodomestico) tabla.getValueAt(tabla.getSelectedRow(),3);
-            //            xml.borrarCosa(this.cosas.indiceCosa(cosaActual));
-            //            this.cosas.eliminarCosa(cosaActual);
-            //
-            //            Vista1 ventana = new Vista1(this.cosas);
-            //            control.activaVentana(ventana, this);
-            //        }else
-        //        JOptionPane.showMessageDialog(this, "Selecciona una casilla");
+                if (!(tabla.getSelectedRow()==-1)){
+                        Usuario cosaActual = (Usuario) tabla.getValueAt(tabla.getSelectedRow(),3);
+                        xml.borrarCosa(this.users.indiceUser(cosaActual));
+                        this.users.eliminarUser(cosaActual);
+            
+                        tablaUser ventana = new tablaUser(currentUser);
+                        control.activaVentana(ventana, this);
+                    }else
+                JOptionPane.showMessageDialog(this, "Selecciona una casilla");
     }//GEN-LAST:event_EliminarActionPerformed
 
     private void EliminarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EliminarKeyPressed
-        //        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-        //        this.EliminarActionPerformed(new ActionEvent(this, 0, ""));
+                if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+                this.EliminarActionPerformed(new ActionEvent(this, 0, ""));
     }//GEN-LAST:event_EliminarKeyPressed
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
@@ -304,12 +343,12 @@ public class tablaUser extends javax.swing.JFrame {
     }//GEN-LAST:event_tablaMouseClicked
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-        //System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
 
     private void SalirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SalirKeyPressed
-        //        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-        //        System.exit(0);
+                if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+               System.exit(0);
     }//GEN-LAST:event_SalirKeyPressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

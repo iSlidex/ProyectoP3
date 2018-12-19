@@ -78,6 +78,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ver Proveedores"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnViewProvActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="bttnViewProv.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,15));&#xa;MouseListener b = new MouseListener() {&#xa;            @Override&#xa;            public void mouseClicked(MouseEvent me) {}&#xa;&#xa;            @Override&#xa;            public void mousePressed(MouseEvent me) {}&#xa;&#xa;            @Override&#xa;            public void mouseReleased(MouseEvent me) {&#xa;            }&#xa;&#xa;            @Override&#xa;            public void mouseEntered(MouseEvent me) {&#xa;                bttnViewProv.setForeground(blue);&#xa;                bttnViewProv.setFont(new Font(&quot;vrinda&quot;,3,15));&#xa;            }&#xa;&#xa;            @Override&#xa;            public void mouseExited(MouseEvent me) {&#xa;                bttnViewProv.setForeground(black);&#xa;                bttnViewProv.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,15));&#xa;            }&#xa;        };&#xa;        bttnViewProv.addMouseListener(b);"/>
       </AuxValues>
@@ -86,6 +89,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ver Productos"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnViewProdActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="bttnViewProd.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,15));&#xa;MouseListener c = new MouseListener() {&#xa;            @Override&#xa;            public void mouseClicked(MouseEvent me) {}&#xa;&#xa;            @Override&#xa;            public void mousePressed(MouseEvent me) {}&#xa;&#xa;            @Override&#xa;            public void mouseReleased(MouseEvent me) {&#xa;            }&#xa;&#xa;            @Override&#xa;            public void mouseEntered(MouseEvent me) {&#xa;                bttnViewProd.setForeground(blue);&#xa;                bttnViewProd.setFont(new Font(&quot;vrinda&quot;,3,15));&#xa;            }&#xa;&#xa;            @Override&#xa;            public void mouseExited(MouseEvent me) {&#xa;                bttnViewProd.setForeground(black);&#xa;                bttnViewProd.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,15));&#xa;            }&#xa;        };&#xa;        bttnViewProd.addMouseListener(c);"/>
       </AuxValues>

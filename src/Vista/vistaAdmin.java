@@ -18,6 +18,7 @@ import java.awt.event.MouseListener;
  */
 public class vistaAdmin extends javax.swing.JFrame {
 controlVistaAdm control;
+Administrador currentUser;
     /**
      * Creates new form vistaAdmin
      */
@@ -30,6 +31,7 @@ controlVistaAdm control;
         initComponents();
         control = new controlVistaAdm(bttnBack, bttnExit, bttnRegNu, bttnViewProd, bttnViewProv, bttnViewU, this);
         this.getContentPane().setBackground (Color.LIGHT_GRAY);
+        this.currentUser=currentUser;
         }
 
     /**
@@ -109,6 +111,11 @@ controlVistaAdm control;
         };
         bttnViewProv.addMouseListener(b);
         bttnViewProv.setText("Ver Proveedores");
+        bttnViewProv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnViewProvActionPerformed(evt);
+            }
+        });
 
         bttnViewProd.setFont(new Font("vrinda",Font.BOLD,15));
         MouseListener c = new MouseListener() {
@@ -136,6 +143,11 @@ controlVistaAdm control;
         };
         bttnViewProd.addMouseListener(c);
         bttnViewProd.setText("Ver Productos");
+        bttnViewProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnViewProdActionPerformed(evt);
+            }
+        });
 
         bttnRegNu.setFont(new Font("vrinda",Font.BOLD,15));
         MouseListener d = new MouseListener() {
@@ -277,7 +289,7 @@ controlVistaAdm control;
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnViewUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnViewUActionPerformed
-        // TODO add your handling code here:
+        control.activaVentana(new tablaUser(currentUser), this);
     }//GEN-LAST:event_bttnViewUActionPerformed
 
     private void bttnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnExitActionPerformed
@@ -289,8 +301,16 @@ controlVistaAdm control;
     }//GEN-LAST:event_bttnBackActionPerformed
 
     private void bttnRegNuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRegNuActionPerformed
-        // TODO add your handling code here:
+        control.activaVentana(new vistaRegistro(),this );
     }//GEN-LAST:event_bttnRegNuActionPerformed
+
+    private void bttnViewProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnViewProvActionPerformed
+        control.activaVentana(new tablaProveedores(currentUser), this);
+    }//GEN-LAST:event_bttnViewProvActionPerformed
+
+    private void bttnViewProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnViewProdActionPerformed
+        control.activaVentana(new tablaProductos(currentUser), this);
+    }//GEN-LAST:event_bttnViewProdActionPerformed
 
     /**
      * @param args the command line arguments
