@@ -13,6 +13,8 @@ import java.awt.Color;
 import static java.awt.Color.black;
 import static java.awt.Color.blue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -89,6 +91,11 @@ ArrayList<Usuario> users;
                 bttnInActionPerformed(evt);
             }
         });
+        bttnIn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bttnInKeyPressed(evt);
+            }
+        });
 
         bttnExit.setFont(new Font("vrinda",Font.BOLD,15));
         bttnExit.setText("Salir");
@@ -119,6 +126,11 @@ ArrayList<Usuario> users;
         bttnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bttnExitActionPerformed(evt);
+            }
+        });
+        bttnExit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bttnExitKeyPressed(evt);
             }
         });
 
@@ -177,6 +189,11 @@ ArrayList<Usuario> users;
         bttnReg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bttnRegActionPerformed(evt);
+            }
+        });
+        bttnReg.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bttnRegKeyPressed(evt);
             }
         });
 
@@ -271,6 +288,21 @@ ArrayList<Usuario> users;
         System.exit(0);
     }//GEN-LAST:event_bttnExitActionPerformed
 
+    private void bttnInKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnInKeyPressed
+          if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            this.bttnInActionPerformed(new ActionEvent(this, 0, ""));
+    }//GEN-LAST:event_bttnInKeyPressed
+
+    private void bttnRegKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnRegKeyPressed
+          if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            this.bttnRegActionPerformed(new ActionEvent(this, 0, ""));        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnRegKeyPressed
+
+    private void bttnExitKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnExitKeyPressed
+       if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+           System.exit(0);
+    }//GEN-LAST:event_bttnExitKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -296,6 +328,7 @@ ArrayList<Usuario> users;
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VistaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
