@@ -386,7 +386,7 @@ Usuario currentUser;
     private void passTxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passTxFocusGained
        if (verif1){
        passTx.setText("");
-       this.verif2=false;
+       this.verif1=false;
        }
     }//GEN-LAST:event_passTxFocusGained
 
