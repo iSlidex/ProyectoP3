@@ -88,8 +88,8 @@ ArrayList<Usuario> objeto;
         jLabel3.setFont(new Font("arial",Font.BOLD,18));
         jLabel3.setForeground(red);
 
-        Agregar.setFont(new Font("vrinda",Font.BOLD,15));
         Agregar.setText("Agregar");
+        Agregar.setFont(new Font("vrinda",Font.BOLD,15));
         MouseListener a = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent me) {}
@@ -241,6 +241,31 @@ ArrayList<Usuario> objeto;
             }
         });
 
+        jButton1.setFont(new Font("vrinda",Font.BOLD,15));
+        MouseListener b = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {}
+
+            @Override
+            public void mousePressed(MouseEvent me) {}
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                jButton1.setForeground(blue);
+                jButton1.setFont(new Font("vrinda",3,15));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                jButton1.setForeground(black);
+                jButton1.setFont(new Font("vrinda",Font.BOLD,15));
+            }
+        };
+        Agregar.addMouseListener(b);
         jButton1.setText("Ver Usuario");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

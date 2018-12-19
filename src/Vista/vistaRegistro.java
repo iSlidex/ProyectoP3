@@ -113,6 +113,11 @@ Usuario currentUser;
         });
 
         passTx.setText("jPasswordField1");
+        passTx.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passTxFocusGained(evt);
+            }
+        });
         passTx.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 passTxMouseClicked(evt);
@@ -128,6 +133,11 @@ Usuario currentUser;
         jLabel5.setText("Comfirmar Contraseña:");
 
         confPass.setText("jPasswordField2");
+        confPass.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                confPassFocusGained(evt);
+            }
+        });
         confPass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 confPassMouseClicked(evt);
@@ -367,6 +377,20 @@ Usuario currentUser;
     private void booAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booAdmActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_booAdmActionPerformed
+
+    private void passTxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passTxFocusGained
+       if (verif2){
+       confPass.setText("");
+       this.verif2=false;
+       }
+    }//GEN-LAST:event_passTxFocusGained
+
+    private void confPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_confPassFocusGained
+       if (verif2){
+       confPass.setText("");
+       this.verif2=false;
+       }
+    }//GEN-LAST:event_confPassFocusGained
 
     /**
      * @param args the command line arguments

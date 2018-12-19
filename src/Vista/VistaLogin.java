@@ -151,11 +151,21 @@ ArrayList<Usuario> users;
                 passTxActionPerformed(evt);
             }
         });
+        passTx.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passTxKeyPressed(evt);
+            }
+        });
 
         userTx.setFont(new Font("verdana",0,12));
         userTx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userTxActionPerformed(evt);
+            }
+        });
+        userTx.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                userTxKeyPressed(evt);
             }
         });
 
@@ -314,6 +324,16 @@ ArrayList<Usuario> users;
        this.verif=false;
        }
     }//GEN-LAST:event_passTxFocusGained
+
+    private void passTxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passTxKeyPressed
+           if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            this.bttnInActionPerformed(new ActionEvent(this, 0, ""));
+    }//GEN-LAST:event_passTxKeyPressed
+
+    private void userTxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userTxKeyPressed
+        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            this.bttnInActionPerformed(new ActionEvent(this, 0, ""));
+    }//GEN-LAST:event_userTxKeyPressed
 
     /**
      * @param args the command line arguments
