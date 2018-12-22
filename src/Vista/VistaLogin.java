@@ -301,7 +301,7 @@ ArrayList<Usuario> users;
 
     private void bttnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnExitActionPerformed
         //System.exit(0);
-        control.activaVentana(new newLogin(), this);
+        control.activaVentana(new newVistaProducto(), this);
     }//GEN-LAST:event_bttnExitActionPerformed
 
     private void bttnInKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnInKeyPressed
