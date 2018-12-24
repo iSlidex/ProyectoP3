@@ -69,6 +69,8 @@ int i,j;
         jLabel17 = new javax.swing.JLabel();
         verProd5 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
+        verProd6 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -547,13 +549,21 @@ int i,j;
 
         jLabel17.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Edit_25px.png"))); // NOI18N
-        jLabel17.setText("Modificar");
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Trash_Can_25px.png"))); // NOI18N
+        jLabel17.setText("Eliminar");
         jLabel17.setToolTipText("");
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel17MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel17MouseExited(evt);
+            }
+        });
         verProd4.add(jLabel17);
-        jLabel17.setBounds(10, 0, 110, 40);
+        jLabel17.setBounds(10, 0, 100, 40);
 
-        background.add(verProd4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 630, 120, 40));
+        background.add(verProd4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 630, 120, 40));
 
         verProd5.setBackground(new java.awt.Color(0, 80, 160));
         verProd5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
@@ -572,10 +582,48 @@ int i,j;
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Add_25px.png"))); // NOI18N
         jLabel18.setText("Agregar");
         jLabel18.setToolTipText("");
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel18MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel18MouseExited(evt);
+            }
+        });
         verProd5.add(jLabel18);
-        jLabel18.setBounds(10, 0, 110, 40);
+        jLabel18.setBounds(10, 0, 100, 40);
 
         background.add(verProd5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 630, 120, 40));
+
+        verProd6.setBackground(new java.awt.Color(0, 80, 160));
+        verProd6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
+        verProd6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                verProd6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                verProd6MouseExited(evt);
+            }
+        });
+        verProd6.setLayout(null);
+
+        jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Edit_25px.png"))); // NOI18N
+        jLabel19.setText("Modificar");
+        jLabel19.setToolTipText("");
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel19MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel19MouseExited(evt);
+            }
+        });
+        verProd6.add(jLabel19);
+        jLabel19.setBounds(10, 0, 100, 40);
+
+        background.add(verProd6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 630, 120, 40));
 
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 700));
 
@@ -708,11 +756,11 @@ int i,j;
     }//GEN-LAST:event_bttn14MouseDragged
 
     private void verProd4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd4MouseEntered
-        // TODO add your handling code here:
+       verProd4.setBackground(new java.awt.Color(30, 120, 180));       
     }//GEN-LAST:event_verProd4MouseEntered
 
     private void verProd4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd4MouseExited
-        // TODO add your handling code here:
+        verProd4.setBackground(new java.awt.Color(0, 80, 160));  
     }//GEN-LAST:event_verProd4MouseExited
 
     private void jLabel16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseEntered
@@ -728,12 +776,44 @@ int i,j;
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void verProd5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd5MouseEntered
-        // TODO add your handling code here:
+       verProd5.setBackground(new java.awt.Color(30, 120, 180));      
     }//GEN-LAST:event_verProd5MouseEntered
 
     private void verProd5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd5MouseExited
-        // TODO add your handling code here:
+       verProd5.setBackground(new java.awt.Color(0, 80, 160));       
     }//GEN-LAST:event_verProd5MouseExited
+
+    private void verProd6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd6MouseEntered
+        verProd6.setBackground(new java.awt.Color(30, 120, 180));
+    }//GEN-LAST:event_verProd6MouseEntered
+
+    private void verProd6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd6MouseExited
+        verProd6.setBackground(new java.awt.Color(0, 80, 160));
+    }//GEN-LAST:event_verProd6MouseExited
+
+    private void jLabel17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseEntered
+       verProd4.setBackground(new java.awt.Color(30, 120, 180));  
+    }//GEN-LAST:event_jLabel17MouseEntered
+
+    private void jLabel17MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseExited
+        verProd4.setBackground(new java.awt.Color(0, 80, 160));  
+    }//GEN-LAST:event_jLabel17MouseExited
+
+    private void jLabel19MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseEntered
+       verProd6.setBackground(new java.awt.Color(30, 120, 180));
+    }//GEN-LAST:event_jLabel19MouseEntered
+
+    private void jLabel19MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseExited
+       verProd6.setBackground(new java.awt.Color(0, 80, 160));
+    }//GEN-LAST:event_jLabel19MouseExited
+
+    private void jLabel18MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseEntered
+         verProd5.setBackground(new java.awt.Color(30, 120, 180));   
+    }//GEN-LAST:event_jLabel18MouseEntered
+
+    private void jLabel18MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseExited
+         verProd5.setBackground(new java.awt.Color(0, 80, 160));   
+    }//GEN-LAST:event_jLabel18MouseExited
 
     /**
      * @param args the command line arguments
@@ -789,6 +869,7 @@ int i,j;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -803,6 +884,7 @@ int i,j;
     private javax.swing.JPanel verProd3;
     private javax.swing.JPanel verProd4;
     private javax.swing.JPanel verProd5;
+    private javax.swing.JPanel verProd6;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
