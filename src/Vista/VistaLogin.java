@@ -13,6 +13,7 @@ import java.awt.Color;
 import static java.awt.Color.black;
 import static java.awt.Color.blue;
 import java.awt.Font;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -29,12 +30,14 @@ controladorLogin control;
 controlXmlUser controlXmlU;
 boolean verif;
 ArrayList<Usuario> users;
+private Point currentLocation;
+int i,j;
     /**
      * Creates new form VistaLogin
      */
     public VistaLogin() {
         initComponents();
-        control= new controladorLogin(this, bttnExit, bttnIn, bttnReg, passTx, userTx);
+        control= new controladorLogin(this, passTx, userTx);
         controlXmlU = new controlXmlUser();
         users = controlXmlU.todasLosUser();
         this.verif=true;
@@ -50,92 +53,39 @@ ArrayList<Usuario> users;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bttnIn = new javax.swing.JButton();
-        bttnExit = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         passTx = new javax.swing.JPasswordField();
         userTx = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        bttnReg = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        bttn15 = new java.awt.Label();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1060, 700));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        bttnIn.setFont(new Font("vrinda",Font.BOLD,15));
-        bttnIn.setText("Ingresar");
-        MouseListener a = new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent me) {}
+        jPanel2.setBackground(new java.awt.Color(0, 51, 153));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-            @Override
-            public void mousePressed(MouseEvent me) {}
-
-            @Override
-            public void mouseReleased(MouseEvent me) {
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent me) {
-                bttnIn.setForeground(blue);
-                bttnIn.setFont(new Font("vrinda",3,15));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent me) {
-                bttnIn.setForeground(black);
-                bttnIn.setFont(new Font("vrinda",Font.BOLD,15));
-            }
-        };
-        bttnIn.addMouseListener(a);
-        bttnIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnInActionPerformed(evt);
-            }
-        });
-        bttnIn.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                bttnInKeyPressed(evt);
-            }
-        });
-
-        bttnExit.setFont(new Font("vrinda",Font.BOLD,15));
-        bttnExit.setText("Salir");
-        MouseListener b = new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent me) {}
-
-            @Override
-            public void mousePressed(MouseEvent me) {}
-
-            @Override
-            public void mouseReleased(MouseEvent me) {
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent me) {
-                bttnExit.setForeground(blue);
-                bttnExit.setFont(new Font("vrinda",3,15));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent me) {
-                bttnExit.setForeground(black);
-                bttnExit.setFont(new Font("vrinda",Font.BOLD,15));
-            }
-        };
-        bttnExit.addMouseListener(b);
-        bttnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnExitActionPerformed(evt);
-            }
-        });
-        bttnExit.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                bttnExitKeyPressed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
 
         passTx.setFont(new Font("verdana",0,12));
         passTx.setText("jPasswordField1");
+        passTx.setNextFocusableComponent(jPanel4);
         passTx.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 passTxFocusGained(evt);
@@ -156,8 +106,11 @@ ArrayList<Usuario> users;
                 passTxKeyPressed(evt);
             }
         });
+        jPanel1.add(passTx);
+        passTx.setBounds(280, 160, 164, 40);
 
         userTx.setFont(new Font("verdana",0,12));
+        userTx.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         userTx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userTxActionPerformed(evt);
@@ -168,92 +121,327 @@ ArrayList<Usuario> users;
                 userTxKeyPressed(evt);
             }
         });
+        jPanel1.add(userTx);
+        userTx.setBounds(280, 100, 164, 40);
 
-        jLabel1.setFont(new Font("Verdana",Font.BOLD,12));
-        jLabel1.setText("Usuario :");
-
-        jLabel2.setFont(new Font("Verdana",Font.BOLD,12));
-        jLabel2.setText("Contraseña :");
-
-        bttnReg.setText("Registrarse");
-        bttnReg.setFont(new Font("vrinda",Font.BOLD,15));
-        MouseListener c = new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent me) {}
-
-            @Override
-            public void mousePressed(MouseEvent me) {}
-
-            @Override
-            public void mouseReleased(MouseEvent me) {
+        jPanel3.setBackground(new java.awt.Color(0, 51, 153));
+        jPanel3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPanel3FocusGained(evt);
             }
-
-            @Override
-            public void mouseEntered(MouseEvent me) {
-                bttnReg.setForeground(blue);
-                bttnReg.setFont(new Font("vrinda",3,15));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent me) {
-                bttnReg.setForeground(black);
-                bttnReg.setFont(new Font("vrinda",Font.BOLD,15));
-            }
-        };
-        bttnReg.addMouseListener(c);
-        bttnReg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnRegActionPerformed(evt);
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jPanel3FocusLost(evt);
             }
         });
-        bttnReg.addKeyListener(new java.awt.event.KeyAdapter() {
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel3MouseEntered(evt);
+            }
+        });
+        jPanel3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                bttnRegKeyPressed(evt);
+                jPanel3KeyPressed(evt);
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(passTx)
-                            .addComponent(userTx, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(bttnIn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bttnReg)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(bttnExit))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(97, Short.MAX_VALUE))
+        jLabel19.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Exit_20px.png"))); // NOI18N
+        jLabel19.setText("Salir");
+        jLabel19.setToolTipText("");
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel19MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel19MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel19)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(userTx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(passTx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bttnExit)
-                    .addComponent(bttnIn)
-                    .addComponent(bttnReg))
-                .addGap(79, 79, 79))
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel19)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(390, 250, 80, 40);
+
+        jPanel4.setBackground(new java.awt.Color(0, 51, 153));
+        jPanel4.setFocusCycleRoot(true);
+        jPanel4.setFocusTraversalPolicyProvider(true);
+        jPanel4.setNextFocusableComponent(jPanel8);
+        jPanel4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPanel4FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jPanel4FocusLost(evt);
+            }
+        });
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel4MouseExited(evt);
+            }
+        });
+        jPanel4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPanel4KeyPressed(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Sign_Out_20px.png"))); // NOI18N
+        jLabel18.setText("Ingresar");
+        jLabel18.setToolTipText("");
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel18MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel18MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel18MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel18)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel18)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel4);
+        jPanel4.setBounds(120, 250, 110, 40);
+
+        jLabel21.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_User_20px.png"))); // NOI18N
+        jLabel21.setText("Usuario :");
+        jLabel21.setToolTipText("");
+        jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel21MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel21MouseExited(evt);
+            }
+        });
+        jPanel1.add(jLabel21);
+        jLabel21.setBounds(130, 100, 110, 40);
+
+        jLabel22.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Key_20px.png"))); // NOI18N
+        jLabel22.setText("Contraseña :");
+        jLabel22.setToolTipText("");
+        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel22MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel22MouseExited(evt);
+            }
+        });
+        jPanel1.add(jLabel22);
+        jLabel22.setBounds(130, 160, 150, 40);
+
+        jPanel8.setBackground(new java.awt.Color(0, 51, 153));
+        jPanel8.setNextFocusableComponent(jPanel3);
+        jPanel8.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPanel8FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jPanel8FocusLost(evt);
+            }
+        });
+        jPanel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel8MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel8MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel8MouseExited(evt);
+            }
+        });
+        jPanel8.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPanel8KeyPressed(evt);
+            }
+        });
+
+        jLabel23.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Add_User_Male_20px.png"))); // NOI18N
+        jLabel23.setText("Registrarse");
+        jLabel23.setToolTipText("");
+        jLabel23.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jLabel23FocusGained(evt);
+            }
+        });
+        jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel23MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel23MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel23MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel23)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel23)
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel8);
+        jPanel8.setBounds(240, 250, 137, 40);
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 600, 380));
+
+        jPanel5.setBackground(new java.awt.Color(0, 51, 153));
+        jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.lightGray, new java.awt.Color(255, 255, 255), java.awt.Color.gray));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 766, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 466, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 770, 470));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 58, 1072, 660));
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel7.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel7MouseDragged(evt);
+            }
+        });
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel7MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel7MousePressed(evt);
+            }
+        });
+        jPanel7.setLayout(null);
+
+        bttn15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        bttn15.setForeground(new java.awt.Color(0, 51, 153));
+        bttn15.setName(""); // NOI18N
+        bttn15.setText("Constructores 3000 C.A");
+        bttn15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                bttn15MousePressed(evt);
+            }
+        });
+        bttn15.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                bttn15MouseDragged(evt);
+            }
+        });
+        jPanel7.add(bttn15);
+        bttn15.setBounds(10, 10, 209, 19);
+
+        jSeparator2.setBackground(new java.awt.Color(0, 51, 153));
+        jPanel7.add(jSeparator2);
+        jSeparator2.setBounds(10, 39, 206, 24);
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/minimze2.png"))); // NOI18N
+        jLabel16.setToolTipText("");
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel16MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel16MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel16MouseExited(evt);
+            }
+        });
+        jPanel7.add(jLabel16);
+        jLabel16.setBounds(950, 10, 36, 40);
+
+        jLabel3.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel3.setForeground(new java.awt.Color(102, 255, 102));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/baseline_cancel_black_18dp.png"))); // NOI18N
+        jLabel3.setToolTipText("");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel3MouseExited(evt);
+            }
+        });
+        jPanel7.add(jLabel3);
+        jLabel3.setBounds(990, 10, 36, 36);
+
+        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 60));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void passTxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passTxActionPerformed
@@ -274,13 +462,131 @@ ArrayList<Usuario> users;
        }
     }//GEN-LAST:event_passTxMouseClicked
 
-    private void bttnRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRegActionPerformed
-       controlador next= new controlador(this);
-       next.activaVentana(new vistaRegistro(),this );
-    }//GEN-LAST:event_bttnRegActionPerformed
+    private void passTxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passTxFocusGained
+       if (verif){
+       passTx.setText("");
+       this.verif=false;
+       }
+    }//GEN-LAST:event_passTxFocusGained
 
-    private void bttnInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnInActionPerformed
-       controladorLogin next= new controladorLogin(this, bttnExit, bttnIn, bttnReg, passTx, userTx);
+    private void passTxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passTxKeyPressed
+           //if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            //this.bttnInActionPerformed(new ActionEvent(this, 0, ""));
+    }//GEN-LAST:event_passTxKeyPressed
+
+    private void userTxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userTxKeyPressed
+        //if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            //this.bttnInActionPerformed(new ActionEvent(this, 0, ""));
+    }//GEN-LAST:event_userTxKeyPressed
+
+    private void jLabel18MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseEntered
+        jPanel4.setBackground(new java.awt.Color(0, 80, 160));
+    }//GEN-LAST:event_jLabel18MouseEntered
+
+    private void jLabel18MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseExited
+        jPanel4.setBackground(new java.awt.Color(0,51,153));
+    }//GEN-LAST:event_jLabel18MouseExited
+
+    private void jLabel19MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseEntered
+        jPanel3.setBackground(new java.awt.Color(0, 80, 160));
+    }//GEN-LAST:event_jLabel19MouseEntered
+
+    private void jLabel19MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseExited
+        jPanel3.setBackground(new java.awt.Color(0,51,153));
+    }//GEN-LAST:event_jLabel19MouseExited
+
+    private void bttn15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn15MousePressed
+        i = evt.getX();
+        j= evt.getY();
+    }//GEN-LAST:event_bttn15MousePressed
+
+    private void bttn15MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn15MouseDragged
+        int cI = evt.getXOnScreen();
+        int cJ= evt.getYOnScreen();
+        this.setLocation(cI-i,cJ-j);
+    }//GEN-LAST:event_bttn15MouseDragged
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        this.setState(newVistaProducto.ICONIFIED);
+    }//GEN-LAST:event_jLabel16MouseClicked
+
+    private void jLabel16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseEntered
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/minimze3.png")));
+    }//GEN-LAST:event_jLabel16MouseEntered
+
+    private void jLabel16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseExited
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/minimze2.png")));
+    }//GEN-LAST:event_jLabel16MouseExited
+
+    private void jPanel7MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseDragged
+        int cI = evt.getXOnScreen();
+        int cJ= evt.getYOnScreen();
+        this.setLocation(cI-i,cJ-j);
+    }//GEN-LAST:event_jPanel7MouseDragged
+
+    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
+
+    }//GEN-LAST:event_jPanel7MouseClicked
+
+    private void jPanel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MousePressed
+        i = evt.getX();
+        j= evt.getY();
+    }//GEN-LAST:event_jPanel7MousePressed
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/twotone_cancel_black_18dp.png")));
+    }//GEN-LAST:event_jLabel3MouseEntered
+
+    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/baseline_cancel_black_18dp.png"))); //baseline_cancel_black_18dp
+    }//GEN-LAST:event_jLabel3MouseExited
+
+    private void jLabel21MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel21MouseEntered
+
+    private void jLabel21MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel21MouseExited
+
+    private void jLabel22MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel22MouseEntered
+
+    private void jLabel22MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel22MouseExited
+
+    private void jPanel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseEntered
+        jPanel4.setBackground(new java.awt.Color(0, 80, 160));
+    }//GEN-LAST:event_jPanel4MouseEntered
+
+    private void jLabel23MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseEntered
+        jPanel8.setBackground(new java.awt.Color(0, 80, 160));
+    }//GEN-LAST:event_jLabel23MouseEntered
+
+    private void jLabel23MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseExited
+        jPanel8.setBackground(new java.awt.Color(0,51,153));
+    }//GEN-LAST:event_jLabel23MouseExited
+
+    private void jPanel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel3MouseEntered
+
+    private void jPanel8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseEntered
+        jPanel8.setBackground(new java.awt.Color(0, 80, 160));
+    }//GEN-LAST:event_jPanel8MouseEntered
+
+    private void jPanel8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseExited
+        jPanel8.setBackground(new java.awt.Color(0,51,153));
+    }//GEN-LAST:event_jPanel8MouseExited
+
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+         controladorLogin next= new controladorLogin(this, passTx, userTx);
        Usuario act = next.log(users);
        if(act!=null){
            
@@ -296,45 +602,73 @@ ArrayList<Usuario> users;
                      next.activaVentana(ventana,this);
                }
            }
-       }else JOptionPane.showMessageDialog(this,"Ingrese un usuario valido");       
-    }//GEN-LAST:event_bttnInActionPerformed
+       }else JOptionPane.showMessageDialog(this,"Ingrese un usuario valido");
+    }//GEN-LAST:event_jPanel4MouseClicked
 
-    private void bttnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnExitActionPerformed
-        //System.exit(0);
-        control.activaVentana(new newVistaProducto(), this);
-    }//GEN-LAST:event_bttnExitActionPerformed
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        this.jPanel4MouseClicked(new MouseEvent(userTx, i, WIDTH, ICONIFIED, i, i, HEIGHT, verif));
+    }//GEN-LAST:event_jLabel18MouseClicked
 
-    private void bttnInKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnInKeyPressed
-          if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-            this.bttnInActionPerformed(new ActionEvent(this, 0, ""));
-    }//GEN-LAST:event_bttnInKeyPressed
+    private void jPanel4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel4FocusGained
+       jPanel4.setBackground(new java.awt.Color(0, 80, 160));
+    }//GEN-LAST:event_jPanel4FocusGained
 
-    private void bttnRegKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnRegKeyPressed
-          if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-            this.bttnRegActionPerformed(new ActionEvent(this, 0, ""));        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnRegKeyPressed
+    private void jPanel4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel4FocusLost
+        jPanel4.setBackground(new java.awt.Color(0,51,153));
+    }//GEN-LAST:event_jPanel4FocusLost
 
-    private void bttnExitKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttnExitKeyPressed
-       if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-           System.exit(0);
-    }//GEN-LAST:event_bttnExitKeyPressed
+    private void jLabel23FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabel23FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel23FocusGained
 
-    private void passTxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passTxFocusGained
-       if (verif){
-       passTx.setText("");
-       this.verif=false;
-       }
-    }//GEN-LAST:event_passTxFocusGained
+    private void jPanel8FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel8FocusGained
+        jPanel8.setBackground(new java.awt.Color(0, 80, 160));
+    }//GEN-LAST:event_jPanel8FocusGained
 
-    private void passTxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passTxKeyPressed
-           if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-            this.bttnInActionPerformed(new ActionEvent(this, 0, ""));
-    }//GEN-LAST:event_passTxKeyPressed
+    private void jPanel8FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel8FocusLost
+        jPanel8.setBackground(new java.awt.Color(0,51,153));
+    }//GEN-LAST:event_jPanel8FocusLost
 
-    private void userTxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userTxKeyPressed
+    private void jPanel3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel3FocusGained
+       jPanel3.setBackground(new java.awt.Color(0, 80, 160));
+    }//GEN-LAST:event_jPanel3FocusGained
+
+    private void jPanel3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel3FocusLost
+        jPanel3.setBackground(new java.awt.Color(0,51,153));
+    }//GEN-LAST:event_jPanel3FocusLost
+
+    private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
+       controlador next= new controlador(this);
+       next.activaVentana(new vistaRegistro(),this );
+    }//GEN-LAST:event_jPanel8MouseClicked
+
+    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
+       controlador next= new controlador(this);
+       next.activaVentana(new vistaRegistro(),this );
+    }//GEN-LAST:event_jLabel23MouseClicked
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void jPanel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseExited
+        jPanel4.setBackground(new java.awt.Color(0,51,153));   
+    }//GEN-LAST:event_jPanel4MouseExited
+
+    private void jPanel4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel4KeyPressed
+            if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            this.jPanel4MouseClicked(new MouseEvent(userTx, i, WIDTH, ICONIFIED, i, i, HEIGHT, verif));
+    }//GEN-LAST:event_jPanel4KeyPressed
+
+    private void jPanel8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel8KeyPressed
+            if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            this.jPanel8MouseClicked(new MouseEvent(userTx, i, WIDTH, ICONIFIED, i, i, HEIGHT, verif));
+    }//GEN-LAST:event_jPanel8KeyPressed
+
+    private void jPanel3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel3KeyPressed
         if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-            this.bttnInActionPerformed(new ActionEvent(this, 0, ""));
-    }//GEN-LAST:event_userTxKeyPressed
+            System.exit(0);
+    }//GEN-LAST:event_jPanel3KeyPressed
 
     /**
      * @param args the command line arguments
@@ -373,11 +707,22 @@ ArrayList<Usuario> users;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bttnExit;
-    private javax.swing.JButton bttnIn;
-    private javax.swing.JButton bttnReg;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private java.awt.Label bttn15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPasswordField passTx;
     private javax.swing.JTextField userTx;
     // End of variables declaration//GEN-END:variables

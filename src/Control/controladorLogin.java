@@ -9,6 +9,7 @@ import Estructuras.Usuario;
 import Estructuras.Empleado;
 import Estructuras.Administrador;
 import Estructuras.listaUser;
+import Vista.VistaLogin;
 import controlXml.controlXmlUser;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,6 +42,12 @@ public class controladorLogin extends controlador{
         super(ventana);
         this.bttnExit = bttnExit;
         this.bttnIn = bttnIn;        
+        this.passTx = passTx;
+        this.userTx = userTx;
+    }
+
+    public controladorLogin(JFrame ventana, JPasswordField passTx, JTextField userTx) {
+        super(ventana);
         this.passTx = passTx;
         this.userTx = userTx;
     }
