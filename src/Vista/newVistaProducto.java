@@ -94,7 +94,7 @@ int i,j;
 
         menu.setBackground(new java.awt.Color(0, 51, 153));
 
-        verProd.setBackground(new java.awt.Color(0, 80, 160));
+        verProd.setBackground(new java.awt.Color(0, 153, 204));
         verProd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
         verProd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -435,7 +435,7 @@ int i,j;
                 java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -454,6 +454,11 @@ int i,j;
             }
         });
         jScrollPane1.setViewportView(tabla);
+        if (tabla.getColumnModel().getColumnCount() > 0) {
+            tabla.getColumnModel().getColumn(4).setMinWidth(0);
+            tabla.getColumnModel().getColumn(4).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+        }
 
         background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 640, 460));
 
@@ -639,8 +644,8 @@ int i,j;
     }//GEN-LAST:event_verProdMouseEntered
 
     private void verProdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProdMouseExited
-        verProd.setBackground(new java.awt.Color(0, 80, 160));
-        bttn2.setBackground(new java.awt.Color(0, 80, 160));
+        verProd.setBackground(new java.awt.Color(0, 153, 204));
+        bttn2.setBackground(new java.awt.Color(0, 153, 204));
     }//GEN-LAST:event_verProdMouseExited
 
     private void verProd1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd1MouseEntered
