@@ -7,6 +7,7 @@ package Vista;
 
 import Control.*;
 import Estructuras.*;
+import controlXml.controlPDFProd;
 import controlXml.controlXmlProd;
 import java.awt.*;
 import static java.awt.Color.black;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -56,9 +58,9 @@ ArrayList<Producto> objeto;
         }
         control.llenarTablaProd(this.cosas,tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(4).setMinWidth(0);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(6).setMinWidth(0);
+            tabla.getColumnModel().getColumn(6).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(6).setMaxWidth(0);
         }
         this.getContentPane().setBackground (Color.LIGHT_GRAY);
         Agregar.requestFocus();
@@ -84,6 +86,7 @@ ArrayList<Producto> objeto;
         tabla = new javax.swing.JTable();
         Salir = new javax.swing.JButton();
         bttnRegresar = new javax.swing.JButton();
+        GenerarPDF = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Laboratorio 4 Electrodomesticos");
@@ -165,25 +168,25 @@ ArrayList<Producto> objeto;
         tabla.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Tipo", "Nombre", "Precio", "Proveedor", "Objeto"
+                "Tipo", "Nombre", "Precio", "Proveedor", "Unidades", "Vendidos", "Objeto"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -201,9 +204,9 @@ ArrayList<Producto> objeto;
         });
         jScrollPane1.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(4).setMinWidth(0);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(4).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(6).setMinWidth(0);
+            tabla.getColumnModel().getColumn(6).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(6).setMaxWidth(0);
         }
         tabla.getAccessibleContext().setAccessibleName("");
         tabla.getAccessibleContext().setAccessibleDescription("");
@@ -282,31 +285,38 @@ ArrayList<Producto> objeto;
             }
         });
 
+        GenerarPDF.setText("Generar PDF");
+        GenerarPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GenerarPDFActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(399, 399, 399)
+                .addComponent(jLabel3)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(52, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(bttnRegresar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(293, 293, 293))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(399, 399, 399)
-                .addComponent(jLabel3)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(GenerarPDF)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 317, Short.MAX_VALUE)
+                        .addComponent(bttnRegresar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 876, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,7 +331,8 @@ ArrayList<Producto> objeto;
                     .addComponent(Modificar)
                     .addComponent(Eliminar)
                     .addComponent(Salir)
-                    .addComponent(bttnRegresar))
+                    .addComponent(bttnRegresar)
+                    .addComponent(GenerarPDF))
                 .addGap(20, 20, 20))
         );
 
@@ -340,7 +351,7 @@ ArrayList<Producto> objeto;
 
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
         if (!(tabla.getSelectedRow()==-1)){
-         Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),4);
+         Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),5);
             
          control.activaVentana(new vistaAddProd(this.currentUser,this.cosas,cosaActual),this);
          }else
@@ -349,7 +360,7 @@ ArrayList<Producto> objeto;
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
        if (!(tabla.getSelectedRow()==-1)){
-        Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),4);
+        Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),5);
         xml.borrarCosa(this.cosas.indiceProd(cosaActual));
         this.cosas.eliminarProd(cosaActual);
         
@@ -399,6 +410,40 @@ ArrayList<Producto> objeto;
             this.bttnRegresarActionPerformed(new ActionEvent(this, 0, "")); 
     }//GEN-LAST:event_bttnRegresarKeyPressed
 
+    private void GenerarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarPDFActionPerformed
+        String a="";
+        int b;
+        
+        TableModel tableModel = tabla.getModel();
+        int cols = tableModel.getColumnCount();
+        int fils = tableModel.getRowCount();
+        for(int i=0; i<fils; i++) {
+            a=a+(i+1)+".\n";
+            b=1;
+            for(int j=0; j<cols-1; j++){
+                if (b==1)
+                    a=a+"Codigo: ";
+                if (b==2)
+                    a=a+"Nombre: ";
+                if (b==3)
+                    a=a+"Precio: ";
+                if (b==4)
+                    a=a+"Proveedor: ";
+                if (b==5)
+                    a=a+"Unidades: ";
+                if (b==6)
+                    a=a+"Vendidos: ";
+                a=a+tableModel.getValueAt(i,j)+"\n";
+                b++;
+            }
+            a=a+"\n\n";
+        }
+        
+        
+        controlPDFProd pdf=new controlPDFProd();
+        pdf.crear_PDF("Productos","Productos",a);
+    }//GEN-LAST:event_GenerarPDFActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -436,6 +481,7 @@ ArrayList<Producto> objeto;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar;
     private javax.swing.JButton Eliminar;
+    private javax.swing.JToggleButton GenerarPDF;
     private javax.swing.JButton Modificar;
     private javax.swing.JButton Salir;
     private javax.swing.JButton bttnRegresar;

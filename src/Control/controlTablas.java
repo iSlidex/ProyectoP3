@@ -33,7 +33,10 @@ public class controlTablas extends controlador{
 
     
     private JTable tabla;
-   
+    public controlTablas(JTable tabla, JFrame ventana){
+        super(ventana);    
+        this.tabla = tabla;
+    }
 
     public controlTablas(JButton Agregar, JButton Eliminar, JButton Modificar, JButton Salir, JTable tabla, JFrame ventana) {
         super(ventana);
@@ -56,7 +59,7 @@ public class controlTablas extends controlador{
     
    public void llenarTablaProd(listaProd cosas, JTable tablaCosas ){  
       ArrayList<Producto> Prod;
-      String[] columna = { "Codigo", "Nombre", "Precio ","Proveedor","Objeto" };
+      String[] columna = { "Codigo", "Nombre", "Precio ","Proveedor", "Unidades", "Vendidos","Objeto" };
       
       DefaultTableModel dtm = new DefaultTableModel(null,columna){
         @Override
@@ -64,15 +67,19 @@ public class controlTablas extends controlador{
             return false;        
         }
         Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class,java.lang.String.class, Producto.class
+                java.lang.String.class, java.lang.String.class, java.lang.Float.class,java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, Producto.class
         };        
     };
       Prod= cosas.getLista();
       Prod.forEach((per) -> {
-          dtm.addRow(new Object[] {per.getId(), per.getNombre(),per.getPrecio(),per.getProv(),per});
+          dtm.addRow(new Object[] {per.getId(), per.getNombre(),per.getPrecio(),per.getProv(), per.getUnidades(), per.getVendidos(),per});
         });
+      while (dtm.getRowCount()<27){
+          dtm.addRow(new Object[]{"","","","","","",null});          
+      }
       tablaCosas.setModel(dtm);
       tablaCosas.setFont(new Font("perpetua",Font.BOLD,16));
+      
    }
    
       public void llenarTabla(listaProv cosas, JTable tablaCosas ){  
@@ -92,6 +99,9 @@ public class controlTablas extends controlador{
       Prov.forEach((per) -> {
           dtm.addRow(new Object[] {per.getNombre(), per.getDireccion(),per.getTelefono(),per});
         });
+      while (dtm.getRowCount()<27){
+          dtm.addRow(new Object[]{"","","","","","",null});          
+      }
       tablaCosas.setModel(dtm);
       tablaCosas.setFont(new Font("perpetua",Font.BOLD,16));
    }
@@ -112,10 +122,15 @@ public class controlTablas extends controlador{
       Prov.forEach((per) -> {
           dtm.addRow(new Object[] {per.getNombre(), per.getNombre(),per.getClass().getSimpleName(),per});
         });
+      while (dtm.getRowCount()<27){
+          dtm.addRow(new Object[]{"","","","","","",null});          
+      }
       tablaCosas.setModel(dtm);
       tablaCosas.setFont(new Font("perpetua",Font.BOLD,16));
    } 
-    
+    public void turn (boolean boo){
+        
+    }
         public void activa_Desactiva(boolean verdadOFalso){
       Modificar.setEnabled(verdadOFalso);
       Eliminar.setEnabled(verdadOFalso);

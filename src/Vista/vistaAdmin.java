@@ -5,20 +5,27 @@
  */
 package Vista;
 import Control.*;
-import Estructuras.Administrador;
+import Estructuras.*;
+import controlXml.controlXmlProd;
 import java.awt.Color;
 import static java.awt.Color.black;
 import static java.awt.Color.blue;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 /**
  *
  * @author leito
  */
 public class vistaAdmin extends javax.swing.JFrame {
 controlVistaAdm control;
+controlXmlProd xml=new controlXmlProd();
+ArrayList<Producto>  lista =  xml.todasLosUser();;
+Producto aux = new Producto("aux", "aux", 1, "1", 1,1);
 Administrador currentUser;
+
     /**
      * Creates new form vistaAdmin
      */
@@ -310,6 +317,27 @@ Administrador currentUser;
 
     private void bttnViewProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnViewProdActionPerformed
         control.activaVentana(new tablaProductos(currentUser), this);
+        int pos = 0;
+        int cont = 0;
+        Producto flag = new Producto ("aux", "aux", 1, "1", -1, 1);
+        /*Buscara los productos que tengan 3 unidades o menos, si los encuentra mostrara el pop-up*/
+            while (aux != null){
+                try{
+                aux = xml.unidad(pos);
+                pos++;
+                System.out.println("pos\n"+pos);
+                System.out.println("unidades"+aux.getUnidades());
+                    if ((aux!=null) && (!(aux.getNombre().equals("aux")))){
+                        cont++;
+                        System.out.println("contador"+cont+"\n");
+                        JOptionPane.showMessageDialog(this,"El siguiente producto posee pocas unidades en el inventario: "+control.aviso(1,aux));
+                    }
+                }
+                catch (NullPointerException NE)
+                {
+                    break;
+                }
+            }
     }//GEN-LAST:event_bttnViewProdActionPerformed
 
     /**

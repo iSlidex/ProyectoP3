@@ -338,7 +338,7 @@ ArrayList<Usuario> listausers;
                   }
         }
         else{
-            JOptionPane.showMessageDialog(this,"Revisa los siguientes campos: "+control.mensajeErrorPR());
+            new vistaMsg("Revisa los siguientes campos: "+control.mensajeErrorPR()).setVisible(true);
         }                   
        
         

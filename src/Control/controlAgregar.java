@@ -19,6 +19,8 @@ public class controlAgregar extends controlador{
     private JTextField codigoTx;
     private JTextField nombreTx;
     private JTextField precioTx;
+    private JTextField unidadesTx;
+    private JTextField vendidosTx;
     private JTextField dirTx;    
     private JTextField telfTx;
     private JComboBox combo;
@@ -31,6 +33,7 @@ public class controlAgregar extends controlador{
         this.codigoTx = codigoTx;
         this.nombreTx = nombreTx;
         this.precioTx = precioTx;
+        this.unidadesTx = unidadesTx;
     }
     
         public controlAgregar(JButton bttnCancel, JButton bttnCont, JTextField dirTx, JTextField nombreTx, JTextField telfTx, JFrame ventana) {
@@ -42,7 +45,7 @@ public class controlAgregar extends controlador{
         this.nombreTx = nombreTx;
         this.telfTx = telfTx;
     }
-    public controlAgregar(JComboBox combo,JButton bttnCancel, JButton bttnCont, JTextField codigoTx, JTextField nombreTx, JTextField precio, JFrame ventana) {
+    public controlAgregar(JComboBox combo,JButton bttnCancel, JButton bttnCont, JTextField codigoTx, JTextField nombreTx, JTextField precio, JTextField unidades, JTextField vendidos, JFrame ventana) {
         super(ventana);
         this.combo=combo;
         this.bttnCancel = bttnCancel;
@@ -50,15 +53,19 @@ public class controlAgregar extends controlador{
         this.codigoTx = codigoTx;
         this.nombreTx = nombreTx;
         this.precioTx = precio;
+        this.unidadesTx= unidades;
+        this.vendidosTx= vendidos;
     }   
     
     public boolean sePuedeAgregarPR() throws InputMismatchException{
         //Verifica que los campos de producto sean correctos
         boolean sePuede = true;
-        if (!(codigoTx.getText().equals("")) && !(nombreTx.getText().equals("")) && !(precioTx.getText().equals(""))){
+        if (!(codigoTx.getText().equals("")) && !(nombreTx.getText().equals("")) && !(precioTx.getText().equals("")) && !(unidadesTx.getText().equals("")) && !(vendidosTx.getText().equals(""))){
             //Si no esta vacio verificara que precio sea un numero dentro del rango del tipo de dato en el que fueron declarados
             try{
                 double d = Double.parseDouble(precioTx.getText());
+                int i = Integer.parseInt(unidadesTx.getText());
+                int v = Integer.parseInt(vendidosTx.getText());
             }
             catch (InputMismatchException ime){
                 sePuede = false;
@@ -70,7 +77,7 @@ public class controlAgregar extends controlador{
     public boolean sePuedeAgregarP() throws InputMismatchException{
         //Verifica que los campos de proveedor sean correctos
         boolean sePuede = true;
-        if ((dirTx.getText().equals("")) || (nombreTx.getText().equals("")) || (telfTx.getText().equals(""))){
+        if ((dirTx.getText().equals("")) || (nombreTx.getText().equals("")) || (telfTx.getText().equals("") || (unidadesTx.getText().equals("")))){
             sePuede = false;
         }
     return sePuede;
@@ -109,11 +116,34 @@ public class controlAgregar extends controlador{
         else return false;          
     }
     
+    public boolean unidadesCorrectas (){
+        if((!unidadesTx.getText().equals("")))
+            if (unidadesTx.getText().matches("^[0-9]*\\.?"))
+                return (Integer.parseInt(unidadesTx.getText())>=1);  
+            else return false;
+        else return false;
+    }
+    
+        public boolean ventasCorrectas (){
+        if((!vendidosTx.getText().equals("")))
+            if (vendidosTx.getText().matches("^[0-9]*\\.?"))
+                return (Integer.parseInt(vendidosTx.getText())>=1);  
+            else return false;
+        else return false;
+    }
+    
+    public boolean avisoUnidades (){
+        return (Integer.parseInt(unidadesTx.getText())>3);  
+    }
+    
+    
     public ArrayList<String> mensajeErrorPR(){
         ArrayList<String> msg=new ArrayList<>();             
         if(nombreInvalido())msg.add("Nombre del producto");
         if(precioInvalido())msg.add(" Precio");
         if(codigoInvalido())msg.add(" Codigo");
+        if(!unidadesCorrectas())msg.add(" Unidades");
+        if(!ventasCorrectas())msg.add(" Unidades vendidas");
         return msg;
     }
     
@@ -122,6 +152,12 @@ public class controlAgregar extends controlador{
         if(nombreInvalido())msg.add("Nombre del proveedor");
         if(direccionInvalida())msg.add(" Direccion");
         if(telefonoInvalido())msg.add(" Telefono");
+        return msg;
+    }
+        
+        public ArrayList<String> avisoU(){
+        ArrayList<String> msg=new ArrayList<>();             
+        if (!(avisoUnidades()))msg.add("AVISO: Su producto está apunto de agotarse, pues cuenta con "+unidadesTx.getText()+" unidades");
         return msg;
     }
     
@@ -150,6 +186,8 @@ public class controlAgregar extends controlador{
             prod.setId(codigoTx.getText());
             prod.setNombre(nombreTx.getText());
             prod.setPrecio(Float.parseFloat(precioTx.getText()));
+            prod.setUnidades(Integer.parseInt(unidadesTx.getText()));
+            prod.setVendidos(Integer.parseInt(vendidosTx.getText()));
             list.incluirProd(index, prod);
         }
         public Producto añadirProd(String prov,listaProd proveedores){
@@ -157,7 +195,7 @@ public class controlAgregar extends controlador{
             System.out.println(nombreTx.getText());
             
             System.out.println(codigoTx.getText());
-        Producto prod= new Producto(nombreTx.getText(),combo.getSelectedItem().toString(),Double.parseDouble(precioTx.getText()) ,codigoTx.getText());        
+        Producto prod= new Producto(nombreTx.getText(),combo.getSelectedItem().toString(),Double.parseDouble(precioTx.getText()) ,codigoTx.getText(), Integer.parseInt(unidadesTx.getText()), Integer.parseInt(vendidosTx.getText()));        
         proveedores.incluirProd(prod);
         return prod;
     }

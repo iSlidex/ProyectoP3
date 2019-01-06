@@ -18,6 +18,11 @@ import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
     /**
 /**
@@ -45,7 +50,7 @@ ArrayList<Producto>  list2;
     public vistaAddProd(Usuario currentUser,listaProd prods,Producto prod) {
         initComponents();
         this.getContentPane().setBackground (Color.LIGHT_GRAY);
-        control =new controlAgregar(jComboBox1, bttnCancel, bttnCont, codigoTx, nombreTx, precioTx, this);
+        control =new controlAgregar(jComboBox1, bttnCancel, bttnCont, codigoTx, nombreTx, precioTx, unidadesTx, vendidosTx,this);
         list2= xml2.todasLosUser();
         list = xml.todasLosUser();
         control.llenarComboProv(list);
@@ -57,6 +62,8 @@ ArrayList<Producto>  list2;
             nombreTx.setText(prod.getNombre());
             codigoTx.setText(prod.getId());
             precioTx.setText(Double.toString(prod.getPrecio()));
+            unidadesTx.setText(Integer.toString(prod.getUnidades()));
+            vendidosTx.setText(Integer.toString(prod.getVendidos()));
         }else{ modificando=false;
             this.prods = new listaProd(list2);       
                
@@ -83,6 +90,10 @@ ArrayList<Producto>  list2;
         bttnCont = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        unidadesTx = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        vendidosTx = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -177,6 +188,10 @@ ArrayList<Producto>  list2;
         jLabel5.setFont(new Font("arial",Font.BOLD,18));
         jLabel5.setText("Proveedor");
 
+        jLabel6.setText("Unidades:");
+
+        jLabel7.setText("Vendidos:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -185,56 +200,74 @@ ArrayList<Producto>  list2;
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(bttnCont)
-                        .addGap(31, 31, 31)
-                        .addComponent(bttnCancel)
-                        .addGap(114, 114, 114))
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(10, 10, 10)
+                        .addComponent(nombreTx))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(precioTx))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nombreTx)
-                                    .addComponent(codigoTx)
-                                    .addComponent(precioTx)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addContainerGap())))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6))
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(unidadesTx)
+                            .addComponent(codigoTx)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 76, Short.MAX_VALUE)
+                                .addComponent(bttnCont)
+                                .addGap(18, 18, 18)
+                                .addComponent(bttnCancel)
+                                .addGap(118, 118, 118))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(vendidosTx)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(nombreTx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(precioTx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(codigoTx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(unidadesTx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(vendidosTx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bttnCont)
                     .addComponent(bttnCancel))
-                .addGap(17, 17, 17))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -246,6 +279,15 @@ ArrayList<Producto>  list2;
 
     private void bttnContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnContActionPerformed
         Producto p = new Producto();
+        control = new controlAgregar(jComboBox1, bttnCancel, bttnCont, codigoTx, nombreTx, precioTx, unidadesTx, vendidosTx, this);
+        
+       // if (control.sePuedeAgregarP()){
+        
+            if (!(control.avisoUnidades())){
+                JOptionPane.showMessageDialog(this,control.avisoU());
+            }
+            
+            
         if (modificando) {
                 int index = prods.indiceProd(prod);                                
                 this.prods.eliminarProd(prod);
@@ -254,8 +296,9 @@ ArrayList<Producto>  list2;
             }else{
                Producto prov = control.añadirProd(jComboBox1.getSelectedItem().toString(),prods);      
                xml2.agregarCosa(prov);
-            }
+         //   }
         control.activaVentana(new tablaProductos(currentUser), this);
+        }
     }//GEN-LAST:event_bttnContActionPerformed
 
     private void codigoTxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoTxActionPerformed
@@ -311,7 +354,11 @@ ArrayList<Producto>  list2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField nombreTx;
     private javax.swing.JTextField precioTx;
+    private javax.swing.JTextField unidadesTx;
+    private javax.swing.JTextField vendidosTx;
     // End of variables declaration//GEN-END:variables
 }

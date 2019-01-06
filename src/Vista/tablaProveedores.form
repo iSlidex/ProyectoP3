@@ -32,24 +32,23 @@
               <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="660" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
                       <Component id="Agregar" min="-2" pref="89" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="Modificar" min="-2" pref="105" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="Estadisticas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="bttnRegresar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="Eliminar" min="-2" pref="90" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="Salir" min="-2" pref="91" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="jScrollPane1" min="-2" pref="660" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace pref="11" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -68,6 +67,7 @@
                   <Component id="Salir" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="bttnRegresar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Estadisticas" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
@@ -208,6 +208,14 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="bttnRegresar.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,15));&#xa;MouseListener bb = new MouseListener() {&#xa;            @Override&#xa;            public void mouseClicked(MouseEvent me) {}&#xa;&#xa;            @Override&#xa;            public void mousePressed(MouseEvent me) {}&#xa;&#xa;            @Override&#xa;            public void mouseReleased(MouseEvent me) {&#xa;            }&#xa;&#xa;            @Override&#xa;            public void mouseEntered(MouseEvent me) {&#xa;                bttnRegresar.setForeground(blue);&#xa;                bttnRegresar.setFont(new Font(&quot;vrinda&quot;,3,15));&#xa;            }&#xa;&#xa;            @Override&#xa;            public void mouseExited(MouseEvent me) {&#xa;                bttnRegresar.setForeground(black);&#xa;                bttnRegresar.setFont(new Font(&quot;vrinda&quot;,Font.BOLD,15));&#xa;            }&#xa;        };&#xa;        bttnRegresar.addMouseListener(bb);"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="Estadisticas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Estad&#xed;sicas"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EstadisticasActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

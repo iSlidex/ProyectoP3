@@ -5,7 +5,10 @@
  */
 package Vista;
 import Control.*;
+import Estructuras.Administrador;
 import Estructuras.Empleado;
+import Estructuras.Producto;
+import controlXml.controlXmlProd;
 import java.awt.Color;
 import static java.awt.Color.black;
 import static java.awt.Color.blue;
@@ -14,6 +17,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,6 +27,9 @@ import java.awt.event.MouseListener;
 public class VistaEmpleado extends javax.swing.JFrame {
 controladorVistaEmp control;
 Empleado currentUser;
+controlXmlProd xml=new controlXmlProd();
+ArrayList<Producto>  lista =  xml.todasLosUser();;
+Producto aux = new Producto("aux", "aux", 1, "1", 1,1);
     /**
      * Creates new form VistaEmpleado
      */
@@ -377,6 +385,28 @@ Empleado currentUser;
 
     private void bttnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnProdActionPerformed
        control.activaVentana(new tablaProductos(currentUser), this);
+               control.activaVentana(new tablaProductos(currentUser), this);
+        int pos = 0;
+        int cont = 0;
+        Producto flag = new Producto ("aux", "aux", 1, "1", -1,1);
+        /*Buscara los productos que tengan 3 unidades o menos, si los encuentra mostrara el pop-up*/
+            while (aux != null){
+                try{
+                aux = xml.unidad(pos);
+                pos++;
+                System.out.println("pos\n"+pos);
+                System.out.println("unidades"+aux.getUnidades());
+                    if ((aux!=null) && (!(aux.getNombre().equals("aux")))){
+                        cont++;
+                        System.out.println("contador"+cont+"\n");
+                        JOptionPane.showMessageDialog(this,"El siguiente producto posee pocas unidades en el inventario: "+control.aviso(1,aux));
+                    }
+                }
+                catch (NullPointerException NE)
+                {
+                    break;
+                }
+            }
     }//GEN-LAST:event_bttnProdActionPerformed
 
     private void bttnAddProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAddProvActionPerformed

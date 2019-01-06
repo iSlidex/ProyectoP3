@@ -95,7 +95,7 @@ public class controlRegistro extends controlador {
     }
     
     public boolean nombreInvalido(){
-      if((!nombreTx.getText().equals("")))
+      if(!(nombreTx.getText().equals(new JTextField().getText())))
           return nombreTx.getText().matches("^[0-9]*");   
       else return false;
     }
@@ -110,11 +110,9 @@ public class controlRegistro extends controlador {
     }
     
     public boolean claveDebil(){
-        if((!passTx.getPassword().equals("")) && (!(confPass.getPassword().equals(""))))
-            if (!(Arrays.toString(passTx.getPassword()).matches("^(?=.*[0-9])(?=.*[a-zA-Z]).{8,}$")))
-                return true;
-            else return false;
-        else return true;   
+
+            return !(Arrays.toString(passTx.getPassword()).matches("^(?=.*[0-9])(?=.*[a-zA-Z]).{8,}$"));
+       
     }   
     
     public boolean claveCoincide(){
@@ -126,16 +124,16 @@ public class controlRegistro extends controlador {
     
     public ArrayList<String> mensajeErrorPR(){
         ArrayList<String> msg=new ArrayList<>();             
-        if(nombreInvalido())msg.add("1. Nombre\n");
-        if(!correoInvalido())msg.add("2. Correo: Debe poseer el siguiente formato\n nombre@direccion.dominio\n");
-        if(claveDebil() || (!(claveCoincide())))
-            msg.add("3. Contraseña:");
-        if (claveDebil())
-            msg.add(" es muy débil, debe tener al menos 8 caracteres y tener al menos un caracter numerico\n");
-        if (!(claveCoincide()))
-            msg.add(" Contraseña y Confirmar contraseña deben ser iguales\n");
+        if(nombreInvalido()||nombreTx.getText().length()<=1)msg.add(" <br>-Nombre\n");
+        if(!correoInvalido())msg.add(" <br>-Correo: Debe poseer el siguiente formato\n nombre@direccion.dominio\n");
+        if(claveDebil() || (!(claveCoincide()))){            
+            if (claveDebil()|| !passTx.getPassword().toString().isEmpty())
+                msg.add(" <br>-Contraseña es muy débil, debe tener al menos 8 caracteres y tener al menos un caracter numerico\n");
+            if (!(claveCoincide()))
+                msg.add(" <br>-Contraseña y Confirmar contraseña deben ser iguales\n");
+        }
         if (existeUser())
-            msg.add(" El usuario existe\n");
+            msg.add(" <br>-El usuario existe\n");
         return msg;
     }
 

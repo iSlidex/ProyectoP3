@@ -594,7 +594,7 @@ int i,j;
                
                if(act instanceof Administrador ){
                    
-                vistaAdmin ventana =new vistaAdmin((Administrador) act);
+                newVistaProducto ventana =new newVistaProducto((Administrador) act);
                 next.activaVentana(ventana,this ); 
                }else{
                    
@@ -602,7 +602,7 @@ int i,j;
                      next.activaVentana(ventana,this);
                }
            }
-       }else JOptionPane.showMessageDialog(this,"Ingrese un usuario valido");
+       }else new vistaMsg("Ingrese un usuario valido").setVisible(true);/*JOptionPane.showMessageDialog(this,"Ingrese un usuario valido")*/;
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked

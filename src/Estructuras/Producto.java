@@ -14,13 +14,17 @@ public class Producto {
     protected String prov;   
     protected double precio;    
     protected String id;
+    protected int unidades;
+    protected int vendidos;
 
-    public Producto(String nombre, String prov, double precio,String id) {
+    public Producto(String nombre, String prov, double precio,String id, int unidades, int vendidos) {
         this.nombre = nombre;
         this.prov = prov;
         //this.tipo = tipo;
         this.precio = precio;
         this.id = id;
+        this.unidades = unidades;
+        this.vendidos=vendidos;
     }
 
     public Producto() {
@@ -28,6 +32,8 @@ public class Producto {
          prov="";   
          precio=0;    
          id="";
+         unidades=0;
+         vendidos=0;
     }
 
     public String getNombre() {
@@ -44,6 +50,14 @@ public class Producto {
 
     public String getProv() {
         return prov;
+    }
+    
+    public int getUnidades(){
+        return unidades;
+    }
+
+    public int getVendidos() {
+        return vendidos;
     }
 
 
@@ -63,7 +77,14 @@ public class Producto {
         this.prov = prov;
     }
 
+    public void setVendidos(int vendidos) {
+        this.vendidos = vendidos;
+    }
 
+    
+    public void setUnidades(int unidades){
+        this.unidades=unidades;
+    }
 
     public void setPrecio(float precio) {
         this.precio = precio;

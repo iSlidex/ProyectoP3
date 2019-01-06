@@ -7,14 +7,12 @@
 package Vista;
 
 import Control.controlTablas;
-import Control.controlador;
-import Estructuras.Producto;
 import Estructuras.Usuario;
-import Estructuras.listaProd;
-import controlXml.controlXmlProd;
+import Estructuras.listaUser;
+import controlXml.controlXmlUser;
+import java.awt.Color;
 import javax.swing.JFrame;
 import java.awt.Point;
-import static java.awt.SystemColor.control;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -23,45 +21,44 @@ import java.util.ArrayList;
  *
  * @author leito
  */
-public class newVistaProducto extends javax.swing.JFrame {
+public class admVistaUser extends javax.swing.JFrame {
 private Point currentLocation;
 int i,j;
 controlTablas control;
-listaProd cosas;
+listaUser users;
 Usuario currentUser;
-controlXmlProd xml= new controlXmlProd();
-vistaAddProd vent;
-//controlXml xml=new controlXml();
-ArrayList<Producto> objeto;
+controlXmlUser xml= new controlXmlUser();
+ArrayList<Usuario> objeto;
 boolean activados;
     /** Creates new form newLogin */
-    public newVistaProducto() {
+    public admVistaUser() {
          initComponents();
          verProd5.requestFocus();       
     }
-    public newVistaProducto(Usuario currentUser){
-        initComponents();
-        control = new controlTablas(tabla, this);
+        public admVistaUser(Usuario currentUser) {
+         initComponents();
+         this.currentUser=currentUser;
+                control = new controlTablas(tabla, this);
         this.currentUser = currentUser;
         objeto = xml.todasLosUser();
-        cosas = new listaProd(objeto);
-        //control.activa_Desactiva(false);
-         if (!cosas.existeProd()) {
+        users = new listaUser(objeto);
+        control.activa_Desactiva(false);
+         if (!users.existeUser()) {
             activados= true;
         }
         else {
-            //control.activa_Desactiva(false);        
             verProd4.setBackground(new java.awt.Color(192,192,192));
             verProd6.setBackground(new java.awt.Color(192,192,192));
-            activados= false;
+            activados= false;          
         }
-        control.llenarTablaProd(this.cosas,tabla);
+        control.llenarTabla(this.users,tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(6).setMinWidth(0);
-            tabla.getColumnModel().getColumn(6).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(6).setMaxWidth(0);
+            tabla.getColumnModel().getColumn(3).setMinWidth(0);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
         }
-        
+        this.getContentPane().setBackground (Color.LIGHT_GRAY);
+         verProd5.requestFocus();       
     }
 
 
@@ -97,8 +94,6 @@ boolean activados;
         jPanel2 = new javax.swing.JPanel();
         bttn17 = new java.awt.Label();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         bttn14 = new java.awt.Label();
         jSeparator2 = new javax.swing.JSeparator();
@@ -109,6 +104,8 @@ boolean activados;
         jLabel18 = new javax.swing.JLabel();
         verProd6 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,7 +129,7 @@ boolean activados;
 
         menu.setBackground(new java.awt.Color(0, 51, 153));
 
-        verProd.setBackground(new java.awt.Color(0, 153, 204));
+        verProd.setBackground(new java.awt.Color(0, 80, 160));
         verProd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
         verProd.setNextFocusableComponent(verProd1);
         verProd.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -190,7 +187,7 @@ boolean activados;
         jPanel5.setBackground(new java.awt.Color(20, 70, 160));
         jPanel5.setLayout(new java.awt.BorderLayout());
 
-        verProd1.setBackground(new java.awt.Color(0, 80, 160));
+        verProd1.setBackground(new java.awt.Color(0, 153, 204));
         verProd1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
         verProd1.setNextFocusableComponent(verProd2);
         verProd1.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -202,9 +199,6 @@ boolean activados;
             }
         });
         verProd1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                verProd1MouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProd1MouseEntered(evt);
             }
@@ -387,9 +381,6 @@ boolean activados;
         bttn16.setName(""); // NOI18N
         bttn16.setText("Cerrar Sesion");
         bttn16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bttn16MouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bttn16MouseEntered(evt);
             }
@@ -465,7 +456,7 @@ boolean activados;
         bttn17.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         bttn17.setForeground(new java.awt.Color(255, 255, 255));
         bttn17.setName(""); // NOI18N
-        bttn17.setText("Inventario de Productos");
+        bttn17.setText("Usuarios del sistema");
         bttn17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bttn17MouseEntered(evt);
@@ -479,7 +470,7 @@ boolean activados;
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(bttn17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(340, Short.MAX_VALUE))
+                .addContainerGap(391, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -507,73 +498,6 @@ boolean activados;
             }
         });
         background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 10, -1, -1));
-
-        tabla.setAutoCreateRowSorter(true);
-        tabla.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Tipo", "Nombre", "Precio", "Proveedor", "Objeto"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tabla.setGridColor(new java.awt.Color(255, 255, 255));
-        tabla.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tabla);
-        if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(4).setMinWidth(0);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(4).setMaxWidth(0);
-        }
-
-        background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 640, 460));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -770,6 +694,71 @@ boolean activados;
 
         background.add(verProd6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 630, 120, 40));
 
+        tabla.setAutoCreateRowSorter(true);
+        tabla.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nombre", "Correo", "Tipo de usuario", "Objeto"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tabla);
+        if (tabla.getColumnModel().getColumnCount() > 0) {
+            tabla.getColumnModel().getColumn(3).setMinWidth(0);
+            tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
+            tabla.getColumnModel().getColumn(3).setMaxWidth(0);
+        }
+
+        background.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 640, 460));
+
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 700));
 
         bindingGroup.bind();
@@ -853,11 +842,6 @@ boolean activados;
       jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/baseline_cancel_black_18dp.png"))); //baseline_cancel_black_18dp
     }//GEN-LAST:event_jLabel2MouseExited
 
-    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_tablaMouseClicked
-
     private void bttn17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn17MouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_bttn17MouseEntered
@@ -917,7 +901,7 @@ boolean activados;
     }//GEN-LAST:event_jLabel16MouseExited
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-       this.setState(newVistaProducto.ICONIFIED);
+       this.setState(admVistaUser.ICONIFIED);
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void verProd5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd5MouseEntered
@@ -1064,14 +1048,9 @@ boolean activados;
         bttn15.setBackground(new java.awt.Color(0, 80, 160));
     }//GEN-LAST:event_verProd3FocusLost
 
-    private void bttn16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn16MouseClicked
-       controlador next= new controlador(this);
-       next.activaVentana(new VistaLogin(),this );
-    }//GEN-LAST:event_bttn16MouseClicked
-
-    private void verProd1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd1MouseClicked
+    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_verProd1MouseClicked
+    }//GEN-LAST:event_tablaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1090,14 +1069,26 @@ boolean activados;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(newVistaProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(admVistaUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(newVistaProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(admVistaUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(newVistaProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(admVistaUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(newVistaProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(admVistaUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -1106,7 +1097,7 @@ boolean activados;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new newVistaProducto().setVisible(true);
+                new admVistaUser().setVisible(true);
             }
         });
     }
@@ -1134,7 +1125,7 @@ boolean activados;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel menu;
     private javax.swing.JTable tabla;

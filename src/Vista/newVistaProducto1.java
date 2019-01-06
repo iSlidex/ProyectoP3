@@ -6,62 +6,24 @@
 
 package Vista;
 
-import Control.controlTablas;
-import Control.controlador;
-import Estructuras.Producto;
-import Estructuras.Usuario;
-import Estructuras.listaProd;
-import controlXml.controlXmlProd;
+import java.awt.Color;
 import javax.swing.JFrame;
 import java.awt.Point;
-import static java.awt.SystemColor.control;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 
 /**
  *
  * @author leito
  */
-public class newVistaProducto extends javax.swing.JFrame {
+public class newVistaProducto1 extends javax.swing.JFrame {
 private Point currentLocation;
 int i,j;
-controlTablas control;
-listaProd cosas;
-Usuario currentUser;
-controlXmlProd xml= new controlXmlProd();
-vistaAddProd vent;
-//controlXml xml=new controlXml();
-ArrayList<Producto> objeto;
-boolean activados;
     /** Creates new form newLogin */
-    public newVistaProducto() {
+    public newVistaProducto1() {
          initComponents();
-         verProd5.requestFocus();       
-    }
-    public newVistaProducto(Usuario currentUser){
-        initComponents();
-        control = new controlTablas(tabla, this);
-        this.currentUser = currentUser;
-        objeto = xml.todasLosUser();
-        cosas = new listaProd(objeto);
-        //control.activa_Desactiva(false);
-         if (!cosas.existeProd()) {
-            activados= true;
-        }
-        else {
-            //control.activa_Desactiva(false);        
-            verProd4.setBackground(new java.awt.Color(192,192,192));
-            verProd6.setBackground(new java.awt.Color(192,192,192));
-            activados= false;
-        }
-        control.llenarTablaProd(this.cosas,tabla);
-        if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(6).setMinWidth(0);
-            tabla.getColumnModel().getColumn(6).setPreferredWidth(0);
-            tabla.getColumnModel().getColumn(6).setMaxWidth(0);
-        }
-        
+
+       
     }
 
 
@@ -134,15 +96,6 @@ boolean activados;
 
         verProd.setBackground(new java.awt.Color(0, 153, 204));
         verProd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
-        verProd.setNextFocusableComponent(verProd1);
-        verProd.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                verProdFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                verProdFocusLost(evt);
-            }
-        });
         verProd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProdMouseEntered(evt);
@@ -192,19 +145,7 @@ boolean activados;
 
         verProd1.setBackground(new java.awt.Color(0, 80, 160));
         verProd1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
-        verProd1.setNextFocusableComponent(verProd2);
-        verProd1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                verProd1FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                verProd1FocusLost(evt);
-            }
-        });
         verProd1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                verProd1MouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProd1MouseEntered(evt);
             }
@@ -250,15 +191,6 @@ boolean activados;
 
         verProd2.setBackground(new java.awt.Color(0, 80, 160));
         verProd2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
-        verProd2.setNextFocusableComponent(verProd3);
-        verProd2.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                verProd2FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                verProd2FocusLost(evt);
-            }
-        });
         verProd2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProd2MouseEntered(evt);
@@ -305,15 +237,6 @@ boolean activados;
 
         verProd3.setBackground(new java.awt.Color(0, 80, 160));
         verProd3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
-        verProd3.setNextFocusableComponent(jLabel15);
-        verProd3.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                verProd3FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                verProd3FocusLost(evt);
-            }
-        });
         verProd3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProd3MouseEntered(evt);
@@ -364,47 +287,11 @@ boolean activados;
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Sign_Out_30px.png"))); // NOI18N
         jLabel15.setToolTipText("");
-        jLabel15.setNextFocusableComponent(verProd5);
-        jLabel15.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jLabel15FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jLabel15FocusLost(evt);
-            }
-        });
-        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel15MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel15MouseExited(evt);
-            }
-        });
 
         bttn16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         bttn16.setForeground(new java.awt.Color(255, 255, 255));
         bttn16.setName(""); // NOI18N
         bttn16.setText("Cerrar Sesion");
-        bttn16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bttn16MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                bttn16MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                bttn16MouseExited(evt);
-            }
-        });
-        bttn16.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                bttn16FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                bttn16FocusLost(evt);
-            }
-        });
 
         javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
         menu.setLayout(menuLayout);
@@ -655,15 +542,6 @@ boolean activados;
 
         verProd4.setBackground(new java.awt.Color(0, 80, 160));
         verProd4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
-        verProd4.setNextFocusableComponent(verProd);
-        verProd4.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                verProd4FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                verProd4FocusLost(evt);
-            }
-        });
         verProd4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProd4MouseEntered(evt);
@@ -694,15 +572,6 @@ boolean activados;
 
         verProd5.setBackground(new java.awt.Color(0, 80, 160));
         verProd5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
-        verProd5.setNextFocusableComponent(verProd6);
-        verProd5.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                verProd5FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                verProd5FocusLost(evt);
-            }
-        });
         verProd5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProd5MouseEntered(evt);
@@ -733,15 +602,6 @@ boolean activados;
 
         verProd6.setBackground(new java.awt.Color(0, 80, 160));
         verProd6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
-        verProd6.setNextFocusableComponent(verProd4);
-        verProd6.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                verProd6FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                verProd6FocusLost(evt);
-            }
-        });
         verProd6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProd6MouseEntered(evt);
@@ -917,7 +777,7 @@ boolean activados;
     }//GEN-LAST:event_jLabel16MouseExited
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-       this.setState(newVistaProducto.ICONIFIED);
+       this.setState(newVistaProducto1.ICONIFIED);
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void verProd5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd5MouseEntered
@@ -960,119 +820,6 @@ boolean activados;
          verProd5.setBackground(new java.awt.Color(0, 80, 160));   
     }//GEN-LAST:event_jLabel18MouseExited
 
-    private void verProdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProdFocusGained
-        verProd.setBackground(new java.awt.Color(30, 120, 180));
-        bttn2.setBackground(new java.awt.Color(30, 120, 180));
-    }//GEN-LAST:event_verProdFocusGained
-
-    private void verProdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProdFocusLost
-        verProd.setBackground(new java.awt.Color(0,153,204)); 
-        bttn2.setBackground(new java.awt.Color(0, 153, 204));
-    }//GEN-LAST:event_verProdFocusLost
-
-    private void verProd5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd5FocusGained
-        verProd5.setBackground(new java.awt.Color(30, 120, 180));  
-    }//GEN-LAST:event_verProd5FocusGained
-
-    private void verProd5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd5FocusLost
-        verProd5.setBackground(new java.awt.Color(0,80,160));
-    }//GEN-LAST:event_verProd5FocusLost
-
-    private void verProd6FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd6FocusGained
-        verProd6.setBackground(new java.awt.Color(30, 120, 180));  
-    }//GEN-LAST:event_verProd6FocusGained
-
-    private void verProd6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd6FocusLost
-        verProd6.setBackground(new java.awt.Color(0,80,160));
-    }//GEN-LAST:event_verProd6FocusLost
-
-    private void verProd4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd4FocusGained
-        verProd4.setBackground(new java.awt.Color(30, 120, 180)); 
-    }//GEN-LAST:event_verProd4FocusGained
-
-    private void verProd4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd4FocusLost
-        verProd4.setBackground(new java.awt.Color(0,80,160));
-    }//GEN-LAST:event_verProd4FocusLost
-
-    private void verProd1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd1FocusGained
-        verProd1.setBackground(new java.awt.Color(30, 120, 180));
-        bttn12.setBackground(new java.awt.Color(30, 120, 180));    
-    }//GEN-LAST:event_verProd1FocusGained
-
-    private void verProd1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd1FocusLost
-        verProd1.setBackground(new java.awt.Color(0, 80, 160));
-        bttn12.setBackground(new java.awt.Color(0, 80, 160));    
-    }//GEN-LAST:event_verProd1FocusLost
-
-    private void verProd2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd2FocusGained
-        verProd2.setBackground(new java.awt.Color(30, 120, 180));
-        bttn13.setBackground(new java.awt.Color(30, 120, 180));
-    }//GEN-LAST:event_verProd2FocusGained
-
-    private void verProd2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd2FocusLost
-        verProd2.setBackground(new java.awt.Color(0, 80, 160));
-        bttn13.setBackground(new java.awt.Color(0, 80, 160));
-    }//GEN-LAST:event_verProd2FocusLost
-
-    private void bttn16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn16MouseEntered
-        bttn16.setForeground(new java.awt.Color(192, 192, 192));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Sign_Out_30px_1.png"))); 
-    }//GEN-LAST:event_bttn16MouseEntered
-
-    private void bttn16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn16MouseExited
-        bttn16.setForeground(new java.awt.Color(255,255,255));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Sign_Out_30px.png"))); 
-    }//GEN-LAST:event_bttn16MouseExited
-
-    private void bttn16FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bttn16FocusGained
-        bttn16.setForeground(new java.awt.Color(192, 192, 192));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Sign_Out_30px_1.png"))); 
-    }//GEN-LAST:event_bttn16FocusGained
-
-    private void bttn16FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bttn16FocusLost
-        bttn16.setForeground(new java.awt.Color(255,255,255));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Sign_Out_30px.png"))); 
-    }//GEN-LAST:event_bttn16FocusLost
-
-    private void jLabel15MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseEntered
-        bttn16.setForeground(new java.awt.Color(192, 192, 192));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Sign_Out_30px_1.png"))); 
-    }//GEN-LAST:event_jLabel15MouseEntered
-
-    private void jLabel15MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseExited
-        bttn16.setForeground(new java.awt.Color(255,255,255));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Sign_Out_30px.png"))); 
-    }//GEN-LAST:event_jLabel15MouseExited
-
-    private void jLabel15FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabel15FocusGained
-        bttn16.setForeground(new java.awt.Color(192, 192, 192));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Sign_Out_30px_1.png"))); 
-    }//GEN-LAST:event_jLabel15FocusGained
-
-    private void jLabel15FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabel15FocusLost
-        bttn16.setForeground(new java.awt.Color(255,255,255));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Sign_Out_30px.png"))); 
-    }//GEN-LAST:event_jLabel15FocusLost
-
-    private void verProd3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd3FocusGained
-       verProd3.setBackground(new java.awt.Color(30, 120, 180));
-       bttn15.setBackground(new java.awt.Color(30, 120, 180));
-    }//GEN-LAST:event_verProd3FocusGained
-
-    private void verProd3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd3FocusLost
-        verProd3.setBackground(new java.awt.Color(0, 80, 160));
-        bttn15.setBackground(new java.awt.Color(0, 80, 160));
-    }//GEN-LAST:event_verProd3FocusLost
-
-    private void bttn16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn16MouseClicked
-       controlador next= new controlador(this);
-       next.activaVentana(new VistaLogin(),this );
-    }//GEN-LAST:event_bttn16MouseClicked
-
-    private void verProd1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_verProd1MouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -1090,13 +837,13 @@ boolean activados;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(newVistaProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(newVistaProducto1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(newVistaProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(newVistaProducto1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(newVistaProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(newVistaProducto1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(newVistaProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(newVistaProducto1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -1106,7 +853,7 @@ boolean activados;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new newVistaProducto().setVisible(true);
+                new newVistaProducto1().setVisible(true);
             }
         });
     }
