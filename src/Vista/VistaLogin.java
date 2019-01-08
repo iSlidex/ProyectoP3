@@ -74,7 +74,6 @@ int i,j;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1060, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(0, 51, 153));
@@ -364,7 +363,7 @@ int i,j;
 
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 770, 470));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 58, 1072, 660));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 58, 1060, 660));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -470,13 +469,13 @@ int i,j;
     }//GEN-LAST:event_passTxFocusGained
 
     private void passTxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passTxKeyPressed
-           //if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-            //this.bttnInActionPerformed(new ActionEvent(this, 0, ""));
+        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            this.jPanel4MouseClicked(new MouseEvent(userTx, i, WIDTH, ICONIFIED, i, i, HEIGHT, verif));
     }//GEN-LAST:event_passTxKeyPressed
 
     private void userTxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userTxKeyPressed
-        //if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
-            //this.bttnInActionPerformed(new ActionEvent(this, 0, ""));
+        if(evt.getKeyCode()==(KeyEvent.VK_ENTER))
+            this.jPanel4MouseClicked(new MouseEvent(userTx, i, WIDTH, ICONIFIED, i, i, HEIGHT, verif));
     }//GEN-LAST:event_userTxKeyPressed
 
     private void jLabel18MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseEntered
@@ -602,7 +601,8 @@ int i,j;
                      next.activaVentana(ventana,this);
                }
            }
-       }else new vistaMsg("Ingrese un usuario valido").setVisible(true);/*JOptionPane.showMessageDialog(this,"Ingrese un usuario valido")*/;
+       }else new vistaMsg2(this,true,"Ingrese un usuario valido").setVisible(true); 
+       
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked

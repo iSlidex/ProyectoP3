@@ -42,7 +42,7 @@ boolean activados;
         this.currentUser = currentUser;
         objeto = xml.todasLosUser();
         users = new listaUser(objeto);
-        control.activa_Desactiva(false);
+        //control.activa_Desactiva(false);
          if (!users.existeUser()) {
             activados= true;
         }
@@ -773,8 +773,8 @@ boolean activados;
     }//GEN-LAST:event_verProdMouseEntered
 
     private void verProdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProdMouseExited
-        verProd.setBackground(new java.awt.Color(0, 153, 204));
-        bttn2.setBackground(new java.awt.Color(0, 153, 204));
+        verProd.setBackground(new java.awt.Color(0, 80, 160));
+        bttn2.setBackground(new java.awt.Color(0, 80, 160));
     }//GEN-LAST:event_verProdMouseExited
 
     private void verProd1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd1MouseEntered
@@ -785,8 +785,8 @@ boolean activados;
 
     private void verProd1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd1MouseExited
         // TODO add your handling code here:
-        verProd1.setBackground(new java.awt.Color(0, 80, 160));
-        bttn12.setBackground(new java.awt.Color(0, 80, 160));       
+        verProd1.setBackground(new java.awt.Color(0, 153, 204));
+        bttn12.setBackground(new java.awt.Color(0, 153, 204));       
     }//GEN-LAST:event_verProd1MouseExited
 
     private void bttn2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn2MouseEntered

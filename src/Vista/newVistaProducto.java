@@ -53,6 +53,7 @@ boolean activados;
             //control.activa_Desactiva(false);        
             verProd4.setBackground(new java.awt.Color(192,192,192));
             verProd6.setBackground(new java.awt.Color(192,192,192));
+            verProd7.setBackground(new java.awt.Color(192,192,192));
             activados= false;
         }
         control.llenarTablaProd(this.cosas,tabla);
@@ -107,6 +108,8 @@ boolean activados;
         jLabel17 = new javax.swing.JLabel();
         verProd5 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
+        verProd7 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
         verProd6 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
 
@@ -212,6 +215,11 @@ boolean activados;
                 verProd1MouseExited(evt);
             }
         });
+        verProd1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                verProd1KeyPressed(evt);
+            }
+        });
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/outline_people_white_18dp.png"))); // NOI18N
 
@@ -220,6 +228,9 @@ boolean activados;
         bttn12.setName(""); // NOI18N
         bttn12.setText("Ver Usuarios");
         bttn12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bttn12MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bttn12MouseEntered(evt);
             }
@@ -731,6 +742,45 @@ boolean activados;
 
         background.add(verProd5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 630, 120, 40));
 
+        verProd7.setBackground(new java.awt.Color(0, 80, 160));
+        verProd7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
+        verProd7.setNextFocusableComponent(verProd4);
+        verProd7.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                verProd7FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                verProd7FocusLost(evt);
+            }
+        });
+        verProd7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                verProd7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                verProd7MouseExited(evt);
+            }
+        });
+        verProd7.setLayout(null);
+
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Edit_25px.png"))); // NOI18N
+        jLabel20.setText("Comprar/Vender");
+        jLabel20.setToolTipText("");
+        jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel20MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel20MouseExited(evt);
+            }
+        });
+        verProd7.add(jLabel20);
+        jLabel20.setBounds(10, 0, 150, 40);
+
+        background.add(verProd7, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 630, 170, 40));
+
         verProd6.setBackground(new java.awt.Color(0, 80, 160));
         verProd6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
         verProd6.setNextFocusableComponent(verProd4);
@@ -1070,8 +1120,40 @@ boolean activados;
     }//GEN-LAST:event_bttn16MouseClicked
 
     private void verProd1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd1MouseClicked
-        // TODO add your handling code here:
+       control.activaVentana(new admVistaUser(currentUser), this);
     }//GEN-LAST:event_verProd1MouseClicked
+
+    private void bttn12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn12MouseClicked
+        control.activaVentana(new admVistaUser(currentUser), this);
+    }//GEN-LAST:event_bttn12MouseClicked
+
+    private void verProd1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_verProd1KeyPressed
+        control.activaVentana(new admVistaUser(currentUser), this);
+    }//GEN-LAST:event_verProd1KeyPressed
+
+    private void jLabel20MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseEntered
+        verProd7.setBackground(new java.awt.Color(30, 120, 180));  
+    }//GEN-LAST:event_jLabel20MouseEntered
+
+    private void jLabel20MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseExited
+        verProd7.setBackground(new java.awt.Color(0, 80, 160));  
+    }//GEN-LAST:event_jLabel20MouseExited
+
+    private void verProd7FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd7FocusGained
+        verProd7.setBackground(new java.awt.Color(30, 120, 180)); 
+    }//GEN-LAST:event_verProd7FocusGained
+
+    private void verProd7FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd7FocusLost
+        verProd7.setBackground(new java.awt.Color(0,80,160));
+    }//GEN-LAST:event_verProd7FocusLost
+
+    private void verProd7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd7MouseEntered
+        verProd7.setBackground(new java.awt.Color(30, 120, 180));       
+    }//GEN-LAST:event_verProd7MouseEntered
+
+    private void verProd7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd7MouseExited
+        verProd7.setBackground(new java.awt.Color(0, 80, 160)); 
+    }//GEN-LAST:event_verProd7MouseExited
 
     /**
      * @param args the command line arguments
@@ -1131,6 +1213,7 @@ boolean activados;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
@@ -1145,6 +1228,7 @@ boolean activados;
     private javax.swing.JPanel verProd4;
     private javax.swing.JPanel verProd5;
     private javax.swing.JPanel verProd6;
+    private javax.swing.JPanel verProd7;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 

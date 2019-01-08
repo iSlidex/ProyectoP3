@@ -97,6 +97,21 @@ public class controlXmlProd{
         return null;
     }
     
+        public static Element buscarNombre(List raiz, String nombreP, String nombreProv) {
+            /*Buscar producto por su nombre*/
+        Iterator i = raiz.iterator();
+        int cont=0;
+        while (i.hasNext()) {
+            
+            Element e = (Element) i.next();
+            if (e.getChildText("Nombre").equals(nombreP) && (e.getChildText("prov").equals(nombreProv))) {
+               return e;
+            }
+            cont++;
+        }
+        return null;
+    }
+    
         public static Element maximo(List productos, String nombre) {
         /*Buscara el producto mas vendido segun el proveedor*/
         Iterator i = productos.iterator();
@@ -233,6 +248,22 @@ public class controlXmlProd{
         List cosas = this.root.getChildren("Producto");
         while (aux != null) {
             aux = controlXmlProd.buscar(cosas, index);
+            if (aux != null) {
+                try {
+                    return prodToObject(aux);
+                } catch (ParseException ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+        }
+        return null;
+    }
+    
+    public Producto buscarnombre(String nombreP, String nombreProv) {
+        Element aux = new Element("Producto");
+        List cosas = this.root.getChildren("Producto");
+        while (aux != null) {
+            aux = controlXmlProd.buscarNombre(cosas, nombreP, nombreProv);
             if (aux != null) {
                 try {
                     return prodToObject(aux);

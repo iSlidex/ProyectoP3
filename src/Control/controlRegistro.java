@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import Estructuras.*;
+import Vista.vistaRegistro;
 import controlXml.controlXmlUser;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,6 +31,7 @@ public class controlRegistro extends controlador {
     private JTextField nombreTx;
     private JPasswordField passTx;
     controlXmlUser xml =new controlXmlUser();
+    boolean adm;
 
     public controlRegistro(JCheckBox booAdm, JButton bttnCancel, JButton bttnReg, JPasswordField confPass, JTextField correoTx, JTextField nombreTx, JPasswordField passTx, JFrame ventana) {
         super(ventana);
@@ -41,10 +43,19 @@ public class controlRegistro extends controlador {
         this.nombreTx = nombreTx;
         this.passTx = passTx;
     }
+
+    public controlRegistro(boolean adm, JPasswordField confPass, JTextField correoTx, JTextField nombreTx, JPasswordField passTx, JFrame aThis) {
+       super(aThis);
+       this.adm=adm;
+       this.confPass = confPass;
+       this.correoTx = correoTx;
+       this.nombreTx = nombreTx;
+       this.passTx = passTx;
+    }
     
     public Usuario crearUser(){
         Usuario user = null;
-        if (this.booAdm.isSelected()) {
+        if (this.adm) {
             user=new Administrador(this.nombreTx.getText(), this.correoTx.getText(),this.passTx.getPassword());            
         }else 
             user=new Empleado(this.nombreTx.getText(), this.correoTx.getText(), this.passTx.getPassword());

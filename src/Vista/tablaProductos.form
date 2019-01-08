@@ -39,7 +39,9 @@
                       <Component id="Modificar" min="-2" pref="105" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="GenerarPDF" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="317" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="comprarVender" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="196" max="32767" attributes="0"/>
                       <Component id="bttnRegresar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Eliminar" min="-2" pref="90" max="-2" attributes="0"/>
@@ -67,6 +69,7 @@
                   <Component id="Salir" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="bttnRegresar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="GenerarPDF" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comprarVender" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
@@ -229,6 +232,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GenerarPDFActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="comprarVender">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Comprar/Vender"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comprarVenderActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
