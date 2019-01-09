@@ -45,6 +45,8 @@ boolean activados;
         objeto = xml.todasLosUser();
         verProd5.requestFocus(); 
         users = new listaUser(objeto);        
+        users = new listaUser(objeto);
+        //control.activa_Desactiva(false);
          if (!users.existeUser()) {
             activados= true;
         }

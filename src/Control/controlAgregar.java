@@ -147,13 +147,13 @@ public class controlAgregar extends controlador{
         return msg;
     }
     
-        public ArrayList<String> mensajeErrorP(){
-        ArrayList<String> msg=new ArrayList<>();             
-        if(nombreInvalido())msg.add("Nombre del proveedor");
-        if(direccionInvalida())msg.add(" Direccion");
-        if(telefonoInvalido())msg.add(" Telefono");
-        return msg;
-    }
+            public ArrayList<String> mensajeErrorP(){
+            ArrayList<String> msg=new ArrayList<>();             
+            if(nombreInvalido())msg.add("Nombre del proveedor");
+            if(direccionInvalida())msg.add(" Direccion");
+            if(telefonoInvalido())msg.add(" Telefono");
+            return msg;
+        }
         
         public ArrayList<String> avisoU(){
         ArrayList<String> msg=new ArrayList<>();             

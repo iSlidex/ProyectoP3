@@ -9,6 +9,7 @@ import Control.*;
 import Estructuras.*;
 import controlXml.controlPDFProd;
 import controlXml.controlXmlProd;
+import controlXml.controlXmlProv;
 import java.awt.*;
 import static java.awt.Color.black;
 import static java.awt.Color.blue;
@@ -30,15 +31,16 @@ import javax.swing.table.TableModel;
 public class tablaProductos extends javax.swing.JFrame {
 controlTablas control;
 listaProd cosas;
+listaProv prove;
 int j;
 Usuario currentUser;
 controlXmlProd xml= new controlXmlProd();
+controlXmlProv pml= new controlXmlProv();
 vistaAddProd vent;
-//controlXml xml=new controlXml();
+vistaCompraVenta despues;
+ArrayList<Proveedor> proveedores;
 ArrayList<Producto> objeto;
-    /**
-     * Creates new form Vista1
-     */
+  
     public tablaProductos() {
         initComponents();      
     }
@@ -47,6 +49,8 @@ ArrayList<Producto> objeto;
         control = new controlTablas(Agregar, Eliminar, Modificar, Salir, tabla, this);
         this.currentUser = currentUser;
         objeto = xml.todasLosUser();
+        proveedores = pml.todasLosUser();
+        prove = new listaProv(proveedores);
         cosas = new listaProd(objeto);
         control.activa_Desactiva(false);
          if (!cosas.existeProd()) {
@@ -87,6 +91,7 @@ ArrayList<Producto> objeto;
         Salir = new javax.swing.JButton();
         bttnRegresar = new javax.swing.JButton();
         GenerarPDF = new javax.swing.JToggleButton();
+        comprarVender = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Laboratorio 4 Electrodomesticos");
@@ -292,6 +297,13 @@ ArrayList<Producto> objeto;
             }
         });
 
+        comprarVender.setText("Comprar/Vender");
+        comprarVender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comprarVenderActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -309,7 +321,9 @@ ArrayList<Producto> objeto;
                         .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(GenerarPDF)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 317, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(comprarVender)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
                         .addComponent(bttnRegresar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -332,7 +346,8 @@ ArrayList<Producto> objeto;
                     .addComponent(Eliminar)
                     .addComponent(Salir)
                     .addComponent(bttnRegresar)
-                    .addComponent(GenerarPDF))
+                    .addComponent(GenerarPDF)
+                    .addComponent(comprarVender))
                 .addGap(20, 20, 20))
         );
 
@@ -351,8 +366,8 @@ ArrayList<Producto> objeto;
 
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
         if (!(tabla.getSelectedRow()==-1)){
-         Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),6);
-            
+         Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),6);           
+        
          control.activaVentana(new vistaAddProd(this.currentUser,this.cosas,cosaActual),this);
          }else
             JOptionPane.showMessageDialog(this, "Selecciona una casilla");
@@ -360,7 +375,7 @@ ArrayList<Producto> objeto;
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
        if (!(tabla.getSelectedRow()==-1)){
-        Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),5);
+        Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),6);
         xml.borrarCosa(this.cosas.indiceProd(cosaActual));
         this.cosas.eliminarProd(cosaActual);
         
@@ -444,6 +459,11 @@ ArrayList<Producto> objeto;
         pdf.crear_PDF("Productos","Productos",a);
     }//GEN-LAST:event_GenerarPDFActionPerformed
 
+    private void comprarVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarVenderActionPerformed
+        this.despues = new vistaCompraVenta(this.currentUser, prove);
+        control.activaVentana(despues, this);
+    }//GEN-LAST:event_comprarVenderActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -485,6 +505,7 @@ ArrayList<Producto> objeto;
     private javax.swing.JButton Modificar;
     private javax.swing.JButton Salir;
     private javax.swing.JButton bttnRegresar;
+    private javax.swing.JButton comprarVender;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla;

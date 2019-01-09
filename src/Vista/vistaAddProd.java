@@ -289,8 +289,7 @@ ArrayList<Producto>  list2;
             
             
         if (modificando) {
-                int index = prods.indiceProd(prod);
-                System.out.println(index);
+                int index = prods.indiceProd(prod);  
                 this.prods.eliminarProd(prod);
                 control.agregarProd(jComboBox1.getSelectedItem().toString(),prods,p,index);                
                 xml2.actualizarCosa(p, index);
