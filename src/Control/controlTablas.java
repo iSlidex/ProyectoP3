@@ -99,8 +99,9 @@ public class controlTablas extends controlador{
       Prov.forEach((per) -> {
           dtm.addRow(new Object[] {per.getNombre(), per.getDireccion(),per.getTelefono(),per});
         });
+      
       while (dtm.getRowCount()<27){
-          dtm.addRow(new Object[]{"","","","","","",null});          
+          dtm.addRow(new Object[]{"","","",null});          
       }
       tablaCosas.setModel(dtm);
       tablaCosas.setFont(new Font("perpetua",Font.BOLD,16));
@@ -120,10 +121,10 @@ public class controlTablas extends controlador{
     };
       Prov= user.getLista();
       Prov.forEach((per) -> {
-          dtm.addRow(new Object[] {per.getNombre(), per.getNombre(),per.getClass().getSimpleName(),per});
+          dtm.addRow(new Object[] {per.getNombre(), per.getCorreo(),per.getClass().getSimpleName(),per});
         });
       while (dtm.getRowCount()<27){
-          dtm.addRow(new Object[]{"","","","","","",null});          
+          dtm.addRow(new Object[]{"","","",null});          
       }
       tablaCosas.setModel(dtm);
       tablaCosas.setFont(new Font("perpetua",Font.BOLD,16));

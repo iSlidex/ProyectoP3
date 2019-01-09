@@ -13,9 +13,12 @@ import controlXml.controlXmlUser;
 import java.awt.Color;
 import javax.swing.JFrame;
 import java.awt.Point;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -38,11 +41,10 @@ boolean activados;
         public admVistaUser(Usuario currentUser) {
          initComponents();
          this.currentUser=currentUser;
-                control = new controlTablas(tabla, this);
-        this.currentUser = currentUser;
+        control = new controlTablas(tabla, this);       
         objeto = xml.todasLosUser();
-        users = new listaUser(objeto);
-        control.activa_Desactiva(false);
+        verProd5.requestFocus(); 
+        users = new listaUser(objeto);        
          if (!users.existeUser()) {
             activados= true;
         }
@@ -57,8 +59,7 @@ boolean activados;
             tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(3).setMaxWidth(0);
         }
-        this.getContentPane().setBackground (Color.LIGHT_GRAY);
-         verProd5.requestFocus();       
+        verProd5.requestFocus();       
     }
 
 
@@ -141,11 +142,19 @@ boolean activados;
             }
         });
         verProd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verProdMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProdMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 verProdMouseExited(evt);
+            }
+        });
+        verProd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                verProdKeyPressed(evt);
             }
         });
 
@@ -154,8 +163,16 @@ boolean activados;
         bttn2.setName(""); // NOI18N
         bttn2.setText("Ver Productos");
         bttn2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bttn2MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bttn2MouseEntered(evt);
+            }
+        });
+        bttn2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bttn2KeyPressed(evt);
             }
         });
 
@@ -254,11 +271,19 @@ boolean activados;
             }
         });
         verProd2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verProd2MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProd2MouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 verProd2MouseExited(evt);
+            }
+        });
+        verProd2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                verProd2KeyPressed(evt);
             }
         });
 
@@ -773,8 +798,8 @@ boolean activados;
     }//GEN-LAST:event_verProdMouseEntered
 
     private void verProdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProdMouseExited
-        verProd.setBackground(new java.awt.Color(0, 153, 204));
-        bttn2.setBackground(new java.awt.Color(0, 153, 204));
+        verProd.setBackground(new java.awt.Color(0, 80, 160));
+        bttn2.setBackground(new java.awt.Color(0, 80, 160));
     }//GEN-LAST:event_verProdMouseExited
 
     private void verProd1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd1MouseEntered
@@ -785,8 +810,8 @@ boolean activados;
 
     private void verProd1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd1MouseExited
         // TODO add your handling code here:
-        verProd1.setBackground(new java.awt.Color(0, 80, 160));
-        bttn12.setBackground(new java.awt.Color(0, 80, 160));       
+        verProd1.setBackground(new java.awt.Color(0, 153, 204));
+        bttn12.setBackground(new java.awt.Color(0, 153, 204));       
     }//GEN-LAST:event_verProd1MouseExited
 
     private void bttn2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn2MouseEntered
@@ -950,8 +975,8 @@ boolean activados;
     }//GEN-LAST:event_verProdFocusGained
 
     private void verProdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProdFocusLost
-        verProd.setBackground(new java.awt.Color(0,153,204)); 
-        bttn2.setBackground(new java.awt.Color(0, 153, 204));
+        verProd.setBackground(new java.awt.Color(0,80,160)); 
+        bttn2.setBackground(new java.awt.Color(0, 80, 160));
     }//GEN-LAST:event_verProdFocusLost
 
     private void verProd5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd5FocusGained
@@ -984,8 +1009,8 @@ boolean activados;
     }//GEN-LAST:event_verProd1FocusGained
 
     private void verProd1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd1FocusLost
-        verProd1.setBackground(new java.awt.Color(0, 80, 160));
-        bttn12.setBackground(new java.awt.Color(0, 80, 160));    
+        verProd1.setBackground(new java.awt.Color(0,153,204));
+        bttn12.setBackground(new java.awt.Color(0,153,204));    
     }//GEN-LAST:event_verProd1FocusLost
 
     private void verProd2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd2FocusGained
@@ -1051,6 +1076,33 @@ boolean activados;
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tablaMouseClicked
+
+    private void verProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProdMouseClicked
+         control.activaVentana(new newVistaProducto(currentUser), this);
+    }//GEN-LAST:event_verProdMouseClicked
+
+    private void verProdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_verProdKeyPressed
+       if(evt.getKeyCode()==(KeyEvent.VK_ENTER)){
+        control.activaVentana(new newVistaProducto(currentUser), this);
+       }
+    }//GEN-LAST:event_verProdKeyPressed
+
+    private void bttn2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bttn2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttn2KeyPressed
+
+    private void bttn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn2MouseClicked
+
+        control.activaVentana(new newVistaProducto(currentUser), this);
+    }//GEN-LAST:event_bttn2MouseClicked
+
+    private void verProd2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd2MouseClicked
+        control.activaVentana(new admVistaProv(currentUser), this);
+    }//GEN-LAST:event_verProd2MouseClicked
+
+    private void verProd2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_verProd2KeyPressed
+        control.activaVentana(new admVistaProv(currentUser), this);
+    }//GEN-LAST:event_verProd2KeyPressed
 
     /**
      * @param args the command line arguments

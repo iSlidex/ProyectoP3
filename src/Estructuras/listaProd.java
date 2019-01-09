@@ -36,7 +36,7 @@ public class listaProd {
         lista.add(P);
     }
     public void incluirProd(int index,Producto P) {
-        lista.add(index,P);
+        lista.add(index-1,P);
     }
     public void eliminarProd(Producto P) {
         lista.remove(P);

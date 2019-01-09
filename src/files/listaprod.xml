@@ -8,12 +8,28 @@
     <Vendidos>35</Vendidos>
   </Producto>
   <Producto>
+    <Nombre>Prueba123</Nombre>
+    <id>ASD123</id>
+    <Precio>1200.0</Precio>
+    <prov>foo</prov>
+    <Unidades>1</Unidades>
+    <Vendidos>0</Vendidos>
+  </Producto>
+  <Producto>
     <Nombre>Calculo</Nombre>
     <id>H8UUE9CV9L</id>
     <Precio>9392.0</Precio>
     <prov>foo</prov>
     <Unidades>39</Unidades>
     <Vendidos>3</Vendidos>
+  </Producto>
+  <Producto>
+    <Nombre>xd3</Nombre>
+    <id>K03KHANC9</id>
+    <Precio>4555.0</Precio>
+    <prov>21315213</prov>
+    <Unidades>46</Unidades>
+    <Vendidos>50</Vendidos>
   </Producto>
   <Producto>
     <Nombre>Nulo</Nombre>
@@ -30,13 +46,5 @@
     <prov>21315213</prov>
     <Unidades>24</Unidades>
     <Vendidos>43</Vendidos>
-  </Producto>
-  <Producto>
-    <Nombre>xd</Nombre>
-    <id>K03KHANC9</id>
-    <Precio>4555.0</Precio>
-    <prov>21315213</prov>
-    <Unidades>46</Unidades>
-    <Vendidos>50</Vendidos>
   </Producto>
 </root>

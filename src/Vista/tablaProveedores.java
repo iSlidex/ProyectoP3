@@ -64,7 +64,7 @@ vistaAddProv vent;
             tabla.getColumnModel().getColumn(3).setPreferredWidth(0);
             tabla.getColumnModel().getColumn(3).setMaxWidth(0);
         }
-        this.getContentPane().setBackground (Color.LIGHT_GRAY);
+        //this.getContentPane().setBackground (Color.LIGHT_GRAY);
         Agregar.requestFocus();
     }
 
