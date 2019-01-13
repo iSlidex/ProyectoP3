@@ -7,6 +7,7 @@
 package Vista;
 
 import Control.controlTablas;
+import Control.controlador;
 import Estructuras.Usuario;
 import Estructuras.listaUser;
 import controlXml.controlXmlUser;
@@ -294,6 +295,9 @@ boolean activados;
         bttn13.setName(""); // NOI18N
         bttn13.setText("Ver Proveedores");
         bttn13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bttn13MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bttn13MouseEntered(evt);
             }
@@ -336,6 +340,9 @@ boolean activados;
             }
         });
         verProd3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verProd3MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProd3MouseEntered(evt);
             }
@@ -349,6 +356,9 @@ boolean activados;
         bttn15.setName(""); // NOI18N
         bttn15.setText("Ver Estadisticas");
         bttn15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bttn15MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bttn15MouseEntered(evt);
             }
@@ -395,6 +405,9 @@ boolean activados;
             }
         });
         jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel15MouseEntered(evt);
             }
@@ -408,6 +421,9 @@ boolean activados;
         bttn16.setName(""); // NOI18N
         bttn16.setText("Cerrar Sesion");
         bttn16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bttn16MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bttn16MouseEntered(evt);
             }
@@ -1105,6 +1121,26 @@ boolean activados;
     private void verProd2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_verProd2KeyPressed
         control.activaVentana(new admVistaProv(currentUser), this);
     }//GEN-LAST:event_verProd2KeyPressed
+
+    private void bttn13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn13MouseClicked
+       control.activaVentana(new admVistaProv(currentUser), this);
+    }//GEN-LAST:event_bttn13MouseClicked
+
+    private void bttn16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn16MouseClicked
+       control.activaVentana(new VistaLogin(),this );
+    }//GEN-LAST:event_bttn16MouseClicked
+
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+       control.activaVentana(new VistaLogin(),this );
+    }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void verProd3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd3MouseClicked
+        control.activaVentana(new vistaEstadisticasProveedor(currentUser),this);
+    }//GEN-LAST:event_verProd3MouseClicked
+
+    private void bttn15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn15MouseClicked
+        control.activaVentana(new vistaEstadisticasProveedor(currentUser),this);
+    }//GEN-LAST:event_bttn15MouseClicked
 
     /**
      * @param args the command line arguments

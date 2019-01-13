@@ -385,7 +385,6 @@ Producto aux = new Producto("aux", "aux", 1, "1", 1,1);
 
     private void bttnProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnProdActionPerformed
        control.activaVentana(new tablaProductos(currentUser), this);
-               control.activaVentana(new tablaProductos(currentUser), this);
         int pos = 0;
         int cont = 0;
         Producto flag = new Producto ("aux", "aux", 1, "1", -1,1);

@@ -1,21 +1,15 @@
 <root>
   <Proveedor>
-    <Nombre>foo</Nombre>
-    <Direccion>foo</Direccion>
-    <Telefono>foo</Telefono>
+    <Nombre>22</Nombre>
+    <Direccion>22</Direccion>
+    <Telefono>22</Telefono>
     <User>2</User>
   </Proveedor>
   <Proveedor>
-    <Nombre>33</Nombre>
-    <Direccion>33</Direccion>
-    <Telefono>33</Telefono>
-    <User>2</User>
-  </Proveedor>
-  <Proveedor>
-    <Nombre>1</Nombre>
-    <Direccion>1</Direccion>
-    <Telefono>1</Telefono>
-    <User>2</User>
+    <Nombre>2</Nombre>
+    <Direccion>2</Direccion>
+    <Telefono>2</Telefono>
+    <User>1</User>
   </Proveedor>
   <Proveedor>
     <Nombre>ba</Nombre>
@@ -34,5 +28,11 @@
     <Direccion>nullo2</Direccion>
     <Telefono>nullo2</Telefono>
     <User>2</User>
+  </Proveedor>
+  <Proveedor>
+    <Nombre>Pollo</Nombre>
+    <Direccion>arrecho123</Direccion>
+    <Telefono>213124</Telefono>
+    <User>1</User>
   </Proveedor>
 </root>

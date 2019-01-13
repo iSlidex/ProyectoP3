@@ -167,4 +167,28 @@
     <correo>wq@kr.ka</correo>
     <clave>lala123456</clave>
   </usuario>
+  <usuario>
+    <tipo>Empleado</tipo>
+    <nombre>Pedro</nombre>
+    <correo>pedro@pedro.com</correo>
+    <clave>pedro1234</clave>
+  </usuario>
+  <usuario>
+    <tipo>Empleado</tipo>
+    <nombre>pablo</nombre>
+    <correo>pablo@pablo.com</correo>
+    <clave>pablo1234</clave>
+  </usuario>
+  <usuario>
+    <tipo>Administrador</tipo>
+    <nombre>paula</nombre>
+    <correo>paula@paula.com</correo>
+    <clave>paula1234</clave>
+  </usuario>
+  <usuario>
+    <tipo>Administrador</tipo>
+    <nombre>carmen</nombre>
+    <correo>carmen@car-men.com</correo>
+    <clave>carmen1234</clave>
+  </usuario>
 </root>

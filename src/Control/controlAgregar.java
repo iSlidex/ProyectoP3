@@ -35,12 +35,19 @@ public class controlAgregar extends controlador{
         this.precioTx = precioTx;
         this.unidadesTx = unidadesTx;
     }
-    
-        public controlAgregar(JButton bttnCancel, JButton bttnCont, JTextField dirTx, JTextField nombreTx, JTextField telfTx, JFrame ventana) {
+
+    public controlAgregar(JComboBox combo,JTextField codigoTx, JTextField nombreTx, JTextField precioTx, JTextField unidadesTx, JTextField vendidosTx, JFrame ventana) {
         super(ventana);
-        
-        this.bttnCancel = bttnCancel;
-        this.bttnCont = bttnCont;
+        this.codigoTx = codigoTx;
+        this.nombreTx = nombreTx;
+        this.precioTx = precioTx;
+        this.unidadesTx = unidadesTx;
+        this.vendidosTx = vendidosTx;
+        this.combo = combo;
+    }
+    
+        public controlAgregar( JTextField dirTx, JTextField nombreTx, JTextField telfTx, JFrame ventana) {
+        super(ventana);    
         this.dirTx = dirTx;
         this.nombreTx = nombreTx;
         this.telfTx = telfTx;
@@ -139,19 +146,19 @@ public class controlAgregar extends controlador{
     
     public ArrayList<String> mensajeErrorPR(){
         ArrayList<String> msg=new ArrayList<>();             
-        if(nombreInvalido())msg.add("Nombre del producto");
-        if(precioInvalido())msg.add(" Precio");
-        if(codigoInvalido())msg.add(" Codigo");
-        if(!unidadesCorrectas())msg.add(" Unidades");
-        if(!ventasCorrectas())msg.add(" Unidades vendidas");
+        if(nombreInvalido())msg.add("<br>Nombre del producto");
+        if(precioInvalido())msg.add("<br> -Precio");
+        if(codigoInvalido())msg.add("<br> -Codigo");
+        if(!unidadesCorrectas())msg.add("<br>- Unidades");
+        if(!ventasCorrectas())msg.add("<br> -Unidades vendidas");
         return msg;
     }
     
             public ArrayList<String> mensajeErrorP(){
             ArrayList<String> msg=new ArrayList<>();             
-            if(nombreInvalido())msg.add("Nombre del proveedor");
-            if(direccionInvalida())msg.add(" Direccion");
-            if(telefonoInvalido())msg.add(" Telefono");
+            if(nombreInvalido())msg.add("<br>Nombre del proveedor");
+            if(direccionInvalida())msg.add("<br> Direccion");
+            if(telefonoInvalido())msg.add(" <br>Telefono");
             return msg;
         }
         

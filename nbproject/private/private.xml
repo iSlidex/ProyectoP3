@@ -3,12 +3,31 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Documents/NetBeansProjects/ProyectoP3-master/src/Vista/tablaProductos.java</file>
-            <file>file:/E:/Documents/NetBeansProjects/ProyectoP3-master/src/Vista/newVistaProducto_1.java</file>
-            <file>file:/E:/Documents/NetBeansProjects/ProyectoP3-master/src/Vista/admVistaUsuario.java</file>
-            <file>file:/E:/Documents/NetBeansProjects/ProyectoP3-master/src/Vista/tablaUser.java</file>
-            <file>file:/E:/Documents/NetBeansProjects/ProyectoP3-master/src/Vista/tablaProveedores.java</file>
-            <file>file:/E:/Documents/NetBeansProjects/ProyectoP3-master/src/Vista/VistaLogin.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/controlXml/controlXmlProd.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/vistaEstadisticasProveedor.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/vistaAddProv.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Control/controlEstadisticas.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/tablaProductos.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/controlXml/controlXmlProv.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/VistaLogin.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/verifDatosAdmin.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/files/listauser.xml</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Control/controlPDF.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/admVistaUser.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/admVistaProv.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/vistaCompraVentaDespues.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/vistaMsg2.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/vistaModUser.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/vistaAdmin.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/vistaCompraVenta.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Control/controlAgregar.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/newVistaProducto.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/vistaAddProd.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/tablaProveedores.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/vistaMsgAviso.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Control/controlCompraVenta.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/vistaRegistro.java</file>
+            <file>file:/C:/Users/leito/Desktop/AIIIP3-master/src/Vista/Msg.java</file>
         </group>
     </open-files>
 </project-private>

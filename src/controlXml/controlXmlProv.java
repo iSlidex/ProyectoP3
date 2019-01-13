@@ -17,8 +17,7 @@ public class controlXmlProv{
     private Element root;
     private String fileLocation= "src//files//listaprov.xml";
     //constructor//
-    public controlXmlProv(){
-        System.out.println("holakase");
+    public controlXmlProv(){        
         try {
             SAXBuilder builder = new SAXBuilder(false);
             Document doc = null;

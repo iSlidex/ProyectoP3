@@ -1,19 +1,35 @@
 <root>
   <Producto>
+    <Nombre>cuatro veinte</Nombre>
+    <id>420</id>
+    <Precio>420.0</Precio>
+    <prov>22</prov>
+    <Unidades>420</Unidades>
+    <Vendidos>424</Vendidos>
+  </Producto>
+  <Producto>
+    <Nombre>111123444</Nombre>
+    <id>ASD123</id>
+    <Precio>1100.0</Precio>
+    <prov>foo</prov>
+    <Unidades>7</Unidades>
+    <Vendidos>4</Vendidos>
+  </Producto>
+  <Producto>
+    <Nombre>Nulo</Nombre>
+    <id>J93HNA920</id>
+    <Precio>2947.0</Precio>
+    <prov>51233</prov>
+    <Unidades>88</Unidades>
+    <Vendidos>2</Vendidos>
+  </Producto>
+  <Producto>
     <Nombre>Prueba</Nombre>
     <id>HAH83LA0A9</id>
     <Precio>9292.0</Precio>
     <prov>foo</prov>
     <Unidades>39</Unidades>
     <Vendidos>35</Vendidos>
-  </Producto>
-  <Producto>
-    <Nombre>Prueba123</Nombre>
-    <id>ASD123</id>
-    <Precio>1200.0</Precio>
-    <prov>foo</prov>
-    <Unidades>1</Unidades>
-    <Vendidos>0</Vendidos>
   </Producto>
   <Producto>
     <Nombre>Calculo</Nombre>
@@ -30,12 +46,12 @@
     <Vendidos>43</Vendidos>
   </Producto>
   <Producto>
-    <Nombre>cinco</Nombre>
-    <id>420</id>
-    <Precio>420.0</Precio>
-    <prov>3</prov>
-    <Unidades>420</Unidades>
-    <Vendidos>420</Vendidos>
+    <Nombre>Cosa</Nombre>
+    <id>fsf123</id>
+    <Precio>123.0</Precio>
+    <prov>ba</prov>
+    <Unidades>4</Unidades>
+    <Vendidos>1</Vendidos>
   </Producto>
   <Producto>
     <Nombre>xd3</Nombre>
@@ -44,14 +60,6 @@
     <prov>21315213</prov>
     <Unidades>46</Unidades>
     <Vendidos>50</Vendidos>
-  </Producto>
-  <Producto>
-    <Nombre>Nulo</Nombre>
-    <id>J93HNA920</id>
-    <Precio>2948.0</Precio>
-    <prov>51233</prov>
-    <Unidades>83</Unidades>
-    <Vendidos>2</Vendidos>
   </Producto>
   <Producto>
     <Nombre>Poceta electrica</Nombre>
@@ -74,5 +82,37 @@
     <prov>21315213</prov>
     <Unidades>22</Unidades>
     <Vendidos>9</Vendidos>
+  </Producto>
+  <Producto>
+    <Nombre>Hola prro</Nombre>
+    <id>AS42Q</id>
+    <Precio>213.0</Precio>
+    <prov>22</prov>
+    <Unidades>20</Unidades>
+    <Vendidos>1</Vendidos>
+  </Producto>
+  <Producto>
+    <Nombre>Plasma</Nombre>
+    <id>12da231</id>
+    <Precio>1233.0</Precio>
+    <prov>ba</prov>
+    <Unidades>3</Unidades>
+    <Vendidos>12</Vendidos>
+  </Producto>
+  <Producto>
+    <Nombre>pollo al horno</Nombre>
+    <id>SAD321</id>
+    <Precio>12314.0</Precio>
+    <prov>Pollo</prov>
+    <Unidades>300</Unidades>
+    <Vendidos>1</Vendidos>
+  </Producto>
+  <Producto>
+    <Nombre>Pollo frito</Nombre>
+    <id>PAST4</id>
+    <Precio>2134.0</Precio>
+    <prov>Pollo</prov>
+    <Unidades>2000</Unidades>
+    <Vendidos>30000</Vendidos>
   </Producto>
 </root>

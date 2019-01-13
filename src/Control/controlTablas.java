@@ -67,9 +67,33 @@ public class controlTablas extends controlador{
             return false;        
         }
         Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class,java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, Producto.class
-        };        
+                java.lang.String.class, java.lang.String.class, java.lang.Double.class,java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, Producto.class
+        };
+        
+//        @Override
+//            public Class getColumnClass(int column) {
+//                switch (column) {
+//                    case 0:
+//                        return String.class;
+//                    case 1:
+//                        return String.class;
+//                    case 2:
+//                        return String.class;
+//                    case 3:
+//                        return String.class;
+//                    case 4:
+//                        return Integer.class;
+//                    case 5:
+//                        return Integer.class;
+//                    case 6:
+//                        return Producto.class;
+//                    default:
+//                        return Object.class;
+//                }
+//            }      
+            
     };
+      
       Prod= cosas.getLista();
       Prod.forEach((per) -> {
           dtm.addRow(new Object[] {per.getId(), per.getNombre(),per.getPrecio(),per.getProv(), per.getUnidades(), per.getVendidos(),per});
@@ -78,6 +102,7 @@ public class controlTablas extends controlador{
           dtm.addRow(new Object[]{"","","","","","",null});          
       }
       tablaCosas.setModel(dtm);
+//      tablaCosas.setAutoCreateRowSorter(true);
       tablaCosas.setFont(new Font("perpetua",Font.BOLD,16));
       
    }

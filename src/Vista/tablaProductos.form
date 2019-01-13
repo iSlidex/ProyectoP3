@@ -41,7 +41,7 @@
                       <Component id="GenerarPDF" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="comprarVender" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="196" max="32767" attributes="0"/>
+                      <EmptySpace pref="209" max="32767" attributes="0"/>
                       <Component id="bttnRegresar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Eliminar" min="-2" pref="90" max="-2" attributes="0"/>
@@ -228,7 +228,7 @@
     </Component>
     <Component class="javax.swing.JToggleButton" name="GenerarPDF">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Generar PDF"/>
+        <Property name="text" type="java.lang.String" value="Imprimir"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GenerarPDFActionPerformed"/>

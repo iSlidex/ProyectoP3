@@ -7,7 +7,6 @@ package Vista;
 
 import Control.*;
 import Estructuras.*;
-import controlXml.controlPDFProd;
 import controlXml.controlXmlProd;
 import controlXml.controlXmlProv;
 import java.awt.*;
@@ -18,10 +17,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.print.PrinterException;
+import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
 /**
@@ -290,7 +294,7 @@ ArrayList<Producto> objeto;
             }
         });
 
-        GenerarPDF.setText("Generar PDF");
+        GenerarPDF.setText("Imprimir");
         GenerarPDF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GenerarPDFActionPerformed(evt);
@@ -323,7 +327,7 @@ ArrayList<Producto> objeto;
                         .addComponent(GenerarPDF)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(comprarVender)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
                         .addComponent(bttnRegresar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -426,42 +430,23 @@ ArrayList<Producto> objeto;
     }//GEN-LAST:event_bttnRegresarKeyPressed
 
     private void GenerarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarPDFActionPerformed
-        String a="";
-        int b;
-        
-        TableModel tableModel = tabla.getModel();
-        int cols = tableModel.getColumnCount();
-        int fils = tableModel.getRowCount();
-        for(int i=0; i<fils; i++) {
-            a=a+(i+1)+".\n";
-            b=1;
-            for(int j=0; j<cols-1; j++){
-                if (b==1)
-                    a=a+"Codigo: ";
-                if (b==2)
-                    a=a+"Nombre: ";
-                if (b==3)
-                    a=a+"Precio: ";
-                if (b==4)
-                    a=a+"Proveedor: ";
-                if (b==5)
-                    a=a+"Unidades: ";
-                if (b==6)
-                    a=a+"Vendidos: ";
-                a=a+tableModel.getValueAt(i,j)+"\n";
-                b++;
-            }
-            a=a+"\n\n";
+        try {
+            MessageFormat headerFormat = new MessageFormat("Lista de Productos\n\n"); //Encabezado
+            MessageFormat footerFormat = new MessageFormat("CONSTRUCTORES 3000 C.A."); //Pie de página
+            tabla.print(JTable.PrintMode.FIT_WIDTH, headerFormat, footerFormat);
+        } catch (PrinterException e) {
+            Logger.getLogger(tablaProductos.class.getName()).log(Level.SEVERE, null, e);
         }
-        
-        
-        controlPDFProd pdf=new controlPDFProd();
-        pdf.crear_PDF("Productos","Productos",a);
     }//GEN-LAST:event_GenerarPDFActionPerformed
 
     private void comprarVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarVenderActionPerformed
-        this.despues = new vistaCompraVenta(this.currentUser, prove);
+       if (!(tabla.getSelectedRow()==-1)){
+        Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),6);
+        Integer index = cosas.indiceProd(cosaActual);  
+        this.despues = new vistaCompraVenta(this.currentUser, cosas, cosaActual.getUnidades(), cosaActual.getProv(), cosaActual.getNombre(), cosaActual, index);
         control.activaVentana(despues, this);
+       }else
+            JOptionPane.showMessageDialog(this, "Selecciona una casilla");
     }//GEN-LAST:event_comprarVenderActionPerformed
 
     /**

@@ -167,7 +167,7 @@ int i,j;
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel19)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,6 +224,20 @@ int i,j;
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel18MouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel18MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel18MouseReleased(evt);
+            }
+        });
+        jLabel18.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jLabel18KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jLabel18KeyReleased(evt);
+            }
         });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -233,7 +247,7 @@ int i,j;
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel18)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -339,7 +353,7 @@ int i,j;
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel23)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel8);
@@ -363,7 +377,7 @@ int i,j;
 
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 770, 470));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 58, 1060, 660));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 58, 1070, 660));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -670,6 +684,22 @@ int i,j;
             System.exit(0);
     }//GEN-LAST:event_jPanel3KeyPressed
 
+    private void jLabel18KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel18KeyPressed
+//        jPanel4.setBackground(new java.awt.Color(0, 80, 160));
+    }//GEN-LAST:event_jLabel18KeyPressed
+
+    private void jLabel18KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel18KeyReleased
+//         jPanel4.setBackground(new java.awt.Color(0,51,153));
+    }//GEN-LAST:event_jLabel18KeyReleased
+
+    private void jLabel18MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MousePressed
+        jPanel4.setBackground(new java.awt.Color(0,51,153));
+    }//GEN-LAST:event_jLabel18MousePressed
+
+    private void jLabel18MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseReleased
+        jPanel4.setBackground(new java.awt.Color(0, 80, 160));
+    }//GEN-LAST:event_jLabel18MouseReleased
+
     /**
      * @param args the command line arguments
      */
@@ -695,6 +725,8 @@ int i,j;
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VistaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

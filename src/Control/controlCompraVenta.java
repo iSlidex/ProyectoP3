@@ -28,8 +28,6 @@ public class controlCompraVenta extends controlador {
     private JButton aceptar;
     private JButton cancelar;
     private JComboBox selAccion;
-    private JComboBox selProd;
-    private JComboBox selProv;
     private JTextField unidadesCVTx;
 
     ////////VARIABLES PARA vistaCompraVentaDespues///////////////
@@ -45,25 +43,19 @@ public class controlCompraVenta extends controlador {
 
     /*Controlador para ventana vistaCompraVenta*/
 
-    public controlCompraVenta(List lista, JButton aceptar, JButton cancelar, JTextField unidadesCVTx, JComboBox selAccion,  JComboBox selProd, JComboBox selProv, JFrame ventana) {
+    public controlCompraVenta(List lista, JTextField unidadesCVTx, JComboBox selAccion, JFrame ventana) {
         super(ventana);
         this.lista = lista;
-        this.aceptar = aceptar;
-        this.cancelar = cancelar;
         this.unidadesCVTx = unidadesCVTx;
         this.selAccion = selAccion;
-        this.selProd = selProd;
-        this.selProv = selProv;
     }
 
     /*Controlador para ventana vistaCompraVentaDespues*/
 
     
-    public controlCompraVenta(List lista, JButton pdf, JButton regresar, JTextField accionTx, JTextField fechaTx, JTextField preciototalTx, JTextField prodTx, JTextField provTx, JTextField unidadesTx, JFrame ventana) {
+    public controlCompraVenta(List lista, JTextField accionTx, JTextField fechaTx, JTextField preciototalTx, JTextField prodTx, JTextField provTx, JTextField unidadesTx, JFrame ventana) {
         super(ventana);
         this.lista = lista;
-        this.pdf = pdf;
-        this.regresar = regresar;
         this.accionTx = accionTx;
         this.preciototalTx = preciototalTx;
         this.prodTx = prodTx;
@@ -73,7 +65,7 @@ public class controlCompraVenta extends controlador {
 
     public boolean validarCompraVenta(Integer unidades, String accion) throws InputMismatchException{
         boolean sePuede = true;
-        if (!(selAccion.getSelectedItem().toString()).equals("Seleccionar") && (!(selProd.getSelectedItem().toString()).equals("Seleccionar")) && (!(selProv.getSelectedItem().toString()).equals("Seleccionar"))){
+        if (!(selAccion.getSelectedItem().toString()).equals("Seleccionar")){
             try{
                 /*Es numero*/
                 int u = Integer.parseInt(unidadesCVTx.getText());
@@ -95,7 +87,7 @@ public class controlCompraVenta extends controlador {
     }
     
     public boolean validarDatos(){
-        if (!(selAccion.getSelectedItem().toString()).equals("Seleccionar") && (!(selProd.getSelectedItem().toString()).equals("Seleccionar")) && (!(selProv.getSelectedItem().toString()).equals("Seleccionar")))
+        if (!(selAccion.getSelectedItem().toString()).equals("Seleccionar"))
             return true;
         else return false;
     }   
@@ -122,18 +114,6 @@ public class controlCompraVenta extends controlador {
         else return false;
     }
 
-    public boolean prodVacio(){
-        if (!(selProd.getSelectedItem().toString()).equals("Seleccionar"))
-            return false;
-        else return true; 
-    }
-
-    public boolean provVacio(){
-        if (!(selProv.getSelectedItem().toString()).equals("Seleccionar"))
-            return false;
-        else return true; 
-    }
-
     public boolean accionVacia(){
         if (!(selAccion.getSelectedItem().toString()).equals("Seleccionar"))
             return false;
@@ -142,43 +122,31 @@ public class controlCompraVenta extends controlador {
 
     public ArrayList<String> mensajeErrorCV(String accion,Integer unidades){
         ArrayList<String> msg=new ArrayList<>();
-        if(accionVacia())msg.add("Acción: Debe seleccionar compra o venta\n");
-        if(prodVacio())msg.add("Producto: Debe seleccionar un producto\n");
-        if(provVacio())msg.add("Proveedor: Debe seleccionar un proveedor\n");
+        if(accionVacia())msg.add("<br>Acción: Debe seleccionar compra o venta\n");
         if(!(unidadesCorrectas(unidades,accion)) && (accion.equals("Venta"))){
-            msg.add("Unidades: Debe ser un nuevo positivo diferente de cero menor o igual al número de productos en el inventario\n");
+            msg.add("<br>Unidades: Debe ser un numero positivo diferente de cero menor o igual al número de productos en el inventario\n");
         }
         else if (!(unidadesCorrectas(unidades,accion))){
-            msg.add("Unidades: Debe ser un nuevo positivo diferente de cero\n"); 
+            msg.add("<br>Unidades: Debe ser un numero positivo diferente de cero\n"); 
         }
         return msg;
     }
 
-    public void actualizarProd(Producto prod,Integer unidades){
-
-            xml.borrarCosa(this.cosas.indiceProd(prod));
+    public void actualizarProd(Producto prod,Integer unidades, Integer index){
+            System.out.println("index"+index+"\n");    
+            xml.borrarCosa(index);
             this.cosas.eliminarProd(prod);
-                if(accionTx.getText().equals("Venta")) 
+            
+                if(accionTx.getText().equals("Venta")){
                     prod.setUnidades(prod.getUnidades()-unidades);
+                    prod.setVendidos(prod.getVendidos()+unidades);
+                }
                 else if (accionTx.getText().equals("Compra"))
                     prod.setUnidades(prod.getUnidades()+unidades);
             /*Luego de actualizarlo lo modifico en el xml*/
-            xml.agregarCosa(prod, this.cosas.indiceProd(prod));
+            xml.agregarCosa(prod, index);
     }
-
-    public void llenarComboProv(ArrayList<Proveedor>  list){
-        for (Proveedor i : list){
-            selProv.addItem(i.getNombre());
-        } 
-    }
-
-    public void llenarComboProd(ArrayList<Producto>  list, String prov){
-        for (Producto i : list){
-            if (i.getProv().equals(prov))
-                selProd.addItem(i.getNombre());
-        }    
-    }
-         
+       
     public void comboSet(JComboBox comboBox, String value){
         String item;
         for (int i = 0; i < comboBox.getItemCount(); i++){
@@ -193,5 +161,4 @@ public class controlCompraVenta extends controlador {
     public Double precioTotal(Integer unidades, Double precio){
         return unidades*precio;
     }
-
 }

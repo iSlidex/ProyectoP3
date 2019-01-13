@@ -21,6 +21,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,6 +37,7 @@ controlXmlProd xml= new controlXmlProd();
 vistaAddProd vent;
 //controlXml xml=new controlXml();
 ArrayList<Producto> objeto;
+vistaCompraVenta despues;
 boolean activados;
     /** Creates new form newLogin */
     public newVistaProducto() {
@@ -57,7 +59,7 @@ boolean activados;
             //control.activa_Desactiva(false);        
             verProd4.setBackground(new java.awt.Color(192,192,192));
             verProd6.setBackground(new java.awt.Color(192,192,192));
-            verProd7.setBackground(new java.awt.Color(192,192,192));
+            
             activados= false;
         }
         control.llenarTablaProd(this.cosas,tabla);
@@ -112,10 +114,10 @@ boolean activados;
         jLabel17 = new javax.swing.JLabel();
         verProd5 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
-        verProd7 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
         verProd6 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
+        verProd7 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -138,9 +140,11 @@ boolean activados;
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         menu.setBackground(new java.awt.Color(0, 51, 153));
+        menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         verProd.setBackground(new java.awt.Color(0, 153, 204));
         verProd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
+        verProd.setName(""); // NOI18N
         verProd.setNextFocusableComponent(verProd1);
         verProd.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -156,6 +160,11 @@ boolean activados;
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 verProdMouseExited(evt);
+            }
+        });
+        verProd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                verProdKeyPressed(evt);
             }
         });
 
@@ -194,8 +203,11 @@ boolean activados;
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
+        menu.add(verProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 299, -1));
+
         jPanel5.setBackground(new java.awt.Color(20, 70, 160));
         jPanel5.setLayout(new java.awt.BorderLayout());
+        menu.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 389, 6, -1));
 
         verProd1.setBackground(new java.awt.Color(0, 80, 160));
         verProd1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
@@ -263,6 +275,8 @@ boolean activados;
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
+        menu.add(verProd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 188, -1, -1));
+
         verProd2.setBackground(new java.awt.Color(0, 80, 160));
         verProd2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
         verProd2.setNextFocusableComponent(verProd3);
@@ -326,11 +340,14 @@ boolean activados;
             .addGroup(verProd2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(bttn13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        menu.add(verProd2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 256, 299, 70));
 
         verProd3.setBackground(new java.awt.Color(0, 80, 160));
         verProd3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
+        verProd3.setName(""); // NOI18N
         verProd3.setNextFocusableComponent(jLabel15);
         verProd3.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -341,6 +358,9 @@ boolean activados;
             }
         });
         verProd3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verProd3MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProd3MouseEntered(evt);
             }
@@ -354,6 +374,9 @@ boolean activados;
         bttn15.setName(""); // NOI18N
         bttn15.setText("Ver Estadisticas");
         bttn15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bttn15MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bttn15MouseEntered(evt);
             }
@@ -382,11 +405,14 @@ boolean activados;
             .addGroup(verProd3Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(bttn15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        menu.add(verProd3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 323, -1, 70));
 
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel14.setToolTipText("");
+        menu.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(271, 395, -1, 212));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Sign_Out_30px.png"))); // NOI18N
         jLabel15.setToolTipText("");
@@ -400,13 +426,16 @@ boolean activados;
             }
         });
         jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel15MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel15MouseExited(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
             }
         });
+        jLabel15.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jLabel15KeyPressed(evt);
+            }
+        });
+        menu.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 612, -1, -1));
 
         bttn16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         bttn16.setForeground(new java.awt.Color(255, 255, 255));
@@ -416,73 +445,8 @@ boolean activados;
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bttn16MouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                bttn16MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                bttn16MouseExited(evt);
-            }
         });
-        bttn16.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                bttn16FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                bttn16FocusLost(evt);
-            }
-        });
-
-        javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
-        menu.setLayout(menuLayout);
-        menuLayout.setHorizontalGroup(
-            menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuLayout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(299, 299, 299))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLayout.createSequentialGroup()
-                        .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(verProd2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(verProd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(verProd1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(verProd3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLayout.createSequentialGroup()
-                        .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(menuLayout.createSequentialGroup()
-                                .addComponent(bttn16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel15))
-                            .addComponent(jLabel14))
-                        .addGap(34, 34, 34))))
-        );
-        menuLayout.setVerticalGroup(
-            menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuLayout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(menuLayout.createSequentialGroup()
-                        .addComponent(verProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(verProd1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(menuLayout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(verProd2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, 0)
-                .addComponent(verProd3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                .addGap(5, 5, 5)
-                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(bttn16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        menu.add(bttn16, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 612, -1, -1));
 
         background.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 300, 650));
 
@@ -691,6 +655,9 @@ boolean activados;
             }
         });
         verProd4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verProd4MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProd4MouseEntered(evt);
             }
@@ -706,6 +673,9 @@ boolean activados;
         jLabel17.setText("Eliminar");
         jLabel17.setToolTipText("");
         jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel17MouseEntered(evt);
             }
@@ -716,7 +686,7 @@ boolean activados;
         verProd4.add(jLabel17);
         jLabel17.setBounds(10, 0, 100, 40);
 
-        background.add(verProd4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 630, 120, 40));
+        background.add(verProd4, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 630, 120, 40));
 
         verProd5.setBackground(new java.awt.Color(0, 80, 160));
         verProd5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
@@ -745,6 +715,9 @@ boolean activados;
         jLabel18.setText("Agregar");
         jLabel18.setToolTipText("");
         jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel18MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel18MouseEntered(evt);
             }
@@ -757,48 +730,9 @@ boolean activados;
 
         background.add(verProd5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 630, 120, 40));
 
-        verProd7.setBackground(new java.awt.Color(0, 80, 160));
-        verProd7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
-        verProd7.setNextFocusableComponent(verProd4);
-        verProd7.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                verProd7FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                verProd7FocusLost(evt);
-            }
-        });
-        verProd7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                verProd7MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                verProd7MouseExited(evt);
-            }
-        });
-        verProd7.setLayout(null);
-
-        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8_Edit_25px.png"))); // NOI18N
-        jLabel20.setText("Comprar/Vender");
-        jLabel20.setToolTipText("");
-        jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel20MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel20MouseExited(evt);
-            }
-        });
-        verProd7.add(jLabel20);
-        jLabel20.setBounds(10, 0, 150, 40);
-
-        background.add(verProd7, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 630, 170, 40));
-
         verProd6.setBackground(new java.awt.Color(0, 80, 160));
         verProd6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
-        verProd6.setNextFocusableComponent(verProd4);
+        verProd6.setNextFocusableComponent(verProd7);
         verProd6.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 verProd6FocusGained(evt);
@@ -808,6 +742,9 @@ boolean activados;
             }
         });
         verProd6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verProd6MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProd6MouseEntered(evt);
             }
@@ -823,6 +760,9 @@ boolean activados;
         jLabel19.setText("Modificar");
         jLabel19.setToolTipText("");
         jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel19MouseEntered(evt);
             }
@@ -834,6 +774,51 @@ boolean activados;
         jLabel19.setBounds(10, 0, 100, 40);
 
         background.add(verProd6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 630, 120, 40));
+
+        verProd7.setBackground(new java.awt.Color(0, 80, 160));
+        verProd7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
+        verProd7.setNextFocusableComponent(verProd4);
+        verProd7.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                verProd7FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                verProd7FocusLost(evt);
+            }
+        });
+        verProd7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verProd7MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                verProd7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                verProd7MouseExited(evt);
+            }
+        });
+        verProd7.setLayout(null);
+
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/baseline_local_atm_white_18dp.png"))); // NOI18N
+        jLabel20.setText("Compra/Venta");
+        jLabel20.setToolTipText("");
+        jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel20MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel20MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel20MouseExited(evt);
+            }
+        });
+        verProd7.add(jLabel20);
+        jLabel20.setBounds(10, 0, 130, 40);
+
+        background.add(verProd7, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 630, 150, 40));
 
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 700));
 
@@ -888,7 +873,7 @@ boolean activados;
     private void bttn13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn13MouseEntered
        verProd2.setBackground(new java.awt.Color(30, 120, 180));
        bttn13.setBackground(new java.awt.Color(30, 120, 180));
-       //bttn13
+       
     }//GEN-LAST:event_bttn13MouseEntered
 
     private void bttn15MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn15MouseEntered
@@ -1138,15 +1123,9 @@ boolean activados;
         control.activaVentana(new admVistaUser(currentUser), this);     
     }//GEN-LAST:event_verProd1MouseClicked
 
-    private void bttn12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn12MouseClicked
-        control.activaVentana(new admVistaUser(currentUser), this);     
-    }//GEN-LAST:event_bttn12MouseClicked
+                               
 
-    private void verProd1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_verProd1KeyPressed
-        if(evt.getKeyCode()==(KeyEvent.VK_ENTER)){
-        control.activaVentana(new admVistaUser(currentUser), this);               
-        }
-    }//GEN-LAST:event_verProd1KeyPressed
+                            
 
     private void verProd2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd2MouseClicked
         control.activaVentana(new admVistaProv(currentUser), this);
@@ -1159,39 +1138,128 @@ boolean activados;
     private void bttn13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn13MouseClicked
         control.activaVentana(new admVistaProv(currentUser), this);
     }//GEN-LAST:event_bttn13MouseClicked
-       control.activaVentana(new admVistaUser(currentUser), this);
-    }//GEN-LAST:event_verProd1MouseClicked
 
-    private void bttn12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn12MouseClicked
-        control.activaVentana(new admVistaUser(currentUser), this);
-    }//GEN-LAST:event_bttn12MouseClicked
-
-    private void verProd1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_verProd1KeyPressed
-        control.activaVentana(new admVistaUser(currentUser), this);
-    }//GEN-LAST:event_verProd1KeyPressed
-
+    
     private void jLabel20MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseEntered
-        verProd7.setBackground(new java.awt.Color(30, 120, 180));  
+       verProd7.setBackground(new java.awt.Color(30, 120, 180));
     }//GEN-LAST:event_jLabel20MouseEntered
 
     private void jLabel20MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseExited
-        verProd7.setBackground(new java.awt.Color(0, 80, 160));  
+       verProd7.setBackground(new java.awt.Color(0, 80, 160));        
     }//GEN-LAST:event_jLabel20MouseExited
 
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        control.activaVentana(new vistaAddProd(currentUser,cosas,null), this);
+    }//GEN-LAST:event_jLabel18MouseClicked
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+        if (!(tabla.getSelectedRow()==-1)){
+         Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),6);           
+        
+         control.activaVentana(new vistaAddProd(this.currentUser,this.cosas,cosaActual),this);
+         }else
+            new vistaMsg2(this,true,"Selecciona un Producto").setVisible(true);
+    }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void verProd6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd6MouseClicked
+        if (!(tabla.getSelectedRow()==-1)){
+         Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),6);           
+        
+         control.activaVentana(new vistaAddProd(this.currentUser,this.cosas,cosaActual),this);
+         }else
+            new vistaMsg2(this,true,"Selecciona un Producto").setVisible(true);
+    }//GEN-LAST:event_verProd6MouseClicked
+
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+       if (!(tabla.getSelectedRow()==-1)){
+        Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),6);
+        xml.borrarCosa(this.cosas.indiceProd(cosaActual));
+        this.cosas.eliminarProd(cosaActual);        
+        control.activaVentana(new newVistaProducto(currentUser), this);
+        }else
+            new vistaMsg2(this,true,"Selecciona una casilla").setVisible(true);
+    }//GEN-LAST:event_jLabel17MouseClicked
+
+    private void verProd4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd4MouseClicked
+       if (!(tabla.getSelectedRow()==-1)){
+        Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),6);
+        xml.borrarCosa(this.cosas.indiceProd(cosaActual));
+        this.cosas.eliminarProd(cosaActual);        
+        control.activaVentana(new newVistaProducto(currentUser), this);
+        }else
+            new vistaMsg2(this,true,"Selecciona una casilla").setVisible(true);
+    }//GEN-LAST:event_verProd4MouseClicked
+
+    private void bttn12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn12MouseClicked
+        control.activaVentana(new admVistaUser(currentUser), this);    
+    }//GEN-LAST:event_bttn12MouseClicked
+
+    private void verProd1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_verProd1KeyPressed
+        if(evt.getKeyCode()==(KeyEvent.VK_ENTER)){
+        control.activaVentana(new admVistaUser(currentUser), this);               
+        }
+    }//GEN-LAST:event_verProd1KeyPressed
+
+    private void verProdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_verProdKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_verProdKeyPressed
+
+    private void jLabel15KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel15KeyPressed
+       if(evt.getKeyCode()==(KeyEvent.VK_ENTER)){
+       controlador next= new controlador(this);
+       next.activaVentana(new VistaLogin(),this );
+       }
+    }//GEN-LAST:event_jLabel15KeyPressed
+
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+       controlador next= new controlador(this);
+       next.activaVentana(new VistaLogin(),this );
+    }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void bttn15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn15MouseClicked
+        control.activaVentana(new vistaEstadisticasProveedor(currentUser),this);
+    }//GEN-LAST:event_bttn15MouseClicked
+
+    private void verProd3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd3MouseClicked
+        control.activaVentana(new vistaEstadisticasProveedor(currentUser),this);
+    }//GEN-LAST:event_verProd3MouseClicked
+
+    private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
+       if (!(tabla.getSelectedRow()==-1)){
+        Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),6);
+        Integer index = cosas.indiceProd(cosaActual);  
+        this.despues = new vistaCompraVenta(this.currentUser, cosas, cosaActual.getUnidades(), cosaActual.getProv(), cosaActual.getNombre(), cosaActual, index);
+        control.activaVentana(despues, this);
+       }else
+           new vistaMsg2(this,true,"Selecciona una casilla").setVisible(true);
+            //JOptionPane.showMessageDialog(this, "Selecciona una casilla");
+    }//GEN-LAST:event_jLabel20MouseClicked
+
     private void verProd7FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd7FocusGained
-        verProd7.setBackground(new java.awt.Color(30, 120, 180)); 
+        verProd7.setBackground(new java.awt.Color(30, 120, 180));
     }//GEN-LAST:event_verProd7FocusGained
 
     private void verProd7FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verProd7FocusLost
-        verProd7.setBackground(new java.awt.Color(0,80,160));
+       verProd7.setBackground(new java.awt.Color(0, 80, 160));
     }//GEN-LAST:event_verProd7FocusLost
 
+    private void verProd7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd7MouseClicked
+       if (!(tabla.getSelectedRow()==-1)){
+        Producto cosaActual = (Producto) tabla.getValueAt(tabla.getSelectedRow(),6);
+        Integer index = cosas.indiceProd(cosaActual);  
+        this.despues = new vistaCompraVenta(this.currentUser, cosas, cosaActual.getUnidades(), cosaActual.getProv(), cosaActual.getNombre(), cosaActual, index);
+        control.activaVentana(despues, this);
+       }else
+            new vistaMsg2(this,true,"Porfavor seleccione un producto").setVisible(true);
+            //JOptionPane.showMessageDialog(this, "Selecciona una casilla");
+    }//GEN-LAST:event_verProd7MouseClicked
+
     private void verProd7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd7MouseEntered
-        verProd7.setBackground(new java.awt.Color(30, 120, 180));       
+        verProd7.setBackground(new java.awt.Color(30, 120, 180));
     }//GEN-LAST:event_verProd7MouseEntered
 
     private void verProd7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd7MouseExited
-        verProd7.setBackground(new java.awt.Color(0, 80, 160)); 
+        verProd6.setBackground(new java.awt.Color(0, 80, 160));
     }//GEN-LAST:event_verProd7MouseExited
 
     /**
@@ -1230,7 +1298,7 @@ boolean activados;
                 new newVistaProducto().setVisible(true);
             }
         });
-    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;

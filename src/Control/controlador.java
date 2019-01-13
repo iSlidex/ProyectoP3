@@ -38,6 +38,4 @@ public class controlador {
         ventana.setVisible(true);
         ventana2.dispose(); //elimina la ventana de la memoria, incluyendo datos
     }
-    
-    
 }

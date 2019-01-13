@@ -27,6 +27,11 @@ public class controlEstadisticas extends controlador {
         this.Regresar = Regresar;
         this.Tabla = Tabla;
     }
+
+    public controlEstadisticas(JTable Tabla, JFrame ventana) {
+        super(ventana);
+        this.Tabla = Tabla;
+    }
     
     public controlEstadisticas(JFrame ventana) {
         super(ventana);
@@ -56,57 +61,11 @@ public class controlEstadisticas extends controlador {
 }
               
         public void activa_Desactiva(boolean verdadOFalso){
-      GenerarPDF.setEnabled(verdadOFalso);
-      Regresar.setEnabled(verdadOFalso);
       if (verdadOFalso==true){ 
-   MouseListener b = new MouseListener() {
-
-    @Override
-    public void mouseClicked(MouseEvent me) {}
-    @Override
-    public void mousePressed(MouseEvent me) {}
-    @Override
-    public void mouseReleased(MouseEvent me) {}
-
-    @Override
-    public void mouseEntered(MouseEvent me) {
-        GenerarPDF.setForeground(Color.blue);
-        GenerarPDF.setFont(new Font("vrinda",3,15));
-    }
-
-    @Override
-    public void mouseExited(MouseEvent me) {
-        GenerarPDF.setForeground(Color.black);
-        GenerarPDF.setFont(new Font("vrinda",Font.BOLD,15));
-    }
-    };
-    GenerarPDF.addMouseListener(b);
-    }
     if (verdadOFalso==true){
-MouseListener c = new MouseListener() {
-
-    @Override
-    public void mouseClicked(MouseEvent me) {}
-    @Override
-    public void mousePressed(MouseEvent me) {}
-    @Override
-    public void mouseReleased(MouseEvent me) {}
-
-    @Override
-    public void mouseEntered(MouseEvent me) {
-        Regresar.setForeground(Color.blue);
-        Regresar.setFont(new Font("vrinda",3,15));
-    }
-
-    @Override
-    public void mouseExited(MouseEvent me) {
-        Regresar.setForeground(Color.black);
-        Regresar.setFont(new Font("vrinda",Font.BOLD,15));
-    }
-    };
-    Regresar.addMouseListener(c);
     }  
     }
+        }
     
     public void activaDesactiva(boolean verdadOFalso){
       Regresar.setEnabled(verdadOFalso);     

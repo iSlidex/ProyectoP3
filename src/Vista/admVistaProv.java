@@ -6,12 +6,15 @@
 package Vista;
 
 import Control.controlTablas;
+import Control.controlador;
+import Estructuras.Producto;
 import Estructuras.Proveedor;
 import Estructuras.Usuario;
 import Estructuras.listaProv;
 import controlXml.controlXmlProv;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -206,6 +209,9 @@ boolean activados;
             }
         });
         verProd1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verProd1MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProd1MouseEntered(evt);
             }
@@ -221,6 +227,9 @@ boolean activados;
         bttn12.setName(""); // NOI18N
         bttn12.setText("Ver Usuarios");
         bttn12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bttn12MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bttn12MouseEntered(evt);
             }
@@ -235,7 +244,7 @@ boolean activados;
                 .addComponent(jLabel11)
                 .addGap(48, 48, 48)
                 .addComponent(bttn12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         verProd1Layout.setVerticalGroup(
             verProd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,6 +283,9 @@ boolean activados;
         bttn13.setName(""); // NOI18N
         bttn13.setText("Ver Proveedores");
         bttn13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bttn13MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bttn13MouseEntered(evt);
             }
@@ -290,7 +302,7 @@ boolean activados;
                 .addComponent(jLabel12)
                 .addGap(48, 48, 48)
                 .addComponent(bttn13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         verProd2Layout.setVerticalGroup(
             verProd2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,7 +313,7 @@ boolean activados;
             .addGroup(verProd2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(bttn13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         verProd3.setBackground(new java.awt.Color(0, 80, 160));
@@ -317,11 +329,19 @@ boolean activados;
             }
         });
         verProd3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verProd3MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProd3MouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 verProd3MouseExited(evt);
+            }
+        });
+        verProd3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                verProd3KeyPressed(evt);
             }
         });
 
@@ -330,6 +350,9 @@ boolean activados;
         bttn15.setName(""); // NOI18N
         bttn15.setText("Ver Estadisticas");
         bttn15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bttn15MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bttn15MouseEntered(evt);
             }
@@ -347,7 +370,7 @@ boolean activados;
                 .addComponent(jLabel13)
                 .addGap(48, 48, 48)
                 .addComponent(bttn15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         verProd3Layout.setVerticalGroup(
             verProd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -358,7 +381,7 @@ boolean activados;
             .addGroup(verProd3Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(bttn15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -376,6 +399,9 @@ boolean activados;
             }
         });
         jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel15MouseEntered(evt);
             }
@@ -389,6 +415,9 @@ boolean activados;
         bttn16.setName(""); // NOI18N
         bttn16.setText("Cerrar Sesion");
         bttn16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bttn16MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bttn16MouseEntered(evt);
             }
@@ -409,52 +438,44 @@ boolean activados;
         menu.setLayout(menuLayout);
         menuLayout.setHorizontalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(verProd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(verProd1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(menuLayout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(299, 299, 299))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLayout.createSequentialGroup()
-                        .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(verProd2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(verProd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(verProd1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(verProd3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLayout.createSequentialGroup()
-                        .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(menuLayout.createSequentialGroup()
-                                .addComponent(bttn16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel15))
-                            .addComponent(jLabel14))
-                        .addGap(34, 34, 34))))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(verProd3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(verProd2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(menuLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addComponent(bttn16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel15)
+                .addContainerGap())
         );
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuLayout.createSequentialGroup()
                 .addGap(120, 120, 120)
-                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(menuLayout.createSequentialGroup()
-                        .addComponent(verProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(verProd1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(menuLayout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(verProd2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(verProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(verProd3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                .addGap(5, 5, 5)
+                .addComponent(verProd1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(bttn16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addGroup(menuLayout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(menuLayout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(verProd3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(verProd2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(bttn16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel15)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         background.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 300, 650));
@@ -587,7 +608,6 @@ boolean activados;
 
         verProd4.setBackground(new java.awt.Color(0, 80, 160));
         verProd4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
-        verProd4.setNextFocusableComponent(verProd);
         verProd4.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 verProd4FocusGained(evt);
@@ -597,6 +617,9 @@ boolean activados;
             }
         });
         verProd4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verProd4MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProd4MouseEntered(evt);
             }
@@ -612,6 +635,9 @@ boolean activados;
         jLabel17.setText("Eliminar");
         jLabel17.setToolTipText("");
         jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel17MouseEntered(evt);
             }
@@ -636,6 +662,9 @@ boolean activados;
             }
         });
         verProd5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verProd5MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProd5MouseEntered(evt);
             }
@@ -651,6 +680,9 @@ boolean activados;
         jLabel18.setText("Agregar");
         jLabel18.setToolTipText("");
         jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel18MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel18MouseEntered(evt);
             }
@@ -675,6 +707,9 @@ boolean activados;
             }
         });
         verProd6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verProd6MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 verProd6MouseEntered(evt);
             }
@@ -690,6 +725,9 @@ boolean activados;
         jLabel19.setText("Modificar");
         jLabel19.setToolTipText("");
         jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel19MouseEntered(evt);
             }
@@ -753,6 +791,8 @@ boolean activados;
                 return canEdit [columnIndex];
             }
         });
+        tabla.setRowSorter(null);
+        tabla.setUpdateSelectionOnSort(false);
         tabla.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablaMouseClicked(evt);
@@ -859,8 +899,8 @@ boolean activados;
 
     private void verProd1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd1MouseExited
         // TODO add your handling code here:
-        verProd1.setBackground(new java.awt.Color(0, 153, 204));
-        bttn12.setBackground(new java.awt.Color(0, 153, 204));
+        verProd1.setBackground(new java.awt.Color(0, 80, 160));
+        bttn12.setBackground(new java.awt.Color(0, 80, 160));
     }//GEN-LAST:event_verProd1MouseExited
 
     private void bttn13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn13MouseEntered
@@ -885,8 +925,8 @@ boolean activados;
     }//GEN-LAST:event_verProd2MouseEntered
 
     private void verProd2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd2MouseExited
-        verProd2.setBackground(new java.awt.Color(0, 80, 160));
-        bttn13.setBackground(new java.awt.Color(0, 80, 160));
+        verProd2.setBackground(new java.awt.Color(0,153,204));
+        bttn13.setBackground(new java.awt.Color(0,153,204));
     }//GEN-LAST:event_verProd2MouseExited
 
     private void bttn15MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn15MouseEntered
@@ -1094,6 +1134,89 @@ boolean activados;
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tablaMouseClicked
+
+    private void bttn13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn13MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttn13MouseClicked
+
+    private void bttn12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn12MouseClicked
+        control.activaVentana(new admVistaUser(currentUser), this);   
+    }//GEN-LAST:event_bttn12MouseClicked
+
+    private void verProd1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd1MouseClicked
+        control.activaVentana(new admVistaUser(currentUser), this);   
+    }//GEN-LAST:event_verProd1MouseClicked
+
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        this.vent = new vistaAddProv(this.currentUser,proveedores,null);       
+       control.activaVentana(this.vent,this);
+    }//GEN-LAST:event_jLabel18MouseClicked
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+       if (!(tabla.getSelectedRow()==-1)){
+            Proveedor provActual = (Proveedor) tabla.getValueAt(tabla.getSelectedRow(),3);
+            
+            control.activaVentana(new vistaAddProv(this.currentUser,this.proveedores,provActual),this);
+       }else
+           new vistaMsg2(this,true, "Selecciona una casilla").setVisible(true);
+
+    }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void verProd6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd6MouseClicked
+         if (!(tabla.getSelectedRow()==-1)){
+            Proveedor provActual = (Proveedor) tabla.getValueAt(tabla.getSelectedRow(),3);
+            
+            control.activaVentana(new vistaAddProv(this.currentUser,this.proveedores,provActual),this);
+       }else
+           new vistaMsg2(this,true, "Selecciona una casilla").setVisible(true);
+    }//GEN-LAST:event_verProd6MouseClicked
+
+    private void verProd5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd5MouseClicked
+        this.vent = new vistaAddProv(this.currentUser,proveedores,null);       
+       control.activaVentana(this.vent,this);
+    }//GEN-LAST:event_verProd5MouseClicked
+
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+        if (!(tabla.getSelectedRow()==-1)){
+            Proveedor cosaActual = (Proveedor) tabla.getValueAt(tabla.getSelectedRow(),3);
+            xml.borrarCosa(this.proveedores.indiceProv(cosaActual));
+            this.proveedores.eliminarProv(cosaActual);        
+            control.activaVentana(new admVistaProv(currentUser), this);
+        }else
+        new vistaMsg2(this,true, "Selecciona una casilla").setVisible(true);
+    }//GEN-LAST:event_jLabel17MouseClicked
+
+    private void verProd4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd4MouseClicked
+        if (!(tabla.getSelectedRow()==-1)){
+            Proveedor cosaActual = (Proveedor) tabla.getValueAt(tabla.getSelectedRow(),3);
+            xml.borrarCosa(this.proveedores.indiceProv(cosaActual));
+            this.proveedores.eliminarProv(cosaActual);        
+            control.activaVentana(new admVistaProv(currentUser), this);
+        }else
+        new vistaMsg2(this,true, "Selecciona una casilla").setVisible(true);
+    }//GEN-LAST:event_verProd4MouseClicked
+
+    private void bttn16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn16MouseClicked
+       
+       control.activaVentana(new VistaLogin(),this );
+    }//GEN-LAST:event_bttn16MouseClicked
+
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+       
+       control.activaVentana(new VistaLogin(),this );
+    }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void verProd3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProd3MouseClicked
+        control.activaVentana(new vistaEstadisticasProveedor(currentUser),this);
+    }//GEN-LAST:event_verProd3MouseClicked
+
+    private void bttn15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttn15MouseClicked
+        control.activaVentana(new vistaEstadisticasProveedor(currentUser),this);
+    }//GEN-LAST:event_bttn15MouseClicked
+
+    private void verProd3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_verProd3KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_verProd3KeyPressed
 
     /**
      * @param args the command line arguments
